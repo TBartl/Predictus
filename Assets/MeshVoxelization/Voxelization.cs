@@ -5,10 +5,18 @@ using UnityEngine;
 public class Voxelization : MonoBehaviour {
     public VoxData voxData;
     public List<VoxSubProcess> subProcesses;
-    
-	void Start () {
+    public bool voxelizeOnStart = true;
+
+
+    void Start() {
+        if (voxelizeOnStart)
+            Voxelize();
+    }
+
+    public void Voxelize () {
         foreach (VoxSubProcess subProcess in subProcesses) {
             subProcess.Execute(ref voxData);
-        }        
-	}
+        }
+    }
+
 }

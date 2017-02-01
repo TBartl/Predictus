@@ -291,12 +291,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voxData:
     mesh: {fileID: 4300010, guid: 97844ed5493691045930f95be5847910, type: 3}
-    scale: 0.1
+    scale: 0.01
   subProcesses:
   - {fileID: 11400000, guid: 637a60d3fadc2cb4aac938f9726dffcb, type: 2}
   - {fileID: 11400000, guid: 42ca0525bb612a444bf252e56b294225, type: 2}
-  - {fileID: 11400000, guid: 7fe6c34f33a0dfe468029ccb0158a003, type: 2}
+  - {fileID: 11400000, guid: 2be0d2db00f70e545b1cec314ee436ae, type: 2}
   - {fileID: 11400000, guid: 647a12980435fc540ab64b8cc41f3db3, type: 2}
+  voxelizeOnStart: 1
 --- !u!1 &1831509479
 GameObject:
   m_ObjectHideFlags: 0
