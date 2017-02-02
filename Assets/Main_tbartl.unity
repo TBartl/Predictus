@@ -147,14 +147,14 @@ MeshFilter:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 733886633}
-  m_Mesh: {fileID: 4300010, guid: 97844ed5493691045930f95be5847910, type: 3}
+  m_Mesh: {fileID: 4300004, guid: 13027b5953a0d2843b64f9af624e2986, type: 3}
 --- !u!4 &733886637
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 97844ed5493691045930f95be5847910, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 733886633}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voxData:
-    mesh: {fileID: 4300010, guid: 97844ed5493691045930f95be5847910, type: 3}
+    mesh: {fileID: 4300004, guid: 13027b5953a0d2843b64f9af624e2986, type: 3}
     scale: 0.01
   subProcesses:
   - {fileID: 11400000, guid: 637a60d3fadc2cb4aac938f9726dffcb, type: 2}
