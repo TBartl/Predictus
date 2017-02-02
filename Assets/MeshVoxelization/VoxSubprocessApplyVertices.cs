@@ -14,14 +14,10 @@ public class VoxSubprocessApplyVertices : VoxSubProcess {
         //   version (as ApplyEdges will likely apply to the same cubes) but it will be super helpful 
         //   for whoever writes ApplyEdges to use as a reference.
 
-        Vector3 offset = (-new Vector3(voxData.matrix.GetLength(0), voxData.matrix.GetLength(1), voxData.matrix.GetLength(2)) + Vector3.one) * voxData.scale / 2f;
         foreach (Vector3 v in voxData.mesh.vertices) {
-            Vector3 testPoint = v - offset;
-            testPoint /= voxData.scale;
-            voxData.matrix[Mathf.RoundToInt(testPoint.x), Mathf.RoundToInt(testPoint.y), Mathf.RoundToInt(testPoint.z)] = true;
+            voxData.ApplyVector(v);
         }
 
     }
-
 
 }

@@ -24,6 +24,8 @@ public class VoxSubprocessGetDimensions : VoxSubProcess {
             2 * Mathf.CeilToInt(boundingBoxSize.x / voxData.scale) + 1,
             2 * Mathf.CeilToInt(boundingBoxSize.y / voxData.scale) + 1,
             2 * Mathf.CeilToInt(boundingBoxSize.z / voxData.scale) + 1];
+
+        voxData.UpdateOffset();
     }
 
 

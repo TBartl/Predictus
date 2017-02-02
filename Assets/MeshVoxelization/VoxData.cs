@@ -15,4 +15,21 @@ public class VoxData {
     /// <summary>  The edge length of a square.   
     /// The smaller this value is, the more precise results will be at the cost of speed. </summary>
     public float scale;
+
+    /// <summary>  The offset used to calculate where a point is in space.
+    /// Updated using the UpdateOffset function whenever matrix is setup/changed</summary>
+    Vector3 offset = Vector3.zero;
+
+    /// <summary>  Updates the offset variable used to calculate where a point is in space.
+    /// Must be called whenever matrix is setup/changed</summary>
+    public void UpdateOffset() {
+        offset = (-new Vector3(matrix.GetLength(0), matrix.GetLength(1), matrix.GetLength(2)) + Vector3.one) * scale / 2f;
+    }
+
+    /// <summary> Fills the square at a point. </summary>
+    public void ApplyVector(Vector3 point) {
+        Vector3 testPoint = point - offset;
+        testPoint /= scale;
+        matrix[Mathf.RoundToInt(testPoint.x), Mathf.RoundToInt(testPoint.y), Mathf.RoundToInt(testPoint.z)] = true;
+    }
 }
