@@ -220,12 +220,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voxData:
     mesh: {fileID: 4300004, guid: 13027b5953a0d2843b64f9af624e2986, type: 3}
-    scale: 0.005
+    scale: 0.01
   subProcesses:
   - {fileID: 11400000, guid: 637a60d3fadc2cb4aac938f9726dffcb, type: 2}
   - {fileID: 11400000, guid: 42ca0525bb612a444bf252e56b294225, type: 2}
   - {fileID: 11400000, guid: c31b14a5d4485e640954ecaa4af030f6, type: 2}
-  - {fileID: 11400000, guid: 2be0d2db00f70e545b1cec314ee436ae, type: 2}
   - {fileID: 11400000, guid: dee16622748c7eb439138d12b0a12682, type: 2}
   - {fileID: 11400000, guid: 647a12980435fc540ab64b8cc41f3db3, type: 2}
   voxelizeOnStart: 1

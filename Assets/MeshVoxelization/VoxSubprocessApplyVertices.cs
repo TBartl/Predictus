@@ -14,7 +14,8 @@ public class VoxSubprocessApplyVertices : VoxSubProcess {
         //   version (as ApplyEdges will likely apply to the same cubes) but it will be super helpful 
         //   for whoever writes ApplyEdges to use as a reference.
 
-        foreach (Vector3 v in voxData.mesh.vertices) {
+        Vector3[] vertices = voxData.mesh.vertices;
+        foreach (Vector3 v in vertices) {
             voxData.ApplyVector(v);
         }
 

@@ -26,6 +26,12 @@ public class VoxData {
         offset = (-new Vector3(matrix.GetLength(0), matrix.GetLength(1), matrix.GetLength(2)) + Vector3.one) * scale / 2f;
     }
 
+
+    /// <summary> Gets the offset variable used to calculate where a point is in space. </summary>
+    public Vector3 GetOffset() {
+        return offset;
+    }
+
     /// <summary> Transforms a vector in 3D space to the cube it's associated with</summary>
     public IntVector3 TransformToIntVector(Vector3 point) { 
         Vector3 testPoint = point - offset;

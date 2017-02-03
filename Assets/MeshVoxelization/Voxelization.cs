@@ -10,13 +10,15 @@ public class Voxelization : MonoBehaviour {
 
     void Start() {
         if (voxelizeOnStart)
-            Voxelize();
+            StartCoroutine(Voxelize());
     }
 
-    public void Voxelize () {
+    IEnumerator Voxelize() {
         foreach (VoxSubProcess subProcess in subProcesses) {
             subProcess.Execute(ref voxData);
+            yield return null;
         }
+
     }
 
 }

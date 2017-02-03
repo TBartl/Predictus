@@ -26,17 +26,28 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
         //    you'll also be hitting all the points along the narrower piece of the triangle. Talk to Thomas
         //    if you need more clarified about this.
 
+        int i_a;
+        int i_b;
+        int i_c;
+        Vector3 v_a;
+        Vector3 v_b;
+        Vector3 v_c;
+        IntVector3 iv_a;
+        IntVector3 iv_b;
+        IntVector3 iv_c;
+
+        Vector3[] vertices = voxData.mesh.vertices;
         int[] indices = voxData.mesh.GetIndices(0);
         for (int i = 0; i < indices.Length; i += 3) {
-            int i_a = indices[i];
-            int i_b = indices[i + 1];
-            int i_c = indices[i + 2];
-            Vector3 v_a = voxData.mesh.vertices[i_a];
-            Vector3 v_b = voxData.mesh.vertices[i_b];
-            Vector3 v_c = voxData.mesh.vertices[i_c];
-            IntVector3 iv_a = voxData.TransformToIntVector(v_a);
-            IntVector3 iv_b = voxData.TransformToIntVector(v_b);
-            IntVector3 iv_c = voxData.TransformToIntVector(v_c);
+            i_a = indices[i];
+            i_b = indices[i + 1];
+            i_c = indices[i + 2];
+            v_a = vertices[i_a];
+            v_b = vertices[i_b];
+            v_c = vertices[i_c];
+            iv_a = voxData.TransformToIntVector(v_a);
+            iv_b = voxData.TransformToIntVector(v_b);
+            iv_c = voxData.TransformToIntVector(v_c);
 
             IntVector3 minBox = new IntVector3(
                 Mathf.Min(iv_a.x, iv_b.x, iv_c.x),
