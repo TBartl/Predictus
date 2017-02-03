@@ -10,6 +10,8 @@ public class CompareVoxelisation : MonoBehaviour {
     public VoxSubprocessDebugDrawMatrix gainDraw;
     public VoxSubprocessDebugDrawMatrix lossDraw;
 
+    public int ignoreDrawDepth = 3;
+
     void Awake() {
         before.voxelizeOnStart = false;
         after.voxelizeOnStart = false;
@@ -34,6 +36,9 @@ public class CompareVoxelisation : MonoBehaviour {
         int maxLoss = 0;
         int maxGain = 0;
 
+        int beforeAdjustedDepth =  before.voxData.matrix.GetLength(2);
+        int afterAdjustedDepth = after.voxData.matrix.GetLength(2);
+
         for (int x = 0; x < gains.GetLength(0); x++) {
             // Matrices are different sizes, need to adjust where we sample
             int beforeAdjustedX = x + (beforeDepths.GetLength(0) - gains.GetLength(0)) / 2;
@@ -48,6 +53,9 @@ public class CompareVoxelisation : MonoBehaviour {
                 if (beforeDepth == -1 || afterDepth == -1) {
                     continue;
                 }
+
+                beforeDepth -= beforeAdjustedDepth;
+                afterDepth -= afterAdjustedDepth;
 
                 int gain = afterDepth - beforeDepth;
                 maxLoss = Mathf.Min(maxLoss, gain);
@@ -67,7 +75,7 @@ public class CompareVoxelisation : MonoBehaviour {
         gainDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {
-                for (int gain = 1; gain <= gains[x, y]; gain++) {
+                for (int gain = ignoreDrawDepth; gain <= gains[x, y]; gain++) {
                     gainDrawData.matrix[x, y, drawBox.z / 2 + 1 - gain] = true;
                 }
             }
@@ -80,7 +88,7 @@ public class CompareVoxelisation : MonoBehaviour {
         lossDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {
-                for (int loss = -1; loss >= gains[x, y]; loss--) {
+                for (int loss = -ignoreDrawDepth; loss >= gains[x, y]; loss--) {
                     lossDrawData.matrix[x, y, drawBox.z / 2 + 1 - loss] = true;
                 }
             }
