@@ -13,7 +13,7 @@ public class Voxelization : MonoBehaviour {
             StartCoroutine(Voxelize());
     }
 
-    IEnumerator Voxelize() {
+    public IEnumerator Voxelize() {
         foreach (VoxSubProcess subProcess in subProcesses) {
             subProcess.Execute(ref voxData);
             yield return null;

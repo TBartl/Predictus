@@ -23,6 +23,12 @@ public class VoxData {
     /// Updated using the UpdateOffset function whenever matrix is setup/changed</summary>
     Vector3 offset = Vector3.zero;
 
+    /// <summary> Sets the matrix size and updates the offset </summary> 
+    public void SetMatrixSize(IntVector3 size) {
+        matrix = new bool[size.x, size.y, size.z];
+        UpdateOffset();
+    }
+
     /// <summary>  Updates the offset variable used to calculate where a point is in space.
     /// Must be called whenever matrix is setup/changed</summary>
     public void UpdateOffset() {
