@@ -75,8 +75,8 @@ public class CompareVoxelisation : MonoBehaviour {
         gainDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {
-                for (int gain = ignoreDrawDepth; gain <= gains[x, y]; gain++) {
-                    gainDrawData.matrix[x, y, drawBox.z / 2 + 1 - gain] = true;
+                for (int gain = -ignoreDrawDepth; gain >= gains[x, y]; gain--) {
+                    gainDrawData.matrix[x, y, drawBox.z / 2 + 1 + gain] = true;
                 }
             }
         }
@@ -88,8 +88,8 @@ public class CompareVoxelisation : MonoBehaviour {
         lossDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {
-                for (int loss = -ignoreDrawDepth; loss >= gains[x, y]; loss--) {
-                    lossDrawData.matrix[x, y, drawBox.z / 2 + 1 - loss] = true;
+                for (int loss = ignoreDrawDepth; loss <= gains[x, y]; loss++) {
+                    lossDrawData.matrix[x, y, drawBox.z / 2 + 1 + loss] = true;
                 }
             }
         }
