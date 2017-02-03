@@ -16,6 +16,9 @@ public class VoxData {
     /// The smaller this value is, the more precise results will be at the cost of speed. </summary>
     public float scale;
 
+    /// <summary>  The parent that any generated object should be a child of. </summary>
+    public Transform transform;
+
     /// <summary>  The offset used to calculate where a point is in space.
     /// Updated using the UpdateOffset function whenever matrix is setup/changed</summary>
     Vector3 offset = Vector3.zero;
@@ -43,5 +46,19 @@ public class VoxData {
     public void ApplyVector(Vector3 point) {
         IntVector3 associatedSquare = TransformToIntVector(point);
         matrix[associatedSquare.x, associatedSquare.y, associatedSquare.z] = true;
+    }
+
+    public bool InRange(IntVector3 point) {
+        if (point.x < 0 || point.x >= matrix.GetLength(0) ||
+            point.y < 0 || point.y >= matrix.GetLength(1) ||
+            point.z < 0 || point.z >= matrix.GetLength(2) )
+            return false;
+        return true;
+    }
+
+    public bool InRangeAndTrue(IntVector3 point) {
+        if (InRange(point) == false)
+            return false;
+        return matrix[point.x, point.y, point.z];
     }
 }

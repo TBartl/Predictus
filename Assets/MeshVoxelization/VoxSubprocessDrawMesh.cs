@@ -12,5 +12,9 @@ public class VoxSubprocessDrawMesh : VoxSubProcess {
         model.GetComponent<MeshFilter>().mesh = voxData.mesh;
         if (material != null)
             model.GetComponent<MeshRenderer>().material = material;
+        if (voxData.transform != null) {
+            model.transform.parent = voxData.transform;
+            model.transform.localPosition = Vector3.zero;
+        }
     }
 }

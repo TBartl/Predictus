@@ -12,6 +12,10 @@ public class VoxSubprocessDebugDrawBoundingBox : VoxSubProcess {
         box.transform.localScale = new Vector3(voxData.matrix.GetLength(0), voxData.matrix.GetLength(1), voxData.matrix.GetLength(2)) * voxData.scale;
         if (wireframeMaterial != null)
             box.GetComponent<MeshRenderer>().material = wireframeMaterial;
+        if (voxData.transform != null) {
+            box.transform.parent = voxData.transform;
+            box.transform.localPosition = Vector3.zero;
+        }
 
     }
 }

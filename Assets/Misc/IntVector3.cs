@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-using System.Collections;
-
 [System.Serializable]
 public struct IntVector3 {
     public int x, y, z;
@@ -42,4 +39,11 @@ public struct IntVector3 {
     public static bool operator !=(IntVector3 a, IntVector3 b) {
         return !(a.x == b.x && a.y == b.y && a.z == b.z);
     }
+
+    public static IntVector3 Left = new IntVector3(-1, 0, 0);
+    public static IntVector3 Right = new IntVector3(1, 0, 0);
+    public static IntVector3 Down = new IntVector3(0, -1, 0);
+    public static IntVector3 Up = new IntVector3(0, 1, 0);
+    public static IntVector3 Back = new IntVector3(0, 0, -1);
+    public static IntVector3 Forward = new IntVector3(0, 0, 1);
 }
