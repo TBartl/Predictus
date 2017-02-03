@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class VoxSubprocessDebugDrawMatrix: VoxSubProcess {
 
+    public Material material;
+
     public override void Execute(ref VoxData voxData) {
 
         Vector3 boxScale = Vector3.one * voxData.scale;
@@ -18,6 +20,8 @@ public class VoxSubprocessDebugDrawMatrix: VoxSubProcess {
                         GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
                         box.transform.localScale = boxScale;
                         box.transform.position = new Vector3(x, y, z) * voxData.scale + offset;
+                        if (material)
+                            box.GetComponent<MeshRenderer>().material = material; 
                     }
                 }
             }
