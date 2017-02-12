@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// !NOTE THIS SCRIPT IS NO LONGER USED IN THE ACTUAL PROGRAM AND IS FOR DEMO PURPOSES ONLY!
+
 public class CompareVoxelisation : MonoBehaviour {
 
     public Voxelization before;

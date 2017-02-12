@@ -60,8 +60,14 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
                 Mathf.Max(iv_a.z, iv_b.z, iv_c.z));
 
             for (int x = minBox.x; x <= maxBox.x; x++) {
+                if (x < 0 || x >= voxData.matrix.GetLength(0))
+                    continue;
                 for (int y = minBox.y; y <= maxBox.y; y++) {
+                    if (y < 0 || y >= voxData.matrix.GetLength(1))
+                        continue;
                     for (int z = minBox.z; z <= maxBox.z; z++) {
+                        if (z < 0 || z >= voxData.matrix.GetLength(2))
+                            continue;
                         // TODO actually ignore all the stuff up above and just look at this
                         // This approach should be quite a bit easier and faster, so lets do this.
                         // Basically we are going to try to do this similair to how a GPU

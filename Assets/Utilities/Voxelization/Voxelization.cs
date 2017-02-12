@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// !NOTE THIS SCRIPT IS NO LONGER USED IN THE ACTUAL PROGRAM AND IS FOR DEMO PURPOSES ONLY!
+
 public class Voxelization : MonoBehaviour {
     public VoxData voxData;
     public List<VoxSubProcess> subProcesses;
@@ -18,7 +20,6 @@ public class Voxelization : MonoBehaviour {
             subProcess.Execute(ref voxData);
             yield return null;
         }
-
     }
 
 }
