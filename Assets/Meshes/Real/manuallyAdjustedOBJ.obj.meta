@@ -1,19 +1,24 @@
 fileFormatVersion: 2
-guid: 299298e6457b64842b7c460e4e456e8c
-timeCreated: 1486931868
+guid: b31993586c6ca174096bd57bbdf7df10
+timeCreated: 1486932994
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: //RootNode
+    100002: ModifiedAfter_pt1_excavatum_post_op
+    100004: ModifiedBefore_pt1_before_-_excavatum_
+    400000: //RootNode
+    400002: ModifiedAfter_pt1_excavatum_post_op
+    400004: ModifiedBefore_pt1_before_-_excavatum_
+    2300000: ModifiedAfter_pt1_excavatum_post_op
+    2300002: ModifiedBefore_pt1_before_-_excavatum_
+    3300000: ModifiedAfter_pt1_excavatum_post_op
+    3300002: ModifiedBefore_pt1_before_-_excavatum_
+    4300000: ModifiedAfter_pt1_excavatum_post_op
+    4300002: ModifiedBefore_pt1_before_-_excavatum_
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:

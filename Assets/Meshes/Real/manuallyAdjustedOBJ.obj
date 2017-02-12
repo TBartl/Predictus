@@ -1,6 +1,6 @@
 # Blender v2.77 (sub 0) OBJ File: 'ManuallyAdjustedReal.blend'
 # www.blender.org
-o ModifiedBefore_pt1_before_-_excavatum_
+g ModifiedBefore_pt1_before_-_excavatum_
 v 0.003267 -0.208820 -0.047904
 v -0.007231 -0.214120 -0.047681
 v -0.004614 -0.202220 -0.047162
@@ -41033,7 +41033,7 @@ f 20950 21031 21024
 f 20950 21024 20951
 f 20961 20949 21023
 f 20965 21023 21032
-o ModifiedAfter_pt1_excavatum_post_op
+g ModifiedAfter_pt1_excavatum_post_op
 v 0.120411 -0.255682 -0.029094
 v 0.114073 -0.261782 -0.031277
 v 0.113728 -0.253282 -0.031175
