@@ -32,7 +32,7 @@ public class VoxSubprocessDebugDrawMatrix: VoxSubProcess {
 
     public override void Execute(ref VoxData voxData) {
 
-        float halfUnit = voxData.scale / 2f;
+        float halfUnit = VoxData.scale / 2f;
 
         List<Vector3> vertices = new List<Vector3>();
         List<int> indices = new List<int>();
@@ -47,7 +47,7 @@ public class VoxSubprocessDebugDrawMatrix: VoxSubProcess {
                     if (voxData.matrix[x, y, z]) {
                         IntVector3 coordinate = new IntVector3(x, y, z);
 
-                        Vector3 boxCenter = (Vector3)coordinate * voxData.scale + voxData.GetOffset();
+                        Vector3 boxCenter = (Vector3)coordinate * VoxData.scale + voxData.GetOffset();
                         int start = vertices.Count;
                         vertices.Add(boxCenter + (Vector3.back + Vector3.down + Vector3.left) * halfUnit);
                         vertices.Add(boxCenter + (Vector3.back + Vector3.down + Vector3.right) * halfUnit);

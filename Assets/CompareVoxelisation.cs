@@ -71,7 +71,6 @@ public class CompareVoxelisation : MonoBehaviour {
 
         VoxData gainDrawData = new VoxData();
         gainDrawData.transform = this.transform;
-        gainDrawData.scale = before.voxData.scale;
         gainDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {
@@ -84,7 +83,6 @@ public class CompareVoxelisation : MonoBehaviour {
 
         VoxData lossDrawData = new VoxData();
         lossDrawData.transform = this.transform;
-        lossDrawData.scale = before.voxData.scale;
         lossDrawData.SetMatrixSize(drawBox);
         for (int x = 0; x < drawBox.x; x++) {
             for (int y = 0; y < drawBox.y; y++) {

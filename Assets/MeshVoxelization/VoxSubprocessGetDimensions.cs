@@ -20,9 +20,9 @@ public class VoxSubprocessGetDimensions : VoxSubProcess {
                 boundingBoxSize.z = Mathf.Abs(vertex.z);
         }
         IntVector3 matrixSize = new IntVector3(
-            2 * Mathf.CeilToInt(boundingBoxSize.x / voxData.scale) + 1,
-            2 * Mathf.CeilToInt(boundingBoxSize.y / voxData.scale) + 1,
-            2 * Mathf.CeilToInt(boundingBoxSize.z / voxData.scale) + 1);
+            2 * Mathf.CeilToInt(boundingBoxSize.x / VoxData.scale) + 1,
+            2 * Mathf.CeilToInt(boundingBoxSize.y / VoxData.scale) + 1,
+            2 * Mathf.CeilToInt(boundingBoxSize.z / VoxData.scale) + 1);
         voxData.SetMatrixSize(matrixSize);
     }
 
