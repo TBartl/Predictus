@@ -264,8 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voxData:
-    mesh: {fileID: 4300004, guid: 13027b5953a0d2843b64f9af624e2986, type: 3}
-    scale: 0.005
+    mesh: {fileID: 4300002, guid: b31993586c6ca174096bd57bbdf7df10, type: 3}
     transform: {fileID: 1661757174}
   subProcesses:
   - {fileID: 11400000, guid: 637a60d3fadc2cb4aac938f9726dffcb, type: 2}
@@ -302,8 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voxData:
-    mesh: {fileID: 4300006, guid: 13027b5953a0d2843b64f9af624e2986, type: 3}
-    scale: 0.005
+    mesh: {fileID: 4300000, guid: b31993586c6ca174096bd57bbdf7df10, type: 3}
     transform: {fileID: 1781802819}
   subProcesses:
   - {fileID: 11400000, guid: 637a60d3fadc2cb4aac938f9726dffcb, type: 2}

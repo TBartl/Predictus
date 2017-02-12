@@ -49,9 +49,13 @@ public class VoxData {
     }
 
     /// <summary> Fills the square at a point. </summary>
-    public void ApplyVector(Vector3 point) {
+    public bool ApplyVector(Vector3 point) {
         IntVector3 associatedSquare = TransformToIntVector(point);
-        matrix[associatedSquare.x, associatedSquare.y, associatedSquare.z] = true;
+        if (InRange(associatedSquare)) {
+            matrix[associatedSquare.x, associatedSquare.y, associatedSquare.z] = true;
+            return true;
+        } else
+            return false;
     }
 
     public bool InRange(IntVector3 point) {
