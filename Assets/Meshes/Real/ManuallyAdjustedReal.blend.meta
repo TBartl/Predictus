@@ -10,25 +10,35 @@ ModelImporter:
     100004: pt1_excavatum_post_op
     100006: ModifiedAfter
     100008: ModifiedBefore
+    100010: Cube
+    100012: Triangle
     400000: //RootNode
     400002: pt1_before_-_excavatum_
     400004: pt1_excavatum_post_op
     400006: ModifiedAfter
     400008: ModifiedBefore
+    400010: Cube
+    400012: Triangle
     2300000: //RootNode
     2300002: pt1_before_-_excavatum_
     2300004: pt1_excavatum_post_op
     2300006: ModifiedAfter
     2300008: ModifiedBefore
+    2300010: Cube
+    2300012: Triangle
     3300000: //RootNode
     3300002: pt1_before_-_excavatum_
     3300004: pt1_excavatum_post_op
     3300006: ModifiedAfter
     3300008: ModifiedBefore
+    3300010: Cube
+    3300012: Triangle
     4300000: pt1_excavatum_post_op
     4300002: pt1_before_-_excavatum_
     4300004: ModifiedBefore
     4300006: ModifiedAfter
+    4300008: Cube
+    4300010: Triangle
     7400000: Default Take
     9500000: //RootNode
   materials:

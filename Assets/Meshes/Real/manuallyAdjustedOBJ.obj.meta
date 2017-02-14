@@ -28,7 +28,7 @@ ModelImporter:
     4300004: Cube
     4300006: Triangle_Cube
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

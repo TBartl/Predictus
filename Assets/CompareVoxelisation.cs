@@ -65,7 +65,6 @@ public class CompareVoxelisation : MonoBehaviour {
                 gains[x, y] = gain;
             }
         }
-
         IntVector3 drawBox = new IntVector3(
             gains.GetLength(0), 
             gains.GetLength(1), 
