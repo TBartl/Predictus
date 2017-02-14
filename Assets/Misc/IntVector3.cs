@@ -39,6 +39,18 @@ public struct IntVector3 {
     public static bool operator !=(IntVector3 a, IntVector3 b) {
         return !(a.x == b.x && a.y == b.y && a.z == b.z);
     }
+	public static IntVector3 operator *(IntVector3 a, IntVector3 b) {
+		return new IntVector3 (a.x * b.x, a.y * b.y, a.z * b.z);
+	}
+
+
+	float Pythagorean(float x, float y) {
+		return Mathf.Sqrt ((x * x) + (y * y));
+	}
+
+	public float Length() {
+		return Pythagorean (Pythagorean (Mathf.Abs(x), Mathf.Abs(y)), Mathf.Abs(z));
+	}
 
     public static IntVector3 Left = new IntVector3(-1, 0, 0);
     public static IntVector3 Right = new IntVector3(1, 0, 0);

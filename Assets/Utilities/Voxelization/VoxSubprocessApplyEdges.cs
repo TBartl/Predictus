@@ -10,6 +10,8 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
 		return result;
 	}
 
+
+
     public override void Execute(ref VoxData voxData) {
         // The toughest piece of the voxelization process.
         // Unlike ApplyVertices, you'll now also be looking at voxData.mesh.GetIndices(0)
@@ -101,13 +103,57 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
 //							isInside = false;
 //						}
 //
-//
-//
 //						if (isInside == true) {
 //							voxData.matrix [x, y, z] = true;
 //						}
 
-						voxData.matrix [x, y, z] = true;
+						// ---------------------------------------------------------
+
+
+						bool isInside = true;
+
+						IntVector3 N = ((iv_b - iv_a) * (iv_c - iv_a));
+						float totalArea = N.Length() / 2;
+						IntVector3 iv_p = new IntVector3 (x, y, z);
+
+						// edge 1
+						IntVector3 edge1 = iv_c - iv_b;
+						IntVector3 vp1 = iv_p - iv_b;
+						float u = (((edge1 * vp1).Length()) / 2) / totalArea;
+
+//						if (DotProduct (N, (edge1 * vp1)) < 0) {
+//							isInside = false;
+//						}
+
+						// edge2
+						IntVector3 edge2 = iv_a - iv_c;
+						IntVector3 vp2 = iv_p - iv_c;
+						float v = (((edge2 * vp2).Length()) / 2) / totalArea;
+
+//						if (DotProduct (N, (edge2 * vp2)) < 0) {
+//							isInside = false;
+//						}
+
+						// edge 3
+						float w = 1.0f - u - v;
+
+
+						if (v < 0.0f || v > 1.0f || w < 0.0f || w > 1.0f || u < 0.0f || u > 1.0f) {
+							isInside = false;
+						}
+
+
+						if (isInside) {
+							voxData.matrix [x, y, z] = true;
+						}
+
+						if (Random.value < 0.01f) {
+							Debug.Log ("u: " + u);
+							Debug.Log ("v: " + v);
+							Debug.Log ("w: " + w);
+						}
+
+						//voxData.matrix [x, y, z] = true;
                     }
                 }
             }
