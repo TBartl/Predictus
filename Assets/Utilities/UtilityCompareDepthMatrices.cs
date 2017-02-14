@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UtilityCompareDepthMatrices : MonoBehaviour {
+public class UtilityCompareDepthMatrices {
 
-    public static UtilityCompareDepthMatrices S;
-
-    void Awake() {
-        S = this;
-    }
-
-    public DepthMatrixData Compare(DepthMatrixData from, DepthMatrixData to) {
+    public static DepthMatrixData Compare(DepthMatrixData from, DepthMatrixData to) {
         //to.depths[0, 0] == -1 means no blocks
 
 		//two rectangles, do substraction to find out the diff

@@ -5,17 +5,26 @@ using UnityEngine;
 public class ButtonProcessAndUpdateMesh : MonoBehaviour {
     public Mesh debugAfterMesh;
 
-    public MeshFilter from;
-    public MeshFilter to;
-    public MeshFilter toOriginal;
+    public MeshFilter fromScreen;
+    public MeshFilter toPredictedAfter;
+    public MeshFilter toBefore;
 
     public void OnClick() {
-        
-        if (debugAfterMesh) {
+        DepthMatrixData toApply = null;
 
+        if (debugAfterMesh) {
+            Debug.LogWarning("Using debug mesh to get applied comparison (should use library by beta)");
+            DepthMatrixData fromDepths = UtilityVoxelizeAndGetDepthMatrix.S.Process(fromScreen.mesh);
+            fromDepths.SaveAsPNG("from");
+            DepthMatrixData toDepths =   UtilityVoxelizeAndGetDepthMatrix.S.Process(debugAfterMesh);
+            toDepths.SaveAsPNG("to");
+            Debug.Log(fromDepths);
+            Debug.Log(toDepths);
+            toApply = UtilityCompareDepthMatrices.Compare(fromDepths, toDepths);
+            toApply.SaveAsPNG("diff");
         }
 
-        toOriginal.mesh = from.mesh;
-        to.mesh = from.mesh;
+        toBefore.mesh = fromScreen.mesh;
+        toPredictedAfter.mesh = UtilityApplyDepthMatrixToMesh.S.Apply(fromScreen.mesh, toApply);
     }
 }

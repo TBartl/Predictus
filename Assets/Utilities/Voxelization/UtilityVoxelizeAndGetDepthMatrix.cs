@@ -11,7 +11,7 @@ public class UtilityVoxelizeAndGetDepthMatrix : MonoBehaviour {
         S = this;
     }
 
-    DepthMatrixData Process(Mesh mesh) {
+    public DepthMatrixData Process(Mesh mesh) {
         VoxData voxData = new VoxData();
         voxData.mesh = mesh;
         voxData.transform = this.transform;
@@ -20,22 +20,7 @@ public class UtilityVoxelizeAndGetDepthMatrix : MonoBehaviour {
             subProcess.Execute(ref voxData);
         }
 
-        DepthMatrixData depthMatrix = new DepthMatrixData();
-
-
-        //The mesh voxelization matrix and depth matrix have the same X/Z sizes
-        for (int x = 0; x < voxData.matrix.GetLength(0); x++) {
-            for (int y = 0; y < voxData.matrix.GetLength(1); y++) {
-                int depth = -1; // Negative one means that there wasn't any blocks at that point
-                for (int z = 0; z < voxData.matrix.GetLength(1); z++) {
-                    if (voxData.matrix[x, y, z] == true) {
-                        depth = z;
-                        break;
-                    }
-                }
-                depthMatrix.depths[x, y] = depth;
-            }
-        }
+        DepthMatrixData depthMatrix = new DepthMatrixData(ref voxData);
         return depthMatrix;
     }
 }

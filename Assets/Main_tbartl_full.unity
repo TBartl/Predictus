@@ -3200,11 +3200,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1849254787}
-        m_MethodName: 
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3268,9 +3268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1b2d9e7d274c34792e084e77bce01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  from: {fileID: 0}
-  to: {fileID: 0}
-  toOriginal: {fileID: 0}
+  debugAfterMesh: {fileID: 4300000, guid: b31993586c6ca174096bd57bbdf7df10, type: 3}
+  fromScreen: {fileID: 1586627068}
+  toPredictedAfter: {fileID: 799476116}
+  toBefore: {fileID: 1944658243}
 --- !u!1 &1870990170
 GameObject:
   m_ObjectHideFlags: 0
