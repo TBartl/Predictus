@@ -18,8 +18,6 @@ public class ButtonProcessAndUpdateMesh : MonoBehaviour {
             fromDepths.SaveAsPNG("from");
             DepthMatrixData toDepths =   UtilityVoxelizeAndGetDepthMatrix.S.Process(debugAfterMesh);
             toDepths.SaveAsPNG("to");
-            Debug.Log(fromDepths);
-            Debug.Log(toDepths);
             toApply = UtilityCompareDepthMatrices.Compare(fromDepths, toDepths);
             toApply.SaveAsPNG("diff");
         }
