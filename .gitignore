@@ -35,3 +35,7 @@ sysinfo.txt
 *.unitypackage
 .DS_Store
 thumbs.db
+
+from.png
+to.png
+diff.png
