@@ -5,6 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class VoxSubprocessApplyEdges : VoxSubProcess {
 
+	public int DotProduct(IntVector3 a, IntVector3 b) {
+		int result = a.x * b.x + a.y * b.y + a.z * a.z;
+		return result;
+	}
+
     public override void Execute(ref VoxData voxData) {
         // The toughest piece of the voxelization process.
         // Unlike ApplyVertices, you'll now also be looking at voxData.mesh.GetIndices(0)
@@ -74,7 +79,35 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
                         //     rasterizes triangles onto the screen, since that's some fast stuff
                         // Look into the idea of baycentric coordinates on wikipedia or check this out https://fgiesen.wordpress.com/2013/02/08/triangle-rasterization-in-practice/
                         // Only do the statement below if it's contained in the triangle
-                        voxData.matrix[x, y, z] = true;
+
+
+//						bool isInside = true;
+//
+//						IntVector3 iv_p = new IntVector3 (x, y, z);
+//
+//						IntVector3 v0 = iv_b - iv_a, v1 = iv_c - iv_a, v2 = iv_p - iv_a;
+//						float d00 = DotProduct (v0, v0);
+//						float d01 = DotProduct (v0, v1);
+//						float d11 = DotProduct (v1, v1);
+//						float d20 = DotProduct (v2, v0);
+//						float d21 = DotProduct (v2, v1);
+//						float denominator = d00 * d11 - d01 * d01;
+//
+//						float v = (d11 * d20 - d01 * d21) / denominator;
+//						float w = (d00 * d21 - d01 * d20) / denominator;
+//						float u = 1.0f - v - w;
+//
+//						if (v < 0.0f || w < 0.0f || u < 0.0f) {
+//							isInside = false;
+//						}
+//
+//
+//
+//						if (isInside == true) {
+//							voxData.matrix [x, y, z] = true;
+//						}
+
+						voxData.matrix [x, y, z] = true;
                     }
                 }
             }
