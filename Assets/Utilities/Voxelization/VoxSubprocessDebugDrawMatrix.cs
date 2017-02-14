@@ -126,6 +126,9 @@ public class VoxSubprocessDebugDrawMatrix: VoxSubProcess {
     }
 
     void FinishMesh(ref VoxData voxData, ref List<Vector3> vertices, ref List<int> indices) {
+        if (vertices.Count == 0)
+            return;
+
         GameObject newMeshGO = GameObject.CreatePrimitive(PrimitiveType.Cube);
         
         Mesh m = newMeshGO.GetComponent<MeshFilter>().mesh;
