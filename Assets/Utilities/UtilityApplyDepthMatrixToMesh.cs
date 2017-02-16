@@ -21,6 +21,8 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
         Vector3[] normals = originalMesh.normals;
 		Vector3 offset = (-new Vector3(depthData.GetWidth(), depthData.GetHeight(), 0) + Vector3.one) * VoxData.scale / 2f;
 
+
+
 		for (int i = 0; i < vertices.Length; i++) {
 			IntVector3 v = TransformToIntVector (vertices [i] - offset);
             if (Vector3.Dot(normals[i], Vector3.forward) < 0)
@@ -32,7 +34,12 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
                 }
                 else
                 {
-                    vertices[i] += (Vector3.back * VoxData.scale * depthData.depths[v.x, v.y]);
+                    int distToSide = int.MaxValue;
+                    distToSide = Mathf.Min(distToSide, v.x);
+                    distToSide = Mathf.Min(distToSide, depthData.GetWidth() - v.x);
+                    distToSide = Mathf.Min(distToSide, v.y);
+                    distToSide = Mathf.Min(distToSide, depthData.GetHeight() - v.y);
+                    vertices[i] += Mathf.Clamp01(distToSide / 20f) * (Vector3.back * VoxData.scale * depthData.depths[v.x, v.y]);
                 }
             }
 		}
