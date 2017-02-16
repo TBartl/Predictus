@@ -83,60 +83,46 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
                         // Only do the statement below if it's contained in the triangle
 
 
-//						bool isInside = true;
-//
-//						IntVector3 iv_p = new IntVector3 (x, y, z);
-//
-//						IntVector3 v0 = iv_b - iv_a, v1 = iv_c - iv_a, v2 = iv_p - iv_a;
-//						float d00 = DotProduct (v0, v0);
-//						float d01 = DotProduct (v0, v1);
-//						float d11 = DotProduct (v1, v1);
-//						float d20 = DotProduct (v2, v0);
-//						float d21 = DotProduct (v2, v1);
-//						float denominator = d00 * d11 - d01 * d01;
-//
-//						float v = (d11 * d20 - d01 * d21) / denominator;
-//						float w = (d00 * d21 - d01 * d20) / denominator;
-//						float u = 1.0f - v - w;
-//
-//						if (v < 0.0f || w < 0.0f || u < 0.0f) {
-//							isInside = false;
-//						}
-//
-//						if (isInside == true) {
-//							voxData.matrix [x, y, z] = true;
-//						}
-
-						// ---------------------------------------------------------
-
 
 						bool isInside = true;
 
-						IntVector3 N = ((iv_b - iv_a) * (iv_c - iv_a));
+						IntVector3 N = (iv_b - iv_a).CrossProduct(iv_c - iv_a);
 						float totalArea = N.Length() / 2;
 						IntVector3 iv_p = new IntVector3 (x, y, z);
 
 						// edge 1
-						IntVector3 edge1 = iv_c - iv_b;
-						IntVector3 vp1 = iv_p - iv_b;
-						float u = (((edge1 * vp1).Length()) / 2) / totalArea;
+						//IntVector3 edge1 = iv_c - iv_b;
+						//IntVector3 vp1 = iv_p - iv_b;
 
-//						if (DotProduct (N, (edge1 * vp1)) < 0) {
+						IntVector3 edge1 = iv_p - iv_b;
+						IntVector3 vp1 = iv_p - iv_c;
+						//float u = (((edge1 * vp1).Length()) / 2) / totalArea;
+						float u = (edge1.CrossProduct(vp1).Length() / 2) / totalArea;
+
+//						if (DotProduct (N, edge1.CrossProduct(vp1)) < 0) {
 //							isInside = false;
 //						}
 
 						// edge2
-						IntVector3 edge2 = iv_a - iv_c;
-						IntVector3 vp2 = iv_p - iv_c;
-						float v = (((edge2 * vp2).Length()) / 2) / totalArea;
+						//IntVector3 edge2 = iv_a - iv_c;
+						//IntVector3 vp2 = iv_p - iv_c;
 
-//						if (DotProduct (N, (edge2 * vp2)) < 0) {
+						IntVector3 edge2 = iv_p - iv_c;
+						IntVector3 vp2 = iv_p - iv_a;
+						//float v = (((edge2 * vp2).Length()) / 2) / totalArea;
+						float v = (edge2.CrossProduct(vp2).Length() / 2) / totalArea;
+
+//						if (DotProduct (N, edge2.CrossProduct(vp2)) < 0) {
 //							isInside = false;
 //						}
 
 						// edge 3
-						float w = 1.0f - u - v;
+//						IntVector3 edge3 = iv_b - iv_a;
+//						IntVector3 vp3 = iv_p - iv_a;
+//						float w = (edge3.CrossProduct(vp3).Length() / 2) / totalArea;
 
+						float w = 1.0f - u - v;
+						//float v = 1.0f - u - w;
 
 						if (v < 0.0f || v > 1.0f || w < 0.0f || w > 1.0f || u < 0.0f || u > 1.0f) {
 							isInside = false;

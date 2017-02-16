@@ -52,6 +52,14 @@ public struct IntVector3 {
 		return Pythagorean (Pythagorean (Mathf.Abs(x), Mathf.Abs(y)), Mathf.Abs(z));
 	}
 
+	public IntVector3 CrossProduct(IntVector3 second) {
+		int newX = (y * second.z) - (z * second.y);
+		int newY = (z * second.x) - (x * second.z);
+		int newZ = (x * second.y) - (y * second.x);
+
+		return new IntVector3 (newX, newY, newZ);
+	}
+
     public static IntVector3 Left = new IntVector3(-1, 0, 0);
     public static IntVector3 Right = new IntVector3(1, 0, 0);
     public static IntVector3 Down = new IntVector3(0, -1, 0);
