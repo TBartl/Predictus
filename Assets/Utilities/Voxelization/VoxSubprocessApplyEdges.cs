@@ -133,11 +133,11 @@ public class VoxSubprocessApplyEdges : VoxSubProcess {
 							voxData.matrix [x, y, z] = true;
 						}
 
-						if (Random.value < 0.01f) {
-							Debug.Log ("u: " + u);
-							Debug.Log ("v: " + v);
-							Debug.Log ("w: " + w);
-						}
+//						if (Random.value < 0.01f) {
+//							Debug.Log ("u: " + u);
+//							Debug.Log ("v: " + v);
+//							Debug.Log ("w: " + w);
+//						}
 
 						//voxData.matrix [x, y, z] = true;
                     }
