@@ -14,7 +14,7 @@ public class VoxData {
 
     /// <summary>  The edge length of a square.   
     /// The smaller this value is, the more precise results will be at the cost of speed. </summary>
-    public static float scale = .0035f;
+    public static float scale = .0025f;
 
     /// <summary>  The parent that any generated object should be a child of. </summary>
     public Transform transform;

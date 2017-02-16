@@ -13,7 +13,7 @@ public class DepthMatrixData {
         for (int x = 0; x < voxData.matrix.GetLength(0); x++) {
             for (int y = 0; y < voxData.matrix.GetLength(1); y++) {
                 int depth = -1; // Negative one means that there wasn't any blocks at that point
-                for (int z = 0; z < voxData.matrix.GetLength(1); z++) {
+                for (int z = 0; z < voxData.matrix.GetLength(2); z++) {
                     if (voxData.matrix[x, y, z] == true) {
                         depth = z;
                         break;
@@ -25,7 +25,8 @@ public class DepthMatrixData {
     }
 
     /// <summary> The real size (radius) in meters that serves as a bounding box for the region</summary>
-    public static Vector3 realSize = new Vector3(.105f, .2f, .32f);
+    //public static Vector3 realSize = new Vector3(.105f, .2f, .32f);
+    public static Vector3 realSize = new Vector3(.09f, .14f, .32f);
 
     /// <summary> The size (radius) in boxes that serves as the used bounding box for the region</summary>
     public static IntVector3 size = new IntVector3(
