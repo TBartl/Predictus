@@ -20,7 +20,7 @@ public struct IntVector3 {
         return 0;
     }
 
-    static public explicit operator Vector3(IntVector3 intVec2) {
+    static public implicit operator Vector3(IntVector3 intVec2) {
         return new Vector3(intVec2.x, intVec2.y, intVec2.z);
     }
     static public explicit operator Vector2(IntVector3 intVec2) {
