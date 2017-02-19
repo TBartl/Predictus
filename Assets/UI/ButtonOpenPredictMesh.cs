@@ -14,6 +14,7 @@ public class ButtonOpenPredictMesh : MonoBehaviour, Resettable {
 
     public void OnClick() {
         continueButton.SetActive(true);
+		SoundManager.SM.PlayButtonSound ();
 
         Mesh mesh = UtilityOpenOBJ.OpenOBJ();
         if (debugOverrideMesh) {

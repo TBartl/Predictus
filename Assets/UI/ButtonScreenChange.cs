@@ -6,7 +6,8 @@ public class ButtonScreenChange : MonoBehaviour {
     public Screen newScreen;
 
     public void OnClick() {
-        if (!ScreenManager.S.IsTransitioning())
+		if (!ScreenManager.S.IsTransitioning ())
+			SoundManager.SM.PlayButtonSound ();
             ScreenManager.S.ChangeScreen(newScreen);
     }
 }

@@ -11,6 +11,7 @@ public class ButtonProcessAndUpdateMesh : MonoBehaviour {
 
     public void OnClick() {
         DepthMatrixData toApply = null;
+		SoundManager.SM.PlayTransformSound ();
 
         if (debugAfterMesh) {
             Debug.LogWarning("Using debug mesh to get applied comparison (should use library by beta)");
