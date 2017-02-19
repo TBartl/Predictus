@@ -9,7 +9,7 @@ public class ButtonOpenPredictMesh : MonoBehaviour, Resettable {
     public GameObject continueButton;
 
     public void OnClick() {
-        Mesh mesh = UtilityOpenOBJ.S.OpenOBJ();
+        Mesh mesh = UtilityOpenOBJ.OpenOBJ();
         if (debugOverrideMesh) {
             mesh = debugOverrideMesh;
             Debug.LogWarning("Using a debug override mesh");

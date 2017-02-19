@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
 
-    public static UtilityApplyDepthMatrixToMesh S;
-
-    void Awake() {
-        S = this;
-    }
-
-	public IntVector3 TransformToIntVector(Vector3 point) { 
+	public static IntVector3 TransformToIntVector(Vector3 point) { 
 		Vector3 testPoint = point / VoxData.scale;        
 		return new IntVector3(Mathf.RoundToInt(testPoint.x), Mathf.RoundToInt(testPoint.y), Mathf.RoundToInt(testPoint.z));
 	}
 
 
-    public Mesh Apply(Mesh originalMesh, DepthMatrixData depthData) {
+    public static Mesh Apply(Mesh originalMesh, DepthMatrixData depthData) {
 		Vector3[] vertices = originalMesh.vertices;
         Vector3[] normals = originalMesh.normals;
 		Vector3 offset = (-new Vector3(depthData.GetWidth(), depthData.GetHeight(), 0) + Vector3.one) * VoxData.scale / 2f;
-
-
-
+        
 		for (int i = 0; i < vertices.Length; i++) {
 			IntVector3 v = TransformToIntVector (vertices [i] - offset);
             if (Vector3.Dot(normals[i], Vector3.forward) < 0)
@@ -43,9 +35,7 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
                 }
             }
 		}
-		Mesh updatedMesh = new Mesh(); 
-		transform.gameObject.AddComponent<MeshFilter>();
-		updatedMesh = GetComponent<MeshFilter> ().mesh;
+		Mesh updatedMesh = new Mesh();
 		int[] indices = originalMesh.GetIndices (0);
 		updatedMesh.vertices = vertices;
 		updatedMesh.triangles = indices;

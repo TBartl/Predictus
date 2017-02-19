@@ -23,6 +23,6 @@ public class ButtonProcessAndUpdateMesh : MonoBehaviour {
         }
 
         toBefore.mesh = fromScreen.mesh;
-        toPredictedAfter.mesh = UtilityApplyDepthMatrixToMesh.S.Apply(fromScreen.mesh, toApply);
+        toPredictedAfter.mesh = UtilityApplyDepthMatrixToMesh.Apply(fromScreen.mesh, toApply);
     }
 }
