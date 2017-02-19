@@ -12,6 +12,8 @@ public class CompareVoxelisation : MonoBehaviour {
     public VoxSubprocessDebugDrawMatrix gainDraw;
     public VoxSubprocessDebugDrawMatrix lossDraw;
 
+    public GameObject diffImage;
+
     public int ignoreDrawDepth = 3;
 
     void Awake() {
@@ -24,6 +26,17 @@ public class CompareVoxelisation : MonoBehaviour {
     }
 
     IEnumerator Compare() {
+        yield return null;
+        yield return before.Voxelize();
+        yield return after.Voxelize();
+        //DepthMatrixData beforeMatrix = new DepthMatrixData(ref before.voxData);
+        //DepthMatrixData afterMatrix = new DepthMatrixData(ref after.voxData);
+        //DepthMatrixData compare = UtilityCompareDepthMatrices.Compare(beforeMatrix, afterMatrix);
+        diffImage.SetActive(true);
+        
+    }
+
+    IEnumerator CompareOld() {
         yield return null;
         yield return before.Voxelize();
         yield return after.Voxelize();

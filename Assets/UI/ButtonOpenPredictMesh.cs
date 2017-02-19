@@ -13,15 +13,17 @@ public class ButtonOpenPredictMesh : MonoBehaviour, Resettable {
     public GameObject continueButton;
 
     public void OnClick() {
+        continueButton.SetActive(true);
+
         Mesh mesh = UtilityOpenOBJ.OpenOBJ();
         if (debugOverrideMesh) {
             mesh = debugOverrideMesh;
             debugOverrideAfterMeshFilter.mesh = debugOverrideAfterMesh;
+            this.transform.parent.GetComponentInChildren<ButtonProcessAndUpdateMesh>().debugAfterMesh = debugOverrideAfterMesh;
             Debug.LogWarning("Using a debug override mesh");
         }
 
         meshToDrawTo.mesh = mesh;
-        continueButton.SetActive(true);
     }
 
     public void Reset() {

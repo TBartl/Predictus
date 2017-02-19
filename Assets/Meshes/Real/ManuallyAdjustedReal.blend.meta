@@ -12,6 +12,14 @@ ModelImporter:
     100008: ModifiedBefore
     100010: Cube
     100012: Triangle
+    100014: AfterPC
+    100016: BeforePC
+    100018: 1After
+    100020: 1Before
+    100022: PCAfter
+    100024: PCBefore
+    100026: 7After
+    100028: 7Before
     400000: //RootNode
     400002: pt1_before_-_excavatum_
     400004: pt1_excavatum_post_op
@@ -19,6 +27,14 @@ ModelImporter:
     400008: ModifiedBefore
     400010: Cube
     400012: Triangle
+    400014: AfterPC
+    400016: BeforePC
+    400018: 1After
+    400020: 1Before
+    400022: PCAfter
+    400024: PCBefore
+    400026: 7After
+    400028: 7Before
     2300000: //RootNode
     2300002: pt1_before_-_excavatum_
     2300004: pt1_excavatum_post_op
@@ -26,6 +42,14 @@ ModelImporter:
     2300008: ModifiedBefore
     2300010: Cube
     2300012: Triangle
+    2300014: AfterPC
+    2300016: BeforePC
+    2300018: 1After
+    2300020: 1Before
+    2300022: PCAfter
+    2300024: PCBefore
+    2300026: 7After
+    2300028: 7Before
     3300000: //RootNode
     3300002: pt1_before_-_excavatum_
     3300004: pt1_excavatum_post_op
@@ -33,12 +57,28 @@ ModelImporter:
     3300008: ModifiedBefore
     3300010: Cube
     3300012: Triangle
+    3300014: AfterPC
+    3300016: BeforePC
+    3300018: 1After
+    3300020: 1Before
+    3300022: PCAfter
+    3300024: PCBefore
+    3300026: 7After
+    3300028: 7Before
     4300000: pt1_excavatum_post_op
     4300002: pt1_before_-_excavatum_
     4300004: ModifiedBefore
     4300006: ModifiedAfter
     4300008: Cube
     4300010: Triangle
+    4300012: BeforePC
+    4300014: AfterPC
+    4300016: PCBefore
+    4300018: PCAfter
+    4300020: 1After
+    4300022: 1Before
+    4300024: 7After
+    4300026: 7Before
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -82,7 +122,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 0
   copyAvatar: 0

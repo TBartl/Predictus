@@ -20,6 +20,18 @@
   <defs
      id="defs4">
     <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4405">
+      <stop
+         style="stop-color:#9f00a9;stop-opacity:1"
+         offset="0"
+         id="stop4407" />
+      <stop
+         style="stop-color:#ea00f9;stop-opacity:1"
+         offset="1"
+         id="stop4409" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient4327"
        inkscape:collect="always">
       <stop
@@ -345,7 +357,7 @@
        y2="-363.35211"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
-       gradientTransform="matrix(0.85479052,0,0,0.50839243,-2448.5732,2150.0486)"
+       gradientTransform="matrix(0.72599608,0,0,0.36472626,-2588.1625,2101.7467)"
        inkscape:collect="always"
        xlink:href="#linearGradient4327"
        id="linearGradient4198-3-6-0-3-1"
@@ -354,6 +366,46 @@
        x2="-963.81409"
        y2="-363.35211"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       gradientTransform="matrix(0.72599608,0,0,0.31534102,-2588.1625,2778.1076)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient4327"
+       id="linearGradient4198-3-6-0-3-1-8"
+       x1="-1129.5283"
+       y1="568.07648"
+       x2="-963.81409"
+       y2="-363.35211"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       gradientTransform="matrix(1.0331389,0,0,0.46772204,-826.4358,2896.6476)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient4327"
+       id="linearGradient4198-3-6-0-3-1-8-2"
+       x1="-1129.5283"
+       y1="568.07648"
+       x2="-963.81409"
+       y2="-363.35211"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       gradientTransform="matrix(1.0331389,0,0,0.46772204,866.57986,2896.6476)"
+       inkscape:collect="always"
+       xlink:href="#linearGradient4327"
+       id="linearGradient4198-3-6-0-3-1-8-2-9"
+       x1="-1129.5283"
+       y1="568.07648"
+       x2="-963.81409"
+       y2="-363.35211"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4405"
+       id="linearGradient5072-3-5-3"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0777135,0,0,0.60435528,1681.839,1365.8731)"
+       x1="-1574.1886"
+       y1="419.54114"
+       x2="-1560.5895"
+       y2="273.82687" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -362,9 +414,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-3473.1981"
-     inkscape:cy="-873.40418"
+     inkscape:zoom="1.979899"
+     inkscape:cx="47.186175"
+     inkscape:cy="-468.86891"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1537,7 +1589,7 @@
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4198-3-6-0-3);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        d="m -3856.8097,1364.9496 961.5837,0 0,457.5531 -961.5837,0 z"
        id="rect4136-2-7-6-6"
-       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote1.png"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote2.png"
        inkscape:export-xdpi="68.910004"
        inkscape:export-ydpi="68.910004" />
     <text
@@ -1547,7 +1599,7 @@
        y="1456.8411"
        id="text4138-8-4-2-4"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote1.png"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote2.png"
        inkscape:export-xdpi="68.910004"
        inkscape:export-ydpi="68.910004"><tspan
          sodipodi:role="line"
@@ -1578,9 +1630,9 @@
     <path
        inkscape:connector-curvature="0"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4198-3-6-0-3-1);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m -4058.8402,1979.1224 1367.6649,0 0,457.5531 -1367.6649,0 z"
+       d="m -3955.8046,1979.1224 1161.5937,0 0,328.2536 -1161.5937,0 z"
        id="rect4136-2-7-6-6-8"
-       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote1.png"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote3.png"
        inkscape:export-xdpi="68.910004"
        inkscape:export-ydpi="68.910004" />
     <text
@@ -1590,48 +1642,177 @@
        y="2048.7905"
        id="text4138-8-4-2-4-0"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote1.png"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote3.png"
        inkscape:export-xdpi="68.910004"
        inkscape:export-ydpi="68.910004"><tspan
          sodipodi:role="line"
-         x="-3360.7305"
+         x="-3372.6104"
          y="2048.7905"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4585">Normally you wouldn't have access to the </tspan><tspan
+         id="tspan4585">Normally you wouldn't have access</tspan><tspan
          sodipodi:role="line"
          x="-3372.6104"
          y="2125.8411"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4599">real results, but we included them here</tspan><tspan
+         id="tspan4599">to the real results, but we included</tspan><tspan
          sodipodi:role="line"
          x="-3372.6104"
          y="2202.8916"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4601">so we could compare our generated</tspan><tspan
+         id="tspan4601">them here so we could compare</tspan><tspan
          sodipodi:role="line"
          x="-3372.6104"
          y="2279.9421"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4603">results to them.</tspan><tspan
+         id="tspan4593">our generated results to them.</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4198-3-6-0-3-1-8);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m -3955.8046,2672.0871 1161.5937,0 0,283.8068 -1161.5937,0 z"
+       id="rect4136-2-7-6-6-8-3"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote4.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:61.64045334px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:Tahoma;text-align:center;letter-spacing:4.49738646px;text-anchor:middle;fill:#ffffff"
+       x="-3374.8591"
+       y="2745.7959"
+       id="text4138-8-4-2-4-0-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote4.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004"><tspan
          sodipodi:role="line"
          x="-3372.6104"
-         y="2356.9927"
+         y="2745.7959"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4589">but we felt included these</tspan><tspan
+         id="tspan4679">After importing the mesh we begin</tspan><tspan
          sodipodi:role="line"
          x="-3372.6104"
-         y="2434.0435"
+         y="2822.8464"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4595">as we felt it would be useful</tspan><tspan
+         id="tspan4683">by isolating the area we want to</tspan><tspan
          sodipodi:role="line"
          x="-3372.6104"
-         y="2511.094"
+         y="2899.897"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4591">to compare our generated</tspan><tspan
+         id="tspan4685">work with (the center chest area)</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4198-3-6-0-3-1-8-2);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m -2772.678,2739.3952 1653.0221,0 0,420.9497 -1653.0221,0 z"
+       id="rect4136-2-7-6-6-8-3-9"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote5.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:61.64045334px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:Tahoma;text-align:center;letter-spacing:4.49738646px;text-anchor:middle;fill:#ffffff"
+       x="-1946.1669"
+       y="2808.6531"
+       id="text4138-8-4-2-4-0-9-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote5.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004"><tspan
          sodipodi:role="line"
-         x="-3372.6104"
-         y="2588.1445"
+         x="-1943.9182"
+         y="2808.6531"
          style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
-         id="tspan4593">results to.</tspan></text>
+         id="tspan4728">We then &quot;voxelize&quot; the data, turning the arbitrary</tspan><tspan
+         sodipodi:role="line"
+         x="-1932.0382"
+         y="2885.7036"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4730">3D triangles into thousands of super small boxes. </tspan><tspan
+         sodipodi:role="line"
+         x="-1943.9182"
+         y="2962.7542"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4732">This algorithm took a lot of the effort in the alpha.</tspan><tspan
+         sodipodi:role="line"
+         x="-1943.9182"
+         y="3039.8047"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4750">This simplified representation of the mesh is a lot</tspan><tspan
+         sodipodi:role="line"
+         x="-1943.9182"
+         y="3116.8555"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4754">easier to work with for the rest of the calculations.</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4198-3-6-0-3-1-8-2-9);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m -1079.6623,2739.3952 1653.02206,0 0,420.9497 -1653.02206,0 z"
+       id="rect4136-2-7-6-6-8-3-9-3"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote6.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:61.64045334px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:Tahoma;text-align:center;letter-spacing:4.49738646px;text-anchor:middle;fill:#ffffff"
+       x="-253.15121"
+       y="2808.6531"
+       id="text4138-8-4-2-4-0-9-9-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaNote6.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004"><tspan
+         sodipodi:role="line"
+         x="-250.90254"
+         y="2808.6531"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4754-3">With both a &quot;Before&quot; and &quot;After&quot; scan voxelized,</tspan><tspan
+         sodipodi:role="line"
+         x="-250.90253"
+         y="2885.7036"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4873">we can then compare the two to see what changed.</tspan><tspan
+         sodipodi:role="line"
+         x="-250.90251"
+         y="2962.7542"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4875">The texture written to the center of the screen</tspan><tspan
+         sodipodi:role="line"
+         x="-250.90254"
+         y="3039.8047"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4879">shows where there was a increase (green) or</tspan><tspan
+         sodipodi:role="line"
+         x="-250.90251"
+         y="3116.8552"
+         style="font-weight:normal;text-align:center;letter-spacing:4.49738646px;text-anchor:middle"
+         id="tspan4885">decrease (red) in the height after surgery.</tspan></text>
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient5072-3-5-3);fill-opacity:1;fill-rule:nonzero;stroke:#76007d;stroke-width:4.30750465;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4160-6-7-9-1"
+       width="278.69568"
+       height="78.142853"
+       x="-153.63353"
+       y="1535.4586"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaButton.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.71846199px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;fill:#ffffff"
+       x="-14.498553"
+       y="1566.9589"
+       id="text4138-0-1-9-0-4-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\alphaButton.png"
+       inkscape:export-xdpi="68.910004"
+       inkscape:export-ydpi="68.910004"><tspan
+         sodipodi:role="line"
+         x="-14.498555"
+         y="1566.9589"
+         style="font-weight:bold;text-align:center;text-anchor:middle"
+         id="tspan4399">See How it Works</tspan><tspan
+         sodipodi:role="line"
+         x="-14.498552"
+         y="1594.1069"
+         style="font-weight:bold;text-align:center;text-anchor:middle"
+         id="tspan4403">(Alpha)</tspan></text>
   </g>
 </svg>
