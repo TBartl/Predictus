@@ -3978,7 +3978,8 @@ GameObject:
   - component: {fileID: 1944658243}
   - component: {fileID: 1944658242}
   - component: {fileID: 1944658241}
-  m_Layer: 0
+  - component: {fileID: 1944658244}
+  m_Layer: 8
   m_Name: Mesh After (Predicted)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4006,11 +4007,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1944658239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e3ef03e151ada40826f1383e7eba06, type: 3}
+  m_Script: {fileID: 11500000, guid: c4500db97c445214d9e90991dd5f08d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 30
-  speed: 1
+  baseAmount: 30
+  baseSpeed: 1
 --- !u!23 &1944658242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4049,6 +4050,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1944658239}
   m_Mesh: {fileID: 0}
+--- !u!136 &1944658244
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944658239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2003963756
 GameObject:
   m_ObjectHideFlags: 0
