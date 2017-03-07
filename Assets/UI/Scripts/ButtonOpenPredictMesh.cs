@@ -12,6 +12,8 @@ public class ButtonOpenPredictMesh : MonoBehaviour, Resettable {
     public MeshFilter meshToDrawTo;
     public GameObject continueButton;
 
+    public ButtonProcessAndUpdateMesh processButton;
+
     public void OnClick() {
         continueButton.SetActive(true);
 		SoundManager.SM.PlayButtonSound ();
@@ -20,7 +22,7 @@ public class ButtonOpenPredictMesh : MonoBehaviour, Resettable {
         if (debugOverrideMesh) {
             mesh = debugOverrideMesh;
             debugOverrideAfterMeshFilter.mesh = debugOverrideAfterMesh;
-            this.transform.parent.GetComponentInChildren<ButtonProcessAndUpdateMesh>().debugAfterMesh = debugOverrideAfterMesh;
+            processButton.debugAfterMesh = debugOverrideAfterMesh;
             Debug.LogWarning("Using a debug override mesh");
         }
 
