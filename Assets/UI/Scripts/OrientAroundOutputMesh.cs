@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class OrientAroundOutputMesh : MonoBehaviour {
 	
-	float rotSpeed = 20f;
+	float rotSpeed = 200f;
+	Vector3 rotation;
+
 	void OnMouseDrag(){
-		float rot_x = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
-		float rot_y = Input.GetAxis ("Mouse Y") * rotSpeed * Mathf.Deg2Rad;
-
-		this.transform.RotateAround (Vector3.up, -rot_x);
-		this.transform.RotateAround (Vector3.right, rot_y);
-
-	}
+		float rot_x = Input.GetAxis ("Mouse X") * rotSpeed;
+		float rot_y = Input.GetAxis ("Mouse Y") * rotSpeed;
+		rotation += new Vector3 (rot_y, -rot_x, 0)  * Time.deltaTime;
+		this.transform.rotation = Quaternion.Euler (rotation);
+			}
 
 	public void OnClick(){
 		//button to reset the rotation
