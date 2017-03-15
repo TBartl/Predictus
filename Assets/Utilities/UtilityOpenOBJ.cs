@@ -45,6 +45,9 @@ public class UtilityOpenOBJ : MonoBehaviour {
 				foreach (var vertex in obj.VertexList) {
 					Debug.Log (vertex);
 				}
+				foreach (var face in obj.FaceList) {
+					Debug.Log (face);
+				}
 
 				// After reading in, use this obj object to obtain the obj parsing.
 			}
