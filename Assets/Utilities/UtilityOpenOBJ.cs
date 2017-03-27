@@ -140,7 +140,8 @@ public class UtilityOpenOBJ : MonoBehaviour {
 		// and the path to the selected file (FileBrowser.Result) (null, if FileBrowser.Success is false)
 		Debug.Log( FileBrowser.Success + " " + FileBrowser.Result );
 
-		parseOBJ (FileBrowser.Result);
+		if (FileBrowser.Success)
+			parseOBJ (FileBrowser.Result);
 	}
 
 
