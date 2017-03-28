@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Text;
 using System.IO;
 using SimpleFileBrowser;
+using System;
 
 public class UtilityOpenOBJ : MonoBehaviour {
 
@@ -120,18 +121,25 @@ public class UtilityOpenOBJ : MonoBehaviour {
 
             using (StreamReader reader = new StreamReader(path)) {
                 string line;
+                char[] ignore = new char[] { ' ', '/' };
                 while ((line = reader.ReadLine()) != null) {
                     // Do something with the line.
-                    string[] parts = line.Split(',');
+                    string[] parts = line.Split(ignore, StringSplitOptions.RemoveEmptyEntries);
                     if (parts.Length == 0)
                         continue;
-                    foreach (string p in parts) {
-                        if (Random.value < .01f)
-                            Debug.Log(p);
+                    if (parts[0] == "v") {
+                        vertices.Add(new Vector3(float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3])));
+                    }
+                    else if (parts[0] == "f") {
+                        indices.Add(int.Parse(parts[1]) - 1);
+                        indices.Add(int.Parse(parts[3]) - 1);
+                        indices.Add(int.Parse(parts[5]) - 1);
                     }
                 }
             }
 
+            mesh.SetVertices(vertices);
+            mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
             return mesh;
