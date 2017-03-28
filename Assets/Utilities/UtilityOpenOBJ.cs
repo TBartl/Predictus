@@ -119,6 +119,9 @@ public class UtilityOpenOBJ : MonoBehaviour {
             List<Vector3> vertices = new List<Vector3>();
             List<int> indices = new List<int>();
 
+            Transform correctionTransform = new GameObject().transform;
+            correctionTransform.rotation = Quaternion.Euler(0, 90, 90);
+
             using (StreamReader reader = new StreamReader(path)) {
                 string line;
                 char[] ignore = new char[] { ' ', '/' };
@@ -128,7 +131,9 @@ public class UtilityOpenOBJ : MonoBehaviour {
                     if (parts.Length == 0)
                         continue;
                     if (parts[0] == "v") {
-                        vertices.Add(new Vector3(float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3])));
+                        Vector3 newVert = new Vector3(float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
+                        newVert = correctionTransform.TransformPoint(newVert);
+                        vertices.Add(newVert);
                     }
                     else if (parts[0] == "f") {
                         indices.Add(int.Parse(parts[1]) - 1);
@@ -142,12 +147,13 @@ public class UtilityOpenOBJ : MonoBehaviour {
             mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
+
+            Destroy(correctionTransform.gameObject);
             return mesh;
         }
         else {
             return null;
         }
     }
-
 
 }

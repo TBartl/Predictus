@@ -3918,13 +3918,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1586627064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97e3ef03e151ada40826f1383e7eba06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
-  speed: 0
+  amount: 20
+  speed: 0.05
 --- !u!33 &1586627068
 MeshFilter:
   m_ObjectHideFlags: 0

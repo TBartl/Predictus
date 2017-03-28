@@ -14,7 +14,6 @@ public class ButtonOpenMesh : MonoBehaviour, Resettable {
 
     // Coroutines can't return values nicely, so  have the coroutine call this function once it's done
     public void OnReturnedMesh(Mesh m) {
-        Debug.Log(m.vertices.Length);
         if (m == null) {
             return;
         }
