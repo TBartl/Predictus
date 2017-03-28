@@ -67,4 +67,11 @@ public class DepthMatrixData {
         File.WriteAllBytes(name + ".png", texture.EncodeToPNG());
     }
 
+    public static void Export(string path) {
+
+    }
+    public static DepthMatrixData Import(string path) {
+        return null;
+    }
+
 }
