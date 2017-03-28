@@ -3020,6 +3020,7 @@ GameObject:
   - component: {fileID: 1304943507}
   - component: {fileID: 1304943506}
   - component: {fileID: 1304943509}
+  - component: {fileID: 1304943510}
   m_Layer: 5
   m_Name: 'Button: Upload'
   m_TagString: Untagged
@@ -3144,6 +3145,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshToDrawTo: {fileID: 1586627068}
   continueButton: {fileID: 1849254781}
+--- !u!114 &1304943510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1304943504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44bf07f98cd0e14f8dad236114aef9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newScreen: {fileID: 1059768861}
 --- !u!1 &1312889721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,7 +3314,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
