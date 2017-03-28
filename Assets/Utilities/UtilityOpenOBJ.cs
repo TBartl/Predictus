@@ -138,6 +138,41 @@ public class UtilityOpenOBJ : MonoBehaviour {
         else {
             return null;
         }
+<<<<<<< HEAD
+=======
+    }
+
+	void parseOBJ(string path) {
+		if (path != "") {
+			ObjParser.Obj obj = new ObjParser.Obj ();
+			obj.LoadObj (path);
+			//obj.LoadObj (Application.dataPath + "/Temp.obj");
+
+			// Testing purposes
+			foreach (var vertex in obj.VertexList) {
+				Debug.Log (vertex);
+			}
+			foreach (var face in obj.FaceList) {
+				Debug.Log (face);
+			}
+			// After reading in, use this obj object to obtain the obj parsing.
+		}
+	}
+
+	IEnumerator ShowLoadDialogCoroutine()
+	{
+		// Show a load file dialog and wait for a response from user
+		// Load file/folder: file, Initial path: default (Documents), Title: "Load File", submit button text: "Load"
+		yield return FileBrowser.WaitForLoadDialog( false, null, "Load File", "Load" );
+
+		// Dialog is closed
+		// Print whether a file is chosen (FileBrowser.Success)
+		// and the path to the selected file (FileBrowser.Result) (null, if FileBrowser.Success is false)
+		Debug.Log( FileBrowser.Success + " " + FileBrowser.Result );
+
+		if (FileBrowser.Success)
+			parseOBJ (FileBrowser.Result);
+>>>>>>> c88dbc4afe55e449c8a59a94ccb1d9a58179dc97
 	}
 
 
