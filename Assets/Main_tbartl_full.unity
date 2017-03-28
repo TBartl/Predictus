@@ -1292,8 +1292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4f30d10fd68b14390a70cc56c903c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0
-  zoomSpeed: 0
+  rotationSpeed: 5
+  zoomSpeed: 2
 --- !u!1 &765609402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44bf07f98cd0e14f8dad236114aef9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newScreen: {fileID: 2003963758}
+  newScreen: {fileID: 1059768861}
 --- !u!114 &1849254787
 MonoBehaviour:
   m_ObjectHideFlags: 0
