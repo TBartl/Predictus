@@ -6,7 +6,7 @@ public class ScreenManager : MonoBehaviour {
 
     public static ScreenManager S;
     public Screen firstScreen;
-    bool transitioning;
+    [HideInInspector] public bool transitioning;
     Screen currentScreen;
 
     void Awake() {

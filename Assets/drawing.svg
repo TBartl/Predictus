@@ -438,6 +438,16 @@
        x2="-963.81409"
        y2="-363.35211"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4401"
+       id="linearGradient4217-2-9-0"
+       x1="-1597.0093"
+       y1="423.96539"
+       x2="-1569.6614"
+       y2="275.46277"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1683581,0,0,1.7529975,1921.4644,-84.355277)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -446,9 +456,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748738"
-     inkscape:cx="431.68484"
-     inkscape:cy="330.78047"
+     inkscape:zoom="0.70000002"
+     inkscape:cx="69.761652"
+     inkscape:cy="493.77837"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1863,6 +1873,16 @@
        d="m 212.42215,100.53621 256,0 0,256 -256,0 z"
        id="rect4136-2-7-61"
        inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\developmentNoteBox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4217-2-9-0);fill-opacity:1;fill-rule:nonzero;stroke:#878787;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4160-2-1-5"
+       width="245.92558"
+       height="245.92558"
+       x="-68.386482"
+       y="407.54578"
+       inkscape:export-filename="C:\Users\tabsk\Desktop\Predictus\Assets\UI\boxSmallSides.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>

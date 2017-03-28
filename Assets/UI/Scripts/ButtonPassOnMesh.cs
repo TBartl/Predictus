@@ -8,8 +8,10 @@ public class ButtonPassOnMesh : MonoBehaviour {
     public List<MeshFilter> to;
 
     public void OnClick() {
-		SoundManager.SM.PlayTransformSound ();
-        
+        if (ScreenManager.S.IsTransitioning())
+            return;
+
+        SoundManager.SM.PlayTransformSound ();
         foreach (MeshFilter m in to) {
             m.mesh = from.mesh;
         }
