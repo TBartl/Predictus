@@ -2171,11 +2171,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 879882547}
-  - component: {fileID: 879882552}
   - component: {fileID: 879882551}
   - component: {fileID: 879882550}
   - component: {fileID: 879882549}
-  - component: {fileID: 879882548}
   m_Layer: 5
   m_Name: 'Button: Continue'
   m_TagString: Untagged
@@ -2192,7 +2190,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1926597068}
   m_Father: {fileID: 1776749999}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2201,21 +2200,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000061035156, y: 65}
   m_SizeDelta: {x: 217, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &879882548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 879882546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d1b2d9e7d274c34792e084e77bce01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugAfterMesh: {fileID: 0}
-  fromScreen: {fileID: 0}
-  toPredictedAfter: {fileID: 0}
-  toBefore: {fileID: 0}
 --- !u!114 &879882549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,19 +2239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 879882552}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 879882548}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2291,15 +2264,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21112417, g: 0.9044118, b: 0.119701564, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5f26a9502c0e33f4abeaf342e7009b92, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f8a13cd380e3c724a895f83b390be3b5, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2312,18 +2285,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 879882546}
---- !u!114 &879882552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 879882546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44bf07f98cd0e14f8dad236114aef9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newScreen: {fileID: 0}
 --- !u!1 &914177161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,7 +2426,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'New Patient Prediction Step #1'
+  m_Text: 'New Patient Prediction Upload
+
+'
 --- !u!222 &959262695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3248,7 +3211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Continue to Step #2'
+  m_Text: Continue
 --- !u!222 &1312889724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4585,8 +4548,8 @@ GameObject:
   - component: {fileID: 1849254785}
   - component: {fileID: 1849254784}
   - component: {fileID: 1849254783}
-  - component: {fileID: 1849254786}
   - component: {fileID: 1849254787}
+  - component: {fileID: 1849254786}
   m_Layer: 5
   m_Name: 'Button: Continue'
   m_TagString: Untagged
@@ -4652,7 +4615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1849254786}
+      - m_Target: {fileID: 0}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -4803,7 +4766,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'New Patient Prediction Step #2'
+  m_Text: Mesh Orientation Correction
 --- !u!222 &1868544100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4924,6 +4887,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4f71cc8255e604fb3f4cac0f83b05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1926597067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1926597068}
+  - component: {fileID: 1926597070}
+  - component: {fileID: 1926597069}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1926597068
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926597067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 879882547}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00000015893602, y: 0}
+  m_SizeDelta: {x: -10, y: -10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1926597069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926597067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8455882, g: 0.8455882, b: 0.8455882, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 19
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Continue
+--- !u!222 &1926597070
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1926597067}
 --- !u!1 &1944658239
 GameObject:
   m_ObjectHideFlags: 0

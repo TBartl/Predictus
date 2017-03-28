@@ -8,6 +8,8 @@ public class ButtonOpenMesh : MonoBehaviour, Resettable {
     public GameObject continueButton;
 
     public void OnClick() {
+        if (ScreenManager.S.IsTransitioning())
+            return;
         SoundManager.SM.PlayButtonSound ();
         UtilityOpenOBJ.S.StartCoroutine(UtilityOpenOBJ.S.OpenOBJ(OnReturnedMesh));
     }
