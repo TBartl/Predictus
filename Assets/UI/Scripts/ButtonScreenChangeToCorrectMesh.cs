@@ -8,8 +8,13 @@ public class ButtonScreenChangeToCorrectMesh : MonoBehaviour {
     public Screen returnToScreen;
 
     public void OnClick() {
-		if (!ScreenManager.S.IsTransitioning ())
-			SoundManager.SM.PlayButtonSound ();
-            ScreenManager.S.ChangeScreen(correctScreen);
+        if (ScreenManager.S.IsTransitioning())
+            return;
+		SoundManager.SM.PlayButtonSound ();
+        ScreenManager.S.ChangeScreen(correctScreen);
+        correctScreen.transform.GetComponentInChildren<ButtonScreenChange>().newScreen = this.transform.GetComponentInParent<Screen>();
+        ButtonPassOnMeshThenChangeScreen finalContinueButton = correctScreen.transform.GetComponentInChildren<ButtonPassOnMeshThenChangeScreen>();
+        finalContinueButton.to = destinationMeshFilter;
+        finalContinueButton.toScreen = returnToScreen;
     }
 }
