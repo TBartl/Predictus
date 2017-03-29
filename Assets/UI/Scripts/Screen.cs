@@ -42,6 +42,7 @@ public class Screen : MonoBehaviour {
     }
 
     void SetCanvasAlpha(float amount) {
+		canvasItems = new List<CanvasRenderer>(this.GetComponentsInChildren<CanvasRenderer>());
         foreach (CanvasRenderer canvasItem in canvasItems) {
             canvasItem.SetAlpha(amount);
         }
