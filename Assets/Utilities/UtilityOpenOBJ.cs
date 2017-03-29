@@ -112,7 +112,7 @@ public class UtilityOpenOBJ : MonoBehaviour {
         returnMesh(m);
     }
 
-    Mesh parseOBJ(string path) {
+    public Mesh parseOBJ(string path) {
         if (path != "") {
 
             Mesh mesh = new Mesh();
