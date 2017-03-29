@@ -124,7 +124,8 @@ public class UtilityOpenOBJ : MonoBehaviour {
 
             using (StreamReader reader = new StreamReader(path)) {
                 string line;
-                char[] ignore = new char[] { ' ', '/' };
+                char[] ignore = new char[] { ' ' };
+                char[] ignoreSub = new char[] { '/' };
                 while ((line = reader.ReadLine()) != null) {
                     // Do something with the line.
                     string[] parts = line.Split(ignore, StringSplitOptions.RemoveEmptyEntries);
@@ -136,13 +137,13 @@ public class UtilityOpenOBJ : MonoBehaviour {
                         vertices.Add(newVert);
                     }
                     else if (parts[0] == "f") {
-                        indices.Add(int.Parse(parts[1]) - 1);
-                        indices.Add(int.Parse(parts[3]) - 1);
-                        indices.Add(int.Parse(parts[5]) - 1);
+                        for (int i = 1; i <= 3; i++) {
+                            string[] subParts = parts[i].Split(ignoreSub, StringSplitOptions.RemoveEmptyEntries);
+                            indices.Add(int.Parse(subParts[0]) - 1);
+                        }
                     }
                 }
             }
-
             mesh.SetVertices(vertices);
             mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
