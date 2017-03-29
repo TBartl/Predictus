@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrientInputMesh : MonoBehaviour {
+public class OrientInputMesh : MonoBehaviour, Resettable {
 
     Vector3 initialMousePos;
     Vector3 offset;
@@ -14,6 +14,10 @@ public class OrientInputMesh : MonoBehaviour {
         meshFilter = this.GetComponent<MeshFilter>();
     }
     
+    public void Reset() {
+        this.transform.position = -meshFilter.mesh.bounds.center;
+        ApplyMeshTranslationAndRotation();
+    }
 
     private void OnMouseDrag() {
         Vector3 mousePos = GetMousePos();
@@ -47,16 +51,16 @@ public class OrientInputMesh : MonoBehaviour {
 
     void OnMouseUp() {
         ApplyMeshTranslationAndRotation();
-        this.transform.position = Vector3.zero;
-        this.transform.rotation = Quaternion.identity;
     }
 
-    void ApplyMeshTranslationAndRotation() {
+    public void ApplyMeshTranslationAndRotation() {
         List<Vector3> vertices = new List<Vector3>(meshFilter.mesh.vertices);
         for (int i = 0; i < vertices.Count; i++) {
             vertices[i] = transform.TransformPoint(vertices[i]);
         }
         meshFilter.mesh.SetVertices(vertices);
         meshFilter.mesh.RecalculateNormals();
+        this.transform.position = Vector3.zero;
+        this.transform.rotation = Quaternion.identity;
     }
 }

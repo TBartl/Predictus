@@ -119,9 +119,6 @@ public class UtilityOpenOBJ : MonoBehaviour {
             List<Vector3> vertices = new List<Vector3>();
             List<int> indices = new List<int>();
 
-            Transform correctionTransform = new GameObject().transform;
-            correctionTransform.rotation = Quaternion.Euler(0, 90, 90);
-
             using (StreamReader reader = new StreamReader(path)) {
                 string line;
                 char[] ignore = new char[] { ' ' };
@@ -133,7 +130,6 @@ public class UtilityOpenOBJ : MonoBehaviour {
                         continue;
                     if (parts[0] == "v") {
                         Vector3 newVert = new Vector3(float.Parse(parts[1]), float.Parse(parts[2]), float.Parse(parts[3]));
-                        newVert = correctionTransform.TransformPoint(newVert);
                         vertices.Add(newVert);
                     }
                     else if (parts[0] == "f") {
@@ -149,8 +145,6 @@ public class UtilityOpenOBJ : MonoBehaviour {
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
             mesh.name = "Imported";
-
-            Destroy(correctionTransform.gameObject);
             return mesh;
         }
         else {
