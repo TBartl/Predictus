@@ -82,8 +82,8 @@ public class LibraryContent : MonoBehaviour {
 		FileInfo[] info = dir.GetFiles ("*.obj");
 
 		if (info.Length == 2) {
-			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
-			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
+			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
+			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
 		} else {
 			Debug.LogError ("Error: Not the correct number of obj files");
 		}
