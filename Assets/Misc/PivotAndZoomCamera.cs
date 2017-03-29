@@ -13,7 +13,13 @@ public class PivotAndZoomCamera : MonoBehaviour {
             rotation += new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * rotationSpeed;
             this.transform.rotation = Quaternion.Euler(rotation);
         }
-        if (!ScreenManager.S.IsTransitioning())
-            this.transform.localScale -= Vector3.one * Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+		if (!ScreenManager.S.IsTransitioning ()) {
+			this.transform.localScale -= Vector3.one * Input.GetAxis ("Mouse ScrollWheel") * zoomSpeed;
+
+			if (this.transform.localScale.x > 4.8f)
+				this.transform.localScale = Vector3.one * 4.75f;
+			else if (this.transform.localScale.x < 0.7f)
+				this.transform.localScale = Vector3.one * 0.75f;
+		}
     }
 }
