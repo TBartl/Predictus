@@ -99,4 +99,25 @@ public class DepthMatrixData {
 		return ImportMatrix;
     }
 
+	public DepthMatrixData Composite(List<DepthMatrixData> allLibraryDepths) {
+		//average all DepthMatrixData
+		DepthMatrixData AllMatrix = new DepthMatrixData ();
+		int num = allLibraryDepths.Count; //size of the list
+		int width = allLibraryDepths [0].depths.GetLength (0);
+		int height = allLibraryDepths [0].depths.GetLength (1);
+		foreach (DepthMatrixData m in allLibraryDepths) {
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					AllMatrix.depths [x, y] += m.depths [x, y];
+				}
+			}
+		}
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				AllMatrix.depths [x, y] /= num;
+			}
+		}
+		return AllMatrix;
+	}
 }
+
