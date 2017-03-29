@@ -67,11 +67,36 @@ public class DepthMatrixData {
         File.WriteAllBytes(name + ".png", texture.EncodeToPNG());
     }
 
-    public static void Export(string path) {
-
+    public void Export(string path) {
+		//export as a giant 1-d array to a file
+		using (StreamWriter w = File.AppendText (path)) {
+			int width = depths.GetLength (0);
+			int height = depths.GetLength (1);
+			//first write width and height to the file
+			w.WriteLine (width);
+			w.WriteLine (height);
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					w.WriteLine (depths [x, y]);
+				}
+			}
+			w.Close ();
+		}
     }
-    public static DepthMatrixData Import(string path) {
-        return null;
+    public DepthMatrixData Import(string path) {
+		DepthMatrixData ImportMatrix = new DepthMatrixData ();
+		StreamReader r = new StreamReader (path);
+		using (r) {
+			int width = int.Parse (r.ReadLine ());
+			int height = int.Parse (r.ReadLine ());
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					ImportMatrix.depths [x, y] = int.Parse (r.ReadLine ());
+				}
+			}
+			r.Close ();
+		}
+		return ImportMatrix;
     }
 
 }
