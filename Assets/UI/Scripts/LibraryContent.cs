@@ -34,6 +34,8 @@ public class LibraryContent : MonoBehaviour {
 
 		//int index = 2;
 		foreach (DirectoryInfo d in info) {
+			if (d.ToString ().Contains ("Materials"))
+				continue;
 			GameObject newButton = Instantiate (modelButton);
 			newButton.transform.SetParent(transform);
 			ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();
