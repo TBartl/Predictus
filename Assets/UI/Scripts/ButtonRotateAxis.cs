@@ -16,7 +16,7 @@ public class ButtonRotateAxis : MonoBehaviour {
             return;
 
         SoundManager.SM.PlayButtonSound();
-        orientInputMesh.transform.Rotate(rotation);
+        orientInputMesh.transform.rotation = Quaternion.Euler(rotation);
         orientInputMesh.ApplyMeshTranslationAndRotation();
     }
 }
