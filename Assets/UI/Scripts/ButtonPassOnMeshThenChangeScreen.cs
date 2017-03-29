@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonPassOnMeshThenChangeScreen : MonoBehaviour {
 
     public MeshFilter from;
-    public MeshFilter to;
+    public List<MeshFilter> to;
     public Screen toScreen;
 
     public void OnClick() {
@@ -13,7 +13,9 @@ public class ButtonPassOnMeshThenChangeScreen : MonoBehaviour {
             return;
 
         SoundManager.SM.PlayButtonSound ();
-        to.mesh = from.mesh;
+        foreach (MeshFilter m in to) {
+            m.mesh = from.mesh;
+        }
         ScreenManager.S.ChangeScreen(toScreen);
     }
 }
