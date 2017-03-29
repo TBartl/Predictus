@@ -6,5 +6,7 @@ public class ButtonDeleteMesh : MonoBehaviour {
 
 	public void OnClick() {
 		LibraryContent.LC.DeleteModel ();
+
+		// delete the obj file
 	}
 }

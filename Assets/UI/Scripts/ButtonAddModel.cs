@@ -36,5 +36,7 @@ public class ButtonAddModel : MonoBehaviour {
 		Debug.Log (FileBrowser.Result);
 
 		LibraryContent.LC.LoadOneFile (FileBrowser.Result);
+
+		// save file into folder
 	}
 }

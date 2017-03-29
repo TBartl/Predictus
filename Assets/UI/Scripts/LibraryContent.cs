@@ -59,6 +59,8 @@ public class LibraryContent : MonoBehaviour {
 		ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();
 		buttonScript.savePath = filePath;
 		buttonScript.transform.localScale = new Vector3 (1, 1, 1);
+
+		SelectButton (newButton);
 	}
 
 	void CreateFile() {
@@ -71,7 +73,9 @@ public class LibraryContent : MonoBehaviour {
 		}
 		deleteButton.SetActive (true);
 		selectedButton = buttonSelect;
-		string path = buttonSelect.GetComponent<ButtonSelectModel> ().savePath;
+		ButtonSelectModel buttonSelectComponent = buttonSelect.GetComponent<ButtonSelectModel> ();
+		string path = buttonSelectComponent.savePath;
+		buttonSelectComponent.selectedText.gameObject.SetActive (true);
 		meshToDrawTo.mesh = UtilityOpenOBJ.S.parseOBJ (path);
 	}
 

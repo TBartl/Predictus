@@ -9,7 +9,7 @@ public class ButtonSelectModel : MonoBehaviour {
 	public string savePath;
 
 	public void OnClick() {
-		selectedText.gameObject.SetActive (true);
+		//selectedText.gameObject.SetActive (true);
 		LibraryContent.LC.SelectButton (gameObject);
 	}
 }
