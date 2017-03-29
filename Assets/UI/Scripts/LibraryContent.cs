@@ -61,6 +61,10 @@ public class LibraryContent : MonoBehaviour {
 		buttonScript.transform.localScale = new Vector3 (1, 1, 1);
 	}
 
+	void CreateFile() {
+
+	}
+
 	public void SelectButton(GameObject buttonSelect) {
 		if (selectedButton != null) {
 			selectedButton.transform.GetChild (0).gameObject.SetActive (false);
