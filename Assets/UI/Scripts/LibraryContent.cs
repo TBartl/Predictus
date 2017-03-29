@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class LibraryContent : MonoBehaviour {
 
+	public static LibraryContent LC;
+
 	string saveFolder;
 	public GameObject modelButton;
 
 	public MeshFilter meshToDrawTo;
 
-	public static LibraryContent LC;
-
 	GameObject selectedButton;
+	public GameObject deleteButton;
 
 	// Use this for initialization
 	void Start () {
@@ -64,8 +65,15 @@ public class LibraryContent : MonoBehaviour {
 		if (selectedButton != null) {
 			selectedButton.transform.GetChild (0).gameObject.SetActive (false);
 		}
+		deleteButton.SetActive (true);
 		selectedButton = buttonSelect;
 		string path = buttonSelect.GetComponent<ButtonSelectModel> ().savePath;
 		meshToDrawTo.mesh = UtilityOpenOBJ.S.parseOBJ (path);
+	}
+
+	public void DeleteModel() {
+		Destroy (selectedButton);
+		deleteButton.SetActive (false);
+		meshToDrawTo.mesh = null;
 	}
 }

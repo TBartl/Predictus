@@ -11,6 +11,5 @@ public class ButtonSelectModel : MonoBehaviour {
 	public void OnClick() {
 		selectedText.gameObject.SetActive (true);
 		LibraryContent.LC.SelectButton (gameObject);
-		UtilityOpenOBJ.S.parseOBJ (savePath);
 	}
 }
