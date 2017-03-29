@@ -77,6 +77,8 @@ public class LibraryContent : MonoBehaviour {
 		string path = buttonSelectComponent.savePath;
 		buttonSelectComponent.selectedText.gameObject.SetActive (true);
 		meshToDrawTo.mesh = UtilityOpenOBJ.S.parseOBJ (path);
+		OrientInputMesh orientInputMesh = meshToDrawTo.gameObject.AddComponent<OrientInputMesh> ();
+		orientInputMesh.modifyPositionNotRotation = true;
 	}
 
 	public void DeleteModel() {
