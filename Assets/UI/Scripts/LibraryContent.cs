@@ -11,7 +11,8 @@ public class LibraryContent : MonoBehaviour {
 	string saveFolder;
 	public GameObject modelButton;
 
-	public MeshFilter meshToDrawTo;
+	public MeshFilter beforeMesh;
+	public MeshFilter afterMesh;
 
 	GameObject selectedButton;
 	public GameObject deleteButton;
@@ -29,14 +30,14 @@ public class LibraryContent : MonoBehaviour {
 		saveFolder = Application.dataPath + "/SaveFiles";
 		Debug.Log (saveFolder);
 		DirectoryInfo dir = new DirectoryInfo (saveFolder);
-		FileInfo[] info = dir.GetFiles ("*.obj");
+		DirectoryInfo[] info = dir.GetDirectories ();
 
 		//int index = 2;
-		foreach (FileInfo f in info) {
+		foreach (DirectoryInfo d in info) {
 			GameObject newButton = Instantiate (modelButton);
 			newButton.transform.SetParent(transform);
 			ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();
-			buttonScript.savePath = f.ToString ();
+			buttonScript.savePath = d.ToString ();
 			buttonScript.transform.localScale = new Vector3 (1, 1, 1);
 
 //			int yPosition = 50 - (180 * index);
@@ -74,16 +75,30 @@ public class LibraryContent : MonoBehaviour {
 		deleteButton.SetActive (true);
 		selectedButton = buttonSelect;
 		ButtonSelectModel buttonSelectComponent = buttonSelect.GetComponent<ButtonSelectModel> ();
-		string path = buttonSelectComponent.savePath;
 		buttonSelectComponent.selectedText.gameObject.SetActive (true);
-		meshToDrawTo.mesh = UtilityOpenOBJ.S.parseOBJ (path);
-		OrientInputMesh orientInputMesh = meshToDrawTo.gameObject.AddComponent<OrientInputMesh> ();
-		orientInputMesh.modifyPositionNotRotation = true;
+		string path = buttonSelectComponent.savePath;
+
+		DirectoryInfo dir = new DirectoryInfo (path);
+		FileInfo[] info = dir.GetFiles ("*.obj");
+
+		if (info.Length == 2) {
+			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
+			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
+		} else {
+			Debug.LogError ("Error: Not the correct number of obj files");
+		}
+
+		// Attach orient input mesh
+//		OrientInputMesh orientInputMeshBefore = beforeMesh.gameObject.AddComponent<OrientInputMesh> ();
+//		OrientInputMesh orientInputMeshAfter = afterMesh.gameObject.AddComponent<OrientInputMesh> ();
+//		orientInputMeshBefore.modifyPositionNotRotation = true;
+//		orientInputMeshAfter.modifyPositionNotRotation = true;
 	}
 
 	public void DeleteModel() {
 		Destroy (selectedButton);
 		deleteButton.SetActive (false);
-		meshToDrawTo.mesh = null;
+		beforeMesh.mesh = null;
+		afterMesh.mesh = null;
 	}
 }
