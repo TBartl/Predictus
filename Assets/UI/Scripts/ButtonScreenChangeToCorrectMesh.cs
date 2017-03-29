@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonScreenChangeToCorrectMesh : MonoBehaviour {
     public Screen correctScreen;
+    public MeshFilter destinationMeshFilter;
     public Screen returnToScreen;
 
     public void OnClick() {

@@ -147,6 +147,7 @@ public class UtilityOpenOBJ : MonoBehaviour {
             mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
+            mesh.name = "Imported";
 
             Destroy(correctionTransform.gameObject);
             return mesh;

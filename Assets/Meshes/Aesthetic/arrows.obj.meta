@@ -9,19 +9,24 @@ ModelImporter:
     100002: default
     100004: RotationArrows.001_Circle.001
     100006: RotationArrows_Circle
+    100008: AxisArrows_Cylinder
     400000: //RootNode
     400002: default
     400004: RotationArrows.001_Circle.001
     400006: RotationArrows_Circle
+    400008: AxisArrows_Cylinder
     2300000: default
     2300002: RotationArrows.001_Circle.001
     2300004: RotationArrows_Circle
+    2300006: AxisArrows_Cylinder
     3300000: default
     3300002: RotationArrows.001_Circle.001
     3300004: RotationArrows_Circle
+    3300006: AxisArrows_Cylinder
     4300000: default
     4300002: RotationArrows.001_Circle.001
     4300004: RotationArrows_Circle
+    4300006: AxisArrows_Cylinder
   materials:
     importMaterials: 1
     materialName: 0
@@ -63,7 +68,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
