@@ -64,11 +64,30 @@ public class LibraryContent : MonoBehaviour {
 		buttonScript.transform.localScale = new Vector3 (1, 1, 1);
 
 		SelectButton (newButton);
+
+		SaveFileIntoFolder (filePath);
 	}
 
-	void CreateFile() {
+	void SaveFileIntoFolder(string filePath) {
+		FileInfo targetFile = new FileInfo (filePath);
 
+		string folderName = filePath.Substring(filePath.LastIndexOf('/') + 1, (filePath.LastIndexOf('.') - (filePath.LastIndexOf('/') + 1)));
+		string savePath = Application.dataPath + "/SaveFiles/" + folderName;
+
+		int index = 1;
+		string tempPath = savePath;
+		while (Directory.Exists(tempPath)) {
+			tempPath = savePath + " (" + index + ")";
+			index++;
+		}
+		savePath = tempPath;
+
+		savePath = savePath + "/";
+		Directory.CreateDirectory (savePath);
+
+		targetFile.CopyTo (savePath + folderName + ".obj");
 	}
+
 
 	public void SelectButton(GameObject buttonSelect) {
 		if (selectedButton != null) {
@@ -86,6 +105,8 @@ public class LibraryContent : MonoBehaviour {
 		if (info.Length == 2) {
 			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
 			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
+		} else if (info.Length == 1) {
+			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
 		} else {
 			Debug.LogError ("Error: Not the correct number of obj files");
 		}
