@@ -80,7 +80,7 @@ public class LibraryContent : MonoBehaviour {
 		}
 	}
 
-    public DepthMatrixData GetCompositeOfAllLibraryEntries() {
+    public List<DepthMatrixData> GetAllEntries() {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -96,11 +96,61 @@ public class LibraryContent : MonoBehaviour {
             }
         }
 
-        DepthMatrixData toReturn = DepthMatrixData.Composite(entries);
+        return entries;
+    }
+
+    public List<float> GetWeights(Mesh compareWith) {
+        saveFolder = Application.dataPath + "/SaveFiles";
+        DirectoryInfo dir = new DirectoryInfo(saveFolder);
+        DirectoryInfo[] info = dir.GetDirectories();
+
+        DepthMatrixData a = DepthMatrixData.GetFromMeshUsingRaycasts(compareWith);
+
+        List<float> diffValues = new List<float>();
+        List<float> toReturn = new List<float>();
+        foreach (DirectoryInfo d in info) {
+            if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
+            string meshFile = saveFolder + "/" + d.Name + "/before.obj";
+            string txtFile = saveFolder + "/" + d.Name + "/diff.txt";
+            if (File.Exists(txtFile)) {
+                DepthMatrixData b = DepthMatrixData.GetFromMeshUsingRaycasts(UtilityOpenOBJ.S.parseOBJ(meshFile));
+                DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(a, b);
+                float diffValue = 0;
+                for (int x = 0; x < diff.GetWidth(); x++) {
+                    for (int y = 0; y < diff.GetHeight(); y++) {
+                        diffValue += Mathf.Abs(diff.depths[x, y]);
+                    }
+                }
+                diffValues.Add(diffValue);
+            }
+        }
+
+        float min = float.MaxValue;
+        float max = 0;
+        foreach (float diffVal in diffValues) {
+            if (diffVal < min)
+                min = diffVal;
+            if (diffVal > max)
+                max = diffVal;
+        }
+        float center = (min + max) / 2f;
+        float radius = (max - min) / 2f;
+
+        foreach (float diffVal in diffValues) {
+            float p = (diffVal - center) / radius;
+            // if diffVal is positive it should be used less
+            // if diffval is negative, it should be used more
+            p = - p;
+
+            //Just go 0 to 2 for now
+            p = 1 + p;
+            toReturn.Add(p);
+        }
         return toReturn;
     }
 
-	public void LoadOneFile(string filePath) {
+    public void LoadOneFile(string filePath) {
 		GameObject newButton = Instantiate (modelButton);
 		newButton.transform.SetParent(transform);
 		ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();

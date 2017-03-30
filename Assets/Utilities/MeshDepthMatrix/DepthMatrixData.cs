@@ -99,26 +99,47 @@ public class DepthMatrixData {
 		return ImportMatrix;
     }
 
-	public static DepthMatrixData Composite(List<DepthMatrixData> allLibraryDepths) {
-		//average all DepthMatrixData
-		DepthMatrixData AllMatrix = new DepthMatrixData ();
-		int num = allLibraryDepths.Count; //size of the list
-		int width = allLibraryDepths [0].depths.GetLength (0);
-		int height = allLibraryDepths [0].depths.GetLength (1);
-		foreach (DepthMatrixData m in allLibraryDepths) {
-			for (int x = 0; x < width; x++) {
-				for (int y = 0; y < height; y++) {
-					AllMatrix.depths [x, y] += m.depths [x, y];
-				}
-			}
-		}
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				AllMatrix.depths [x, y] /= (float)num;
-			}
-		}
-		return AllMatrix;
-	}
+    public static DepthMatrixData Composite(List<DepthMatrixData> allLibraryDepths) {
+        //average all DepthMatrixData
+        DepthMatrixData AllMatrix = new DepthMatrixData();
+        int num = allLibraryDepths.Count; //size of the list
+        int width = allLibraryDepths[0].depths.GetLength(0);
+        int height = allLibraryDepths[0].depths.GetLength(1);
+        foreach (DepthMatrixData m in allLibraryDepths) {
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    AllMatrix.depths[x, y] += m.depths[x, y];
+                }
+            }
+        }
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                AllMatrix.depths[x, y] /= (float)num;
+            }
+        }
+        return AllMatrix;
+    }
+
+    public static DepthMatrixData GetWeighted(List<DepthMatrixData> allLibraryDepths, List<float> weights) {
+        //average all DepthMatrixData
+        DepthMatrixData AllMatrix = new DepthMatrixData();
+        int num = allLibraryDepths.Count; //size of the list
+        int width = allLibraryDepths[0].depths.GetLength(0);
+        int height = allLibraryDepths[0].depths.GetLength(1);
+        for (int i = 0; i < allLibraryDepths.Count; i++) {
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    AllMatrix.depths[x, y] += allLibraryDepths[i].depths[x, y] * weights[i];
+                }
+            }
+        }
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                AllMatrix.depths[x, y] /= (float)num;
+            }
+        }
+        return AllMatrix;
+    }
 
     public static DepthMatrixData GetFromMeshUsingRaycasts(Mesh m) {
         DepthMatrixData d = new DepthMatrixData();
