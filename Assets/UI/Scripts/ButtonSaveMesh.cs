@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonDeleteMesh : MonoBehaviour {
+public class ButtonSaveMesh : MonoBehaviour {
 
 	public void OnClick() {
         if (ScreenManager.S.IsTransitioning())
             return;
         SoundManager.SM.PlayButtonSound();
 
-        LibraryContent.LC.DeleteModel ();
-
-		// delete the obj file
-	}
+        LibraryContent.LC.SaveModel();
+    }
 }

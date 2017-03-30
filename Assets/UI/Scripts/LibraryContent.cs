@@ -15,29 +15,35 @@ public class LibraryContent : MonoBehaviour {
 	public MeshFilter afterMesh;
 
 	GameObject selectedButton;
-	public GameObject deleteButton;
-	public GameObject orientateButtonBefore;
-	public GameObject orientateButtonAfter;
+    public GameObject deleteButton;
+    public GameObject saveButton;
+    public List<GameObject> uploadButtons;
+	public GameObject beforeOrientButton;
+    public GameObject afterOrientButton;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		StartCoroutine (LoadInFiles ());
-		//saveFolder = Application.dataPath + "/SaveFiles";
-
-		LC = this;
+        //saveFolder = Application.dataPath + "/SaveFiles";
+        foreach (GameObject g in uploadButtons)
+            g.SetActive(false);
+        beforeOrientButton.SetActive(false);
+        afterOrientButton.SetActive(false);
+        saveButton.SetActive(false);
+        deleteButton.SetActive(false);
+        LC = this;
 	}
 
 	IEnumerator LoadInFiles () {
 
 		saveFolder = Application.dataPath + "/SaveFiles";
-		Debug.Log (saveFolder);
 		DirectoryInfo dir = new DirectoryInfo (saveFolder);
 		DirectoryInfo[] info = dir.GetDirectories ();
 
 		//int index = 2;
 		foreach (DirectoryInfo d in info) {
-			if (d.ToString ().Contains ("Materials"))
-				continue;
+			if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
 			GameObject newButton = Instantiate (modelButton);
 			newButton.transform.SetParent(transform);
 			ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();
@@ -91,44 +97,60 @@ public class LibraryContent : MonoBehaviour {
 	}
 
 
-	public void SelectButton(GameObject buttonSelect) {
-		if (selectedButton != null) {
-			selectedButton.transform.GetChild (0).gameObject.SetActive (false);
-		}
-		deleteButton.SetActive (true);
-		selectedButton = buttonSelect;
-		ButtonSelectModel buttonSelectComponent = buttonSelect.GetComponent<ButtonSelectModel> ();
-		buttonSelectComponent.selectedText.gameObject.SetActive (true);
-		string path = buttonSelectComponent.savePath;
+    public void SelectButton(GameObject buttonSelect) {
+        if (selectedButton != null) {
+            selectedButton.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        deleteButton.SetActive(true);
+        saveButton.SetActive(true);
+        selectedButton = buttonSelect;
+        ButtonSelectModel buttonSelectComponent = buttonSelect.GetComponent<ButtonSelectModel>();
+        buttonSelectComponent.selectedText.gameObject.SetActive(true);
 
-		DirectoryInfo dir = new DirectoryInfo (path);
-		FileInfo[] info = dir.GetFiles ("*.obj");
+        foreach (GameObject g in uploadButtons)
+            g.SetActive(true);
+        beforeOrientButton.SetActive(false);
+        afterOrientButton.SetActive(false);
+        beforeMesh.mesh = null;
+        afterMesh.mesh = null;
 
-		if (info.Length == 2) {
-			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
-			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
-			orientateButtonBefore.SetActive (true);
-			orientateButtonAfter.SetActive (true);
-		} else if (info.Length == 1) {
-			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
-			orientateButtonBefore.SetActive (true);
-		} else {
-			Debug.LogError ("Error: Not the correct number of obj files");
-		}
+        string path = buttonSelectComponent.savePath;
+        if (File.Exists(path + "/before.obj")) {
+            beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ(path + "/before.obj");
+            beforeOrientButton.SetActive(true);
+        }
+        if (File.Exists(path + "/after.obj")) {
+            afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ(path + "/after.obj");
+            afterOrientButton.SetActive(true);
+        }
+    }
 
 		// Attach orient input mesh
 //		OrientInputMesh orientInputMeshBefore = beforeMesh.gameObject.AddComponent<OrientInputMesh> ();
 //		OrientInputMesh orientInputMeshAfter = afterMesh.gameObject.AddComponent<OrientInputMesh> ();
 //		orientInputMeshBefore.modifyPositionNotRotation = true;
 //		orientInputMeshAfter.modifyPositionNotRotation = true;
-	}
+
+
+    public void SaveModel() {
+        ButtonSelectModel buttonSelectComponent = selectedButton.GetComponent<ButtonSelectModel>();
+        string path = buttonSelectComponent.savePath;
+        if (beforeMesh.mesh != null) {
+            UtilityExportOBJ.S.ExportMeshToOBJ(path + "/beforeClone.obj", beforeMesh.mesh);
+        }
+    } 
 
 	public void DeleteModel() {
 		Destroy (selectedButton);
 		deleteButton.SetActive (false);
-		beforeMesh.mesh = null;
+        saveButton.SetActive(false);
+        beforeMesh.mesh = null;
 		afterMesh.mesh = null;
-		orientateButtonAfter.SetActive (false);
-		orientateButtonBefore.SetActive (false);
-	}
+        foreach (GameObject g in uploadButtons)
+            g.SetActive(false);
+        beforeOrientButton.SetActive(false);
+        afterOrientButton.SetActive(false);
+        beforeMesh.mesh = null;
+        afterMesh.mesh = null;
+    }
 }

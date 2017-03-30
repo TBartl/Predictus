@@ -15,21 +15,19 @@ public class UtilityExportOBJ : MonoBehaviour {
         S = this;
     }
 
-    void ExportMeshToOBJ(string path, Mesh mesh) {
-		
-		string data = "";
-		Vector3[] vertices = mesh.vertices;
+    public void ExportMeshToOBJ(string path, Mesh mesh) {
+        StringBuilder sb = new StringBuilder();
+        Vector3[] vertices = mesh.vertices;
 		for (int i = 0; i < vertices.Length; i++) {
-			data += "v " + vertices[i].x + " " + vertices[i].y + " " + vertices[i].z + "\n";
+			sb.Append("v " + vertices[i].x + " " + vertices[i].y + " " + vertices[i].z + "\n");
 		}
 
-		int[] indices = mesh.triangles;
+		int[] indices = mesh.GetIndices(0);
 		for (int i = 0; i < indices.Length; i += 3) {
-			data += "f " + indices [i] + "//" + indices [i] + " " + indices [i + 1] + "//" + indices [i + 1] + " "
-				+ indices [i + 2] + "//" + indices [i + 2] + "\n";
+            sb.Append("f " + (indices [i]+1) + "// " + (indices [i + 1]+1) + "// " + (indices [i + 2]+1) + "// \n");
 		}
 
-		File.WriteAllText (path, data);
+		File.WriteAllText (path, sb.ToString());
     }
 
     //Mesh parseOBJ(string path) {
