@@ -62,8 +62,27 @@ public class LibraryContent : MonoBehaviour {
 
 			yield return null;
 		}
-
 	}
+
+    public DepthMatrixData GetCompositeOfAllLibraryEntries() {
+        saveFolder = Application.dataPath + "/SaveFiles";
+        DirectoryInfo dir = new DirectoryInfo(saveFolder);
+        DirectoryInfo[] info = dir.GetDirectories();
+
+        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        //int index = 2;
+        foreach (DirectoryInfo d in info) {
+            if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
+            string file = saveFolder + "/" + d.Name + "/diff.txt";
+            if (File.Exists(file)) {
+                entries.Add(DepthMatrixData.Import(file));
+            }
+        }
+
+        DepthMatrixData toReturn = DepthMatrixData.Composite(entries);
+        return toReturn;
+    }
 
 	public void LoadOneFile(string filePath) {
 		GameObject newButton = Instantiate (modelButton);

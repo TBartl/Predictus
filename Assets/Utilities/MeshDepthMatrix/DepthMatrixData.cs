@@ -83,7 +83,7 @@ public class DepthMatrixData {
 			w.Close ();
 		}
     }
-    public DepthMatrixData Import(string path) {
+    public static DepthMatrixData Import(string path) {
 		DepthMatrixData ImportMatrix = new DepthMatrixData ();
 		StreamReader r = new StreamReader (path);
 		using (r) {
@@ -91,7 +91,7 @@ public class DepthMatrixData {
 			int height = int.Parse (r.ReadLine ());
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
-					ImportMatrix.depths [x, y] = int.Parse (r.ReadLine ());
+					ImportMatrix.depths [x, y] = float.Parse (r.ReadLine ());
 				}
 			}
 			r.Close ();
@@ -99,7 +99,7 @@ public class DepthMatrixData {
 		return ImportMatrix;
     }
 
-	public DepthMatrixData Composite(List<DepthMatrixData> allLibraryDepths) {
+	public static DepthMatrixData Composite(List<DepthMatrixData> allLibraryDepths) {
 		//average all DepthMatrixData
 		DepthMatrixData AllMatrix = new DepthMatrixData ();
 		int num = allLibraryDepths.Count; //size of the list
@@ -150,7 +150,6 @@ public class DepthMatrixData {
                 d.depths[x, y] -= mid;
             }
         }
-        d.SaveAsPNG("test");
         GameObject.DestroyImmediate(go);
         return d;
     }

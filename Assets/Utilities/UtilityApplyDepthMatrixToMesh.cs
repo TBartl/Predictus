@@ -31,7 +31,7 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
                     distToSide = Mathf.Min(distToSide, depthData.GetWidth() - v.x);
                     distToSide = Mathf.Min(distToSide, v.y);
                     distToSide = Mathf.Min(distToSide, depthData.GetHeight() - v.y);
-                    vertices[i] += Mathf.Clamp01(distToSide / 20f) * (Vector3.back * VoxData.scale * depthData.depths[v.x, v.y]);
+                    vertices[i] += Mathf.Clamp01(distToSide / 20f) * (Vector3.back * depthData.depths[v.x, v.y]);
                 }
             }
 		}

@@ -6,6 +6,7 @@ public class ButtonOpenMesh : MonoBehaviour, Resettable {
     
     public MeshFilter meshToDrawTo;
     public GameObject continueButton;
+    public bool doReset = false;
 
     public void OnClick() {
         if (ScreenManager.S.IsTransitioning())
@@ -24,7 +25,9 @@ public class ButtonOpenMesh : MonoBehaviour, Resettable {
     }
 
     public void Reset() {
-        //meshToDrawTo.mesh = null;
-        //continueButton.SetActive(false);
+        if (doReset) {
+            meshToDrawTo.mesh = null;
+            continueButton.SetActive(false);
+        }
     }
 }

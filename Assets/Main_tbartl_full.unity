@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshToDrawTo: {fileID: 1054639272}
   continueButton: {fileID: 478193607}
+  doReset: 0
 --- !u!114 &69875152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,12 +502,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 165969117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.37, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
-  m_Father: {fileID: 1944658240}
-  m_RootOrder: 0
+  m_Father: {fileID: 2003963757}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!102 &165969119
 TextMesh:
@@ -5877,6 +5878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshToDrawTo: {fileID: 1586627068}
   continueButton: {fileID: 1849254781}
+  doReset: 1
 --- !u!1 &1312889721
 GameObject:
   m_ObjectHideFlags: 0
@@ -7432,8 +7434,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1689920500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 1059768860}
   m_RootOrder: 2
@@ -8591,8 +8593,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 165969118}
+  m_Children: []
   m_Father: {fileID: 2003963757}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8669,6 +8670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9847bffe369d22543a597b08cadfb334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  library: {fileID: 629355447}
 --- !u!1 &1987772788
 GameObject:
   m_ObjectHideFlags: 0
@@ -8772,6 +8774,7 @@ Transform:
   - {fileID: 678056702}
   - {fileID: 799476113}
   - {fileID: 1944658240}
+  - {fileID: 165969118}
   m_Father: {fileID: 667280221}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9241,6 +9244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshToDrawTo: {fileID: 1586627068}
   continueButton: {fileID: 77155922}
+  doReset: 0
 --- !u!114 &2109509316
 MonoBehaviour:
   m_ObjectHideFlags: 0
