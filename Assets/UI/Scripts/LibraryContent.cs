@@ -28,7 +28,7 @@ public class LibraryContent : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		StartCoroutine (LoadInFiles ());
+		//StartCoroutine (LoadInFiles ());
         //saveFolder = Application.dataPath + "/SaveFiles";
         foreach (GameObject g in uploadButtons)
             g.SetActive(false);
@@ -37,6 +37,18 @@ public class LibraryContent : MonoBehaviour {
         saveButton.SetActive(false);
         deleteButton.SetActive(false);
         //LC = this;
+	}
+
+	void OnEnable() {
+		ClearFiles ();
+		StartCoroutine(LoadInFiles());
+	}
+
+	void ClearFiles() {
+		foreach (Transform child in transform) {
+			if (child.name != "AddNew")
+				Destroy (child.gameObject);
+		}
 	}
 
 	IEnumerator LoadInFiles () {
