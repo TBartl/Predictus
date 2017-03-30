@@ -136,7 +136,10 @@ public class LibraryContent : MonoBehaviour {
         ButtonSelectModel buttonSelectComponent = selectedButton.GetComponent<ButtonSelectModel>();
         string path = buttonSelectComponent.savePath;
         if (beforeMesh.mesh != null) {
-            UtilityExportOBJ.S.ExportMeshToOBJ(path + "/beforeClone.obj", beforeMesh.mesh);
+            UtilityExportOBJ.S.ExportMeshToOBJ(path + "/before.obj", beforeMesh.mesh);
+        }
+        if (afterMesh.mesh != null) {
+            UtilityExportOBJ.S.ExportMeshToOBJ(path + "/after.obj", afterMesh.mesh);
         }
     } 
 
