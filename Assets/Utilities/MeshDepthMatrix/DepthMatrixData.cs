@@ -34,7 +34,7 @@ public class DepthMatrixData {
         Mathf.CeilToInt(realSize.y / VoxData.scale),
         Mathf.CeilToInt(realSize.z / VoxData.scale));
 
-    public int[,] depths = new int[size.x * 2 + 1, size.y * 2 + 1];
+    public float[,] depths = new float[size.x * 2 + 1, size.y * 2 + 1];
 
     public int GetWidth() {
         return depths.GetLength(0);
@@ -46,10 +46,10 @@ public class DepthMatrixData {
     public void SaveAsPNG(string name) {
         Texture2D texture = new Texture2D(depths.GetLength(0), depths.GetLength(1), TextureFormat.RGB24, false);
 
-        int maxDepth = -1;
+        float maxDepth = 0;
         for (int x = 0; x < GetWidth(); x++) {
             for (int y = 0; y < GetHeight(); y++) {
-                maxDepth = Math.Max(maxDepth, depths[x, y]);
+                maxDepth = Math.Max(maxDepth, Mathf.Abs(depths[x, y]));
             }
         }
 
@@ -57,10 +57,10 @@ public class DepthMatrixData {
             for (int y = 0; y < texture.height; y++) {
                 Color color = Color.black;
                 float saturation = Mathf.Abs(depths[x, y] / (float)maxDepth);
-                if (depths[x, y] < 0)
-                    color = new Color(saturation, 0, 0);
                 if (depths[x, y] > 0)
                     color = new Color(0, saturation, 0);
+                if (depths[x, y] < 0)
+                    color = new Color(saturation, 0, 0);
                 texture.SetPixel(x, y, color);
             }
         }
@@ -114,10 +114,45 @@ public class DepthMatrixData {
 		}
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				AllMatrix.depths [x, y] /= num;
+				AllMatrix.depths [x, y] /= (float)num;
 			}
 		}
 		return AllMatrix;
 	}
+
+    public static DepthMatrixData GetFromMeshUsingRaycasts(Mesh m) {
+        DepthMatrixData d = new DepthMatrixData();
+        GameObject go = new GameObject();
+        go.layer = 9;
+        MeshCollider c =  go.AddComponent<MeshCollider>();
+        c.sharedMesh = m;
+        c.convex = false;
+
+        int width = d.depths.GetLength(0);
+        int height = d.depths.GetLength(1);
+        
+        Vector3 offset = (-new Vector3(width, height, 0) + Vector3.one) * VoxData.scale / 2f;
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                Vector3 point = new Vector3(x, y, 0) * VoxData.scale + offset;
+                RaycastHit hit;
+                if (Physics.Raycast(point + Vector3.back * 10, Vector3.forward, out hit, 20, 1 << 9)) {
+                    d.depths[x, y] = hit.distance;
+                }
+            }
+        }
+
+        // Use the top left corner of the box in hopes that it's consistent with every mesh (before or after surgery)
+        float mid = d.depths[0, 0];
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                d.depths[x, y] -= mid;
+            }
+        }
+        d.SaveAsPNG("test");
+        GameObject.DestroyImmediate(go);
+        return d;
+    }
 }
 

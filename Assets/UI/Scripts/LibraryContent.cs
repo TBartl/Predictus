@@ -144,6 +144,15 @@ public class LibraryContent : MonoBehaviour {
         if (afterMesh.mesh != null) {
             UtilityExportOBJ.S.ExportMeshToOBJ(path + "/after.obj", afterMesh.mesh);
         }
+        if (beforeMesh.mesh != null && afterMesh.mesh != null) {
+            DepthMatrixData fromDepths = DepthMatrixData.GetFromMeshUsingRaycasts(beforeMesh.mesh);
+            fromDepths.SaveAsPNG(path + "/from");
+            DepthMatrixData toDepths = DepthMatrixData.GetFromMeshUsingRaycasts(afterMesh.mesh);
+            toDepths.SaveAsPNG(path + "/to");
+            DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(fromDepths, toDepths);
+            diff.SaveAsPNG(path + "/diff");
+            diff.Export(path + "/diff.txt");
+        }
     } 
 
 	public void DeleteModel() {
