@@ -10,6 +10,8 @@ public class ButtonSelectModel : MonoBehaviour {
 
 	public void OnClick() {
 		//selectedText.gameObject.SetActive (true);
+
+		SoundManager.SM.PlayButtonSound();
 		LibraryContent.LC.SelectButton (gameObject);
 	}
 }

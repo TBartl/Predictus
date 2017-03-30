@@ -10,7 +10,7 @@ using System;
 public class ButtonAddModel : MonoBehaviour {
 
 	public void OnClick() {
-
+		SoundManager.SM.PlayButtonSound();
 		StartCoroutine (OpenBrowser ());
 	}
 
