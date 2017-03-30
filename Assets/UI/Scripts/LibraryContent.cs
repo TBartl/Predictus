@@ -22,6 +22,10 @@ public class LibraryContent : MonoBehaviour {
 	public GameObject beforeOrientButton;
     public GameObject afterOrientButton;
 
+	public LibraryContent() {
+		LC = this;
+	}
+
     // Use this for initialization
     void Start () {
 		StartCoroutine (LoadInFiles ());
@@ -32,7 +36,7 @@ public class LibraryContent : MonoBehaviour {
         afterOrientButton.SetActive(false);
         saveButton.SetActive(false);
         deleteButton.SetActive(false);
-        LC = this;
+        //LC = this;
 	}
 
 	IEnumerator LoadInFiles () {
@@ -93,10 +97,10 @@ public class LibraryContent : MonoBehaviour {
 
 		SelectButton (newButton);
 
-		SaveFileIntoFolder (filePath);
+		CopyFileIntoFolder (filePath);
 	}
 
-	void SaveFileIntoFolder(string filePath) {
+	void CopyFileIntoFolder(string filePath) {
 		FileInfo targetFile = new FileInfo (filePath);
 
 		string folderName = filePath.Substring(filePath.LastIndexOf('/') + 1, (filePath.LastIndexOf('.') - (filePath.LastIndexOf('/') + 1)));
@@ -114,6 +118,50 @@ public class LibraryContent : MonoBehaviour {
 		Directory.CreateDirectory (savePath);
 
 		targetFile.CopyTo (savePath + folderName + ".obj");
+	}
+
+	// Not currently being used
+	public void SaveNewFileIntoFolder(Mesh newMesh, string name) {
+
+		string prevPath = UtilityOpenOBJ.S.openedFilePath;
+		string fileName = prevPath.Substring (prevPath.LastIndexOf ("/") + 1, (prevPath.LastIndexOf(".") - prevPath.LastIndexOf("/") - 1));
+		string savePath = Application.dataPath + "/SaveFiles/" + fileName;
+
+		int index = 1;
+		string tempPath = savePath;
+		while (Directory.Exists(tempPath)) {
+			tempPath = savePath + " (" + index + ")";
+			index++;
+		}
+		savePath = tempPath;
+		Directory.CreateDirectory (savePath);
+
+		savePath = savePath + "/" + name + ".obj";
+		UtilityExportOBJ.S.ExportMeshToOBJ (savePath, newMesh);
+	}
+
+	public void SaveTwoFilesIntoFolder (Mesh newMesh1, Mesh newMesh2) {
+//		SaveNewFileIntoFolder(newMesh1, "before");
+//		SaveNewFileIntoFolder(newMesh2, "after");
+
+		string prevPath = UtilityOpenOBJ.S.openedFilePath;
+		string fileName = prevPath.Substring (prevPath.LastIndexOf ("/") + 1, (prevPath.LastIndexOf(".") - prevPath.LastIndexOf("/") - 1));
+		string savePath = Application.dataPath + "/SaveFiles/" + fileName;
+
+		int index = 1;
+		string tempPath = savePath;
+		while (Directory.Exists(tempPath)) {
+			tempPath = savePath + " (" + index + ")";
+			index++;
+		}
+		savePath = tempPath;
+		Directory.CreateDirectory (savePath);
+
+		string savePath1 = savePath + "/before.obj";
+		UtilityExportOBJ.S.ExportMeshToOBJ (savePath1, newMesh1);
+
+		savePath1 = savePath + "/after.obj";
+		UtilityExportOBJ.S.ExportMeshToOBJ (savePath1, newMesh2);
 	}
 
 
@@ -145,11 +193,6 @@ public class LibraryContent : MonoBehaviour {
         }
     }
 
-		// Attach orient input mesh
-//		OrientInputMesh orientInputMeshBefore = beforeMesh.gameObject.AddComponent<OrientInputMesh> ();
-//		OrientInputMesh orientInputMeshAfter = afterMesh.gameObject.AddComponent<OrientInputMesh> ();
-//		orientInputMeshBefore.modifyPositionNotRotation = true;
-//		orientInputMeshAfter.modifyPositionNotRotation = true;
 
 
     public void SaveModel() {

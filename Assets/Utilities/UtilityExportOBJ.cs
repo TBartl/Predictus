@@ -27,6 +27,16 @@ public class UtilityExportOBJ : MonoBehaviour {
             sb.Append("f " + (indices [i]+1) + "// " + (indices [i + 1]+1) + "// " + (indices [i + 2]+1) + "// \n");
 		}
 
+//		// This insures that nothing is overwritten. It makes a new renamed file.
+//		int index = 1;
+//		string tempPath = path;
+//		while (File.Exists (tempPath)) {
+//			tempPath = path + " (" + index + ")";
+//		}
+//		path = tempPath;
+		//Directory.CreateDirectory (path);
+
+
 		File.WriteAllText (path, sb.ToString());
     }
 
