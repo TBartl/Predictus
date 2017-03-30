@@ -24,7 +24,7 @@ public class ButtonOpenMesh : MonoBehaviour, Resettable {
     }
 
     public void Reset() {
-        meshToDrawTo.mesh = null;
-        continueButton.SetActive(false);
+        //meshToDrawTo.mesh = null;
+        //continueButton.SetActive(false);
     }
 }

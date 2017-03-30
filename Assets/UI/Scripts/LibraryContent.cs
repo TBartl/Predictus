@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using System;
 
 public class LibraryContent : MonoBehaviour {
 
@@ -135,6 +136,8 @@ public class LibraryContent : MonoBehaviour {
     public void SaveModel() {
         ButtonSelectModel buttonSelectComponent = selectedButton.GetComponent<ButtonSelectModel>();
         string path = buttonSelectComponent.savePath;
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
         if (beforeMesh.mesh != null) {
             UtilityExportOBJ.S.ExportMeshToOBJ(path + "/before.obj", beforeMesh.mesh);
         }
@@ -155,5 +158,21 @@ public class LibraryContent : MonoBehaviour {
         afterOrientButton.SetActive(false);
         beforeMesh.mesh = null;
         afterMesh.mesh = null;
+        Directory.Delete(selectedButton.GetComponent<ButtonSelectModel>().savePath, true);
+    }
+
+    public void AddNewFolder() {
+        GameObject newButton = Instantiate(modelButton);
+        newButton.transform.SetParent(transform);
+        ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel>();
+        buttonScript.savePath = saveFolder + "/" + 
+            System.DateTime.Now.Month.ToString() + "-" +
+            System.DateTime.Now.Day.ToString() + "_" +
+            System.DateTime.Now.Hour.ToString() + ":" +
+            System.DateTime.Now.Month.ToString() + ":" +
+            System.DateTime.Now.Second.ToString();
+
+        buttonScript.transform.localScale = new Vector3(1, 1, 1);
+        SelectButton(newButton);
     }
 }

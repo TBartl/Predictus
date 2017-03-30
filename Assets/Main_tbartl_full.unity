@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942d6975b8bd27647bac8a25a475d75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshToDrawTo: {fileID: 1586627068}
+  meshToDrawTo: {fileID: 1054639272}
   continueButton: {fileID: 478193607}
 --- !u!114 &69875152
 MonoBehaviour:
@@ -1486,7 +1486,6 @@ GameObject:
   - component: {fileID: 321999212}
   - component: {fileID: 321999211}
   - component: {fileID: 321999210}
-  - component: {fileID: 321999209}
   m_Layer: 5
   m_Name: AddNew
   m_TagString: Untagged
@@ -1513,17 +1512,6 @@ RectTransform:
   m_AnchoredPosition: {x: 91.5, y: -15}
   m_SizeDelta: {x: 183, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &321999209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 321999207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be991b0dac1448e4bbd93443c874af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &321999210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,8 +1569,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 321999209}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 629355447}
+        m_MethodName: AddNewFolder
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6934,7 +6922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e22c12b7049984584a66c06412d7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subProcesses: []
+  subProcesses:
+  - {fileID: 11400000, guid: 85cf0d9441f4f7048b7c1a625243e916, type: 2}
+  - {fileID: 11400000, guid: 3ac42e1194a206a4f85a765645b3892c, type: 2}
 --- !u!1 &1609301565
 GameObject:
   m_ObjectHideFlags: 0
@@ -9290,18 +9280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2109509314}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
