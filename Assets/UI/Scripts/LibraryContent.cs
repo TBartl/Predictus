@@ -16,6 +16,8 @@ public class LibraryContent : MonoBehaviour {
 
 	GameObject selectedButton;
 	public GameObject deleteButton;
+	public GameObject orientateButtonBefore;
+	public GameObject orientateButtonAfter;
 
 	// Use this for initialization
 	void Start () {
@@ -105,8 +107,11 @@ public class LibraryContent : MonoBehaviour {
 		if (info.Length == 2) {
 			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [1].ToString ());
 			afterMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
+			orientateButtonBefore.SetActive (true);
+			orientateButtonAfter.SetActive (true);
 		} else if (info.Length == 1) {
 			beforeMesh.mesh = UtilityOpenOBJ.S.parseOBJ (info [0].ToString ());
+			orientateButtonBefore.SetActive (true);
 		} else {
 			Debug.LogError ("Error: Not the correct number of obj files");
 		}
@@ -123,5 +128,7 @@ public class LibraryContent : MonoBehaviour {
 		deleteButton.SetActive (false);
 		beforeMesh.mesh = null;
 		afterMesh.mesh = null;
+		orientateButtonAfter.SetActive (false);
+		orientateButtonBefore.SetActive (false);
 	}
 }
