@@ -13,8 +13,8 @@ public class UtilityCompareDepthMatrices {
 		DepthMatrixData diff = new DepthMatrixData ();
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
-				//if any one of the depth value is -1, assign 0 to diff
-				if (from.depths [x, y] == -1 || to.depths [x, y] == -1) {
+				//if any one of the depth value is 0, assign 0 to diff
+				if (from.depths [x, y] == 0 || to.depths [x, y] == 0) {
 					diff.depths [x, y] = 0;
 					continue;
 				}

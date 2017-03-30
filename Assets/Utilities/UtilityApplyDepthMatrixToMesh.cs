@@ -17,6 +17,7 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
         
 		for (int i = 0; i < vertices.Length; i++) {
 			IntVector3 v = TransformToIntVector (vertices [i] - offset);
+
             if (Vector3.Dot(normals[i], Vector3.forward) < 0)
             {
                 if (v.x < 0 || v.x >= depthData.GetWidth() ||
@@ -26,6 +27,10 @@ public class UtilityApplyDepthMatrixToMesh : MonoBehaviour {
                 }
                 else
                 {
+
+                    if (Mathf.Abs(depthData.depths[v.x, v.y]) > 1)
+                        continue;
+
                     int distToSide = int.MaxValue;
                     distToSide = Mathf.Min(distToSide, v.x);
                     distToSide = Mathf.Min(distToSide, depthData.GetWidth() - v.x);

@@ -138,6 +138,8 @@ public class DepthMatrixData {
                 Vector3 point = new Vector3(x, y, 0) * VoxData.scale + offset;
                 RaycastHit hit;
                 if (Physics.Raycast(point + Vector3.back * 10, Vector3.forward, out hit, 20, 1 << 9)) {
+                    if (Vector3.Dot(hit.normal, Vector3.back) < 0)
+                        continue;
                     d.depths[x, y] = hit.distance;
                 }
             }
@@ -147,6 +149,8 @@ public class DepthMatrixData {
         float mid = d.depths[0, 0];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
+                if (d.depths[x, y] == 0)
+                    continue;
                 d.depths[x, y] -= mid;
             }
         }
