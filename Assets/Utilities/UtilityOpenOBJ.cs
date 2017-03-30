@@ -12,6 +12,8 @@ public class UtilityOpenOBJ : MonoBehaviour {
     public TextAsset testOBJ;
     public static UtilityOpenOBJ S;
 
+	public string openedFilePath;
+
     public delegate void ReturnMesh(Mesh meshToReturn);
 
     void Awake() {
@@ -106,7 +108,7 @@ public class UtilityOpenOBJ : MonoBehaviour {
             ScreenManager.S.transitioning = false;
             yield break;
         }
-
+		openedFilePath = FileBrowser.Result;
         Mesh m = parseOBJ(FileBrowser.Result);
         ScreenManager.S.transitioning = false;
         returnMesh(m);
