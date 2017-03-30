@@ -166,10 +166,10 @@ public class LibraryContent : MonoBehaviour {
         newButton.transform.SetParent(transform);
         ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel>();
         buttonScript.savePath = saveFolder + "/" + 
-            System.DateTime.Now.Month.ToString() + "-" +
+            System.DateTime.Now.Month.ToString() + "." +
             System.DateTime.Now.Day.ToString() + "_" +
-            System.DateTime.Now.Hour.ToString() + ":" +
-            System.DateTime.Now.Month.ToString() + ":" +
+            System.DateTime.Now.Hour.ToString() + "." +
+            System.DateTime.Now.Month.ToString() + "." +
             System.DateTime.Now.Second.ToString();
 
         buttonScript.transform.localScale = new Vector3(1, 1, 1);
