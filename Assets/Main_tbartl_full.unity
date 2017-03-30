@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44859284, g: 0.49864203, b: 0.57566804, a: 1}
+  m_IndirectSpecularColor: {r: 0.44857824, g: 0.4986272, b: 0.57566285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -9454,7 +9454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942d6975b8bd27647bac8a25a475d75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshToDrawTo: {fileID: 1586627068}
+  meshToDrawTo: {fileID: 1752325451}
   continueButton: {fileID: 77155922}
   doReset: 0
 --- !u!114 &2109509316
