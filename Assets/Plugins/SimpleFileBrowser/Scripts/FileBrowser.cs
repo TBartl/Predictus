@@ -530,6 +530,7 @@ namespace SimpleFileBrowser
 		#region Button Events
 		public void OnBackButtonPressed()
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			if( currentPathIndex > 0 )
 			{
 				currentPathIndex--;
@@ -539,6 +540,7 @@ namespace SimpleFileBrowser
 
 		public void OnForwardButtonPressed()
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			if( currentPathIndex < pathsFollowed.Count - 1 )
 			{
 				currentPathIndex++;
@@ -548,6 +550,7 @@ namespace SimpleFileBrowser
 
 		public void OnUpButtonPressed()
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			DirectoryInfo parentPath = Directory.GetParent( m_currentPath );
 
 			if( parentPath != null )
@@ -556,6 +559,7 @@ namespace SimpleFileBrowser
 
 		public void OnSubmitButtonClicked()
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			string path = m_currentPath;
 			if( filenameInputField.text.Length > 0 )
 				path = Path.Combine( path, filenameInputField.text );
@@ -605,6 +609,7 @@ namespace SimpleFileBrowser
 
 		public void OnCancelButtonClicked()
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			OnOperationCanceled();
 		}
 		#endregion
@@ -667,6 +672,7 @@ namespace SimpleFileBrowser
 
 		public void OnItemSelected( FileBrowserItem item )
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			SelectedFile = item;
 		}
 
@@ -725,6 +731,7 @@ namespace SimpleFileBrowser
 
 		public void RefreshFiles( bool pathChanged )
 		{
+			FileBrowserSound.SM.PlayButtonSound ();
 			if( pathChanged )
 			{
 				allItems.Clear();

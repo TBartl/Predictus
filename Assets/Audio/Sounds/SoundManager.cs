@@ -19,7 +19,8 @@ public class SoundManager : MonoBehaviour {
 		buttonSound.Play ();
 	}
 
-	public void PlayTransformSound() {
+	public IEnumerator PlayTransformSound() {
+		yield return new WaitForSeconds (0.25f);
 		transformSound.Play ();
 	}
 }
