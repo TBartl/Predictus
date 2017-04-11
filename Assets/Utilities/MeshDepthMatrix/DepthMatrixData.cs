@@ -133,9 +133,13 @@ public class DepthMatrixData {
                 }
             }
         }
+        float total = 0;
+        foreach (float weight in weights) {
+            total += weight;
+        }
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                AllMatrix.depths[x, y] /= (float)num;
+                AllMatrix.depths[x, y] /= total;
             }
         }
         return AllMatrix;
