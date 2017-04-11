@@ -134,29 +134,35 @@ public class LibraryContent : MonoBehaviour {
 			float p = (max - diffVal) / (max - min);
 			p = p * p;
 			toReturn.Add (p);
-		}	
-//        float min = float.MaxValue;
-//        float max = 0;
-//        foreach (float diffVal in diffValues) {
-//            if (diffVal < min)
-//                min = diffVal;
-//            if (diffVal > max)
-//                max = diffVal;
-//        }
-//        float center = (min + max) / 2f;
-//        float radius = (max - min) / 2f;
-//
-//        foreach (float diffVal in diffValues) {
-//            float p = (diffVal - center) / radius;
-//            // if diffVal is positive it should be used less
-//            // if diffval is negative, it should be used more
-//            p = - p;
-//
-//            //Just go 0 to 2 for now
-//            p = 1 + p;
-//
-//            toReturn.Add(p);
-//        }
+		}
+        //        float min = float.MaxValue;
+        //        float max = 0;
+        //        foreach (float diffVal in diffValues) {
+        //            if (diffVal < min)
+        //                min = diffVal;
+        //            if (diffVal > max)
+        //                max = diffVal;
+        //        }
+        //        float center = (min + max) / 2f;
+        //        float radius = (max - min) / 2f;
+        //
+        //        foreach (float diffVal in diffValues) {
+        //            float p = (diffVal - center) / radius;
+        //            // if diffVal is positive it should be used less
+        //            // if diffval is negative, it should be used more
+        //            p = - p;
+        //
+        //            //Just go 0 to 2 for now
+        //            p = 1 + p;
+        //
+        //            toReturn.Add(p);
+        //        }
+
+        float pFinal = 0;
+        foreach (float p in toReturn) {
+            pFinal += p;
+        }
+        Debug.Log(pFinal);
         return toReturn;
     }
 
