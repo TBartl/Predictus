@@ -731,9 +731,9 @@ namespace SimpleFileBrowser
 
 		public void RefreshFiles( bool pathChanged )
 		{
-			FileBrowserSound.SM.PlayButtonSound ();
 			if( pathChanged )
 			{
+				FileBrowserSound.SM.PlayButtonSound ();
 				allItems.Clear();
 
 				try
