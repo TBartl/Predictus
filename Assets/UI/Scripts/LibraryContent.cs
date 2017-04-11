@@ -278,13 +278,13 @@ public class LibraryContent : MonoBehaviour {
         string path = buttonSelectComponent.savePath;
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
-        if (beforeMesh.mesh != null) {
+        if (beforeMesh.sharedMesh != null) {
             UtilityExportOBJ.S.ExportMeshToOBJ(path + "/before.obj", beforeMesh.mesh);
         }
-        if (afterMesh.mesh != null) {
+        if (afterMesh.sharedMesh != null) {
             UtilityExportOBJ.S.ExportMeshToOBJ(path + "/after.obj", afterMesh.mesh);
         }
-        if (beforeMesh.mesh != null && afterMesh.mesh != null) {
+        if (beforeMesh.sharedMesh != null && afterMesh.sharedMesh != null) {
             DepthMatrixData fromDepths = DepthMatrixData.GetFromMeshUsingRaycasts(beforeMesh.mesh);
             fromDepths.SaveAsPNG(path + "/from");
             DepthMatrixData toDepths = DepthMatrixData.GetFromMeshUsingRaycasts(afterMesh.mesh);
