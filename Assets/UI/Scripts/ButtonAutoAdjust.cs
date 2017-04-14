@@ -52,7 +52,7 @@ public class ButtonAutoAdjust : MonoBehaviour {
             centerOfZ += vert.z * Mathf.Abs(vert.y);
         }
         if (centerOfZ > 0) {
-            orientInputMesh.transform.Rotate(0, 0, 180);
+            orientInputMesh.transform.Rotate(0, 180, 0);
             orientInputMesh.ApplyMeshTranslationAndRotation();
         }
 
