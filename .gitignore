@@ -39,3 +39,6 @@ thumbs.db
 from.png
 to.png
 diff.png
+from.png.meta
+to.png.meta
+diff.png.meta
