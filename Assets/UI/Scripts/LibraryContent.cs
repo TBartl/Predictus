@@ -87,7 +87,6 @@ public class LibraryContent : MonoBehaviour {
         DirectoryInfo[] info = dir.GetDirectories();
 
         List<DepthMatrixData> entries = new List<DepthMatrixData>();
-        //int index = 2;
         foreach (DirectoryInfo d in info) {
             if (d.Name[0] == 'm' || d.Name[0] == 'M')
                 continue;
@@ -96,11 +95,33 @@ public class LibraryContent : MonoBehaviour {
                 entries.Add(DepthMatrixData.Import(file));
             }
         }
-
         return entries;
     }
 
-    public List<float> GetWeights(Mesh compareWith) {
+    // It's pretty bad practice to copy and paste code
+    // but I'm a renegade cop who doesn't care about the rules
+    public IEnumerator GetAllEntriesCoroutine(UpdateCount updateCount, ReturnEntries returnEntries) {
+        saveFolder = Application.dataPath + "/SaveFiles";
+        DirectoryInfo dir = new DirectoryInfo(saveFolder);
+        DirectoryInfo[] info = dir.GetDirectories();
+
+        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        foreach (DirectoryInfo d in info) {
+            if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
+            string file = saveFolder + "/" + d.Name + "/diff.txt";
+            if (File.Exists(file)) {
+                entries.Add(DepthMatrixData.Import(file));
+                updateCount(entries.Count, -1); // Don't know how many entries until they are all loaded
+                yield return null;
+            }
+        }
+        returnEntries(entries);
+    }
+
+    
+
+    public IEnumerator GetWeights(Mesh compareWith, UpdateCount updateCount, ReturnWeights returnWeights) {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -124,6 +145,8 @@ public class LibraryContent : MonoBehaviour {
                     }
                 }
                 diffValues.Add(diffValue);
+                updateCount(diffValues.Count, 0);
+                yield return null;
             }
         }
 
@@ -158,12 +181,12 @@ public class LibraryContent : MonoBehaviour {
         //            toReturn.Add(p);
         //        }
 
-        float pFinal = 0;
-        foreach (float p in toReturn) {
-            pFinal += p;
-        }
-        Debug.Log(pFinal);
-        return toReturn;
+        //float pFinal = 0;
+        //foreach (float p in toReturn) {
+        //    pFinal += p;
+        //}
+        //Debug.Log(pFinal);
+        returnWeights(toReturn);
     }
 
     public void LoadOneFile(string filePath) {
