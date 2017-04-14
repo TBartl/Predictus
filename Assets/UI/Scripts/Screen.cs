@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Screen : MonoBehaviour {
-    static float transitionTime = .3f;
+    static float transitionTime = .2f;
     List<CanvasRenderer> canvasItems;
     List<Resettable> itemsToReset;
 
