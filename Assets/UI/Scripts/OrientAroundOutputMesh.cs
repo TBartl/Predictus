@@ -8,6 +8,9 @@ public class OrientAroundOutputMesh : MonoBehaviour {
 	Vector3 rotation;
 
 	void OnMouseDrag(){
+		if (ScreenManager.S.transitioning) {
+			return;
+		}
 		float rot_x = Input.GetAxis ("Mouse X") * rotSpeed;
 		float rot_y = Input.GetAxis ("Mouse Y") * rotSpeed;
 		rotation += new Vector3 (rot_y, -rot_x, 0)  * Time.deltaTime;
@@ -16,8 +19,10 @@ public class OrientAroundOutputMesh : MonoBehaviour {
 
 	public void OnClick(){
 		//button to reset the rotation
-
-			this.transform.rotation = Quaternion.identity;
+		if (ScreenManager.S.transitioning) {
+			return;
+		}
+		this.transform.rotation = Quaternion.identity;
 
 	}
 //    public float baseAmount;

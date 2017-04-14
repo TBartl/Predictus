@@ -87,7 +87,6 @@ public class LibraryContent : MonoBehaviour {
         DirectoryInfo[] info = dir.GetDirectories();
 
         List<DepthMatrixData> entries = new List<DepthMatrixData>();
-        //int index = 2;
         foreach (DirectoryInfo d in info) {
             if (d.Name[0] == 'm' || d.Name[0] == 'M')
                 continue;
@@ -96,11 +95,44 @@ public class LibraryContent : MonoBehaviour {
                 entries.Add(DepthMatrixData.Import(file));
             }
         }
-
         return entries;
     }
 
-    public List<float> GetWeights(Mesh compareWith) {
+    List<string> GetValidDiffFilePaths() {
+        saveFolder = Application.dataPath + "/SaveFiles";
+        DirectoryInfo dir = new DirectoryInfo(saveFolder);
+        DirectoryInfo[] info = dir.GetDirectories();
+
+        List<string> files = new List<string>();
+        foreach (DirectoryInfo d in info) {
+            if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
+            string file = saveFolder + "/" + d.Name + "/diff.txt";
+            if (File.Exists(file)) {
+                files.Add(file);
+            }
+        }
+        return files;
+    }
+
+    // It's pretty bad practice to copy and paste code
+    // but I'm a renegade cop who doesn't care about the rules
+    public IEnumerator GetAllEntriesCoroutine(UpdateText updateText, UpdateCount updateCount, ReturnEntries returnEntries) {
+        
+        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        List<string> files = GetValidDiffFilePaths();
+        foreach (string file in files) {
+            entries.Add(DepthMatrixData.Import(file));
+            updateCount(entries.Count, files.Count); // Don't know how many entries until they are all loaded
+            updateText("Loading " + file);
+            yield return null;
+        }
+        returnEntries(entries);
+    }
+
+    
+
+    public IEnumerator GetWeights(Mesh compareWith, UpdateText updateText, UpdateCount updateCount, ReturnWeights returnWeights) {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -124,6 +156,9 @@ public class LibraryContent : MonoBehaviour {
                     }
                 }
                 diffValues.Add(diffValue);
+                updateCount(diffValues.Count, -1);
+                updateText("Processing " + txtFile);
+                yield return null;
             }
         }
 
@@ -158,12 +193,12 @@ public class LibraryContent : MonoBehaviour {
         //            toReturn.Add(p);
         //        }
 
-        float pFinal = 0;
-        foreach (float p in toReturn) {
-            pFinal += p;
-        }
-        Debug.Log(pFinal);
-        return toReturn;
+        //float pFinal = 0;
+        //foreach (float p in toReturn) {
+        //    pFinal += p;
+        //}
+        //Debug.Log(pFinal);
+        returnWeights(toReturn);
     }
 
     public void LoadOneFile(string filePath) {

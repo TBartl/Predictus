@@ -47,4 +47,5 @@ public class Screen : MonoBehaviour {
             canvasItem.SetAlpha(amount);
         }
     }
+
 }
