@@ -16,7 +16,6 @@ public class ButtonPassOnMeshThenChangeScreen : MonoBehaviour {
 		foreach (MeshFilter m in to) {
             m.mesh = from.mesh;
         }
-		SoundManager.SM.PlayTransformSound ();
         ScreenManager.S.ChangeScreen(toScreen);
     }
 }

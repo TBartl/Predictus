@@ -18,9 +18,11 @@ public class ButtonAutoAdjust : MonoBehaviour {
 
         mf.mesh.RecalculateBounds();
         Vector3 boundsSize = mf.mesh.bounds.size;
-
+        Debug.Log(boundsSize.x);
+        Debug.Log(boundsSize.y);
+        Debug.Log(boundsSize.z);
         // Rotate to be on the right axis
-        if      (boundsSize.x < boundsSize.y && boundsSize.y < boundsSize.z)//x<y<z
+        if (boundsSize.x < boundsSize.y && boundsSize.y < boundsSize.z)//x<y<z
             orientInputMesh.transform.Rotate(90, 0, 90);
         else if (boundsSize.x < boundsSize.z && boundsSize.z < boundsSize.y)//x<z<y
             orientInputMesh.transform.Rotate(0, 90, 0);
@@ -39,6 +41,20 @@ public class ButtonAutoAdjust : MonoBehaviour {
         foreach (Vector3 vert in verts) {
             centerOfY += vert.y * Mathf.Abs(vert.x);
         }
-        
+        if (centerOfY > 0) {
+            orientInputMesh.transform.Rotate(0, 0, 180);
+            orientInputMesh.ApplyMeshTranslationAndRotation();
+        }
+
+        float centerOfZ = 0;
+        verts = new List<Vector3>(mf.mesh.vertices);
+        foreach (Vector3 vert in verts) {
+            centerOfZ += vert.z * Mathf.Abs(vert.y);
+        }
+        if (centerOfZ > 0) {
+            orientInputMesh.transform.Rotate(0, 0, 180);
+            orientInputMesh.ApplyMeshTranslationAndRotation();
+        }
+
     }
 }

@@ -62,7 +62,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         OnCountUpdated(entries.Count * 2 + 1, entries.Count);
         yield return null;
         meshFilter.mesh = UtilityApplyDepthMatrixToMesh.Apply(meshFilter.mesh, toApply);
-        StartCoroutine(SoundManager.SM.PlayTransformSound());
+        SoundManager.SM.PlayTransformSound();
         yield return null;
         loadBar.SetActive(false);
     }
