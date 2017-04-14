@@ -13,7 +13,6 @@ public class ButtonPassOnMeshThenChangeScreen : MonoBehaviour {
             return;
 
         SoundManager.SM.PlayButtonSound ();
-		StartCoroutine (SoundManager.SM.PlayTransformSound ());
         foreach (MeshFilter m in to) {
             m.mesh = from.mesh;
         }

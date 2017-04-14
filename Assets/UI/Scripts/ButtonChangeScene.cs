@@ -8,6 +8,9 @@ public class ButtonChangeScene : MonoBehaviour {
     public int scene;
 
     public void OnClick() {
+        if (!ScreenManager.S || !SoundManager.SM)
+            SceneManager.LoadScene(scene);
+
         if (ScreenManager.S.IsTransitioning())
             return;
         SoundManager.SM.PlayButtonSound();

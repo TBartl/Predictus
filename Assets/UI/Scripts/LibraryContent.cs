@@ -98,30 +98,41 @@ public class LibraryContent : MonoBehaviour {
         return entries;
     }
 
-    // It's pretty bad practice to copy and paste code
-    // but I'm a renegade cop who doesn't care about the rules
-    public IEnumerator GetAllEntriesCoroutine(UpdateCount updateCount, ReturnEntries returnEntries) {
+    List<string> GetValidDiffFilePaths() {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
 
-        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        List<string> files = new List<string>();
         foreach (DirectoryInfo d in info) {
             if (d.Name[0] == 'm' || d.Name[0] == 'M')
                 continue;
             string file = saveFolder + "/" + d.Name + "/diff.txt";
             if (File.Exists(file)) {
-                entries.Add(DepthMatrixData.Import(file));
-                updateCount(entries.Count, -1); // Don't know how many entries until they are all loaded
-                yield return null;
+                files.Add(file);
             }
+        }
+        return files;
+    }
+
+    // It's pretty bad practice to copy and paste code
+    // but I'm a renegade cop who doesn't care about the rules
+    public IEnumerator GetAllEntriesCoroutine(UpdateText updateText, UpdateCount updateCount, ReturnEntries returnEntries) {
+        
+        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        List<string> files = GetValidDiffFilePaths();
+        foreach (string file in files) {
+            entries.Add(DepthMatrixData.Import(file));
+            updateCount(entries.Count, files.Count); // Don't know how many entries until they are all loaded
+            updateText("Loading " + file);
+            yield return null;
         }
         returnEntries(entries);
     }
 
     
 
-    public IEnumerator GetWeights(Mesh compareWith, UpdateCount updateCount, ReturnWeights returnWeights) {
+    public IEnumerator GetWeights(Mesh compareWith, UpdateText updateText, UpdateCount updateCount, ReturnWeights returnWeights) {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -145,7 +156,8 @@ public class LibraryContent : MonoBehaviour {
                     }
                 }
                 diffValues.Add(diffValue);
-                updateCount(diffValues.Count, 0);
+                updateCount(diffValues.Count, -1);
+                updateText("Processing " + txtFile);
                 yield return null;
             }
         }
