@@ -192,6 +192,16 @@ public class LibraryContent : MonoBehaviour {
         //Debug.Log(pFinal);
 
         float confidence = 0;
+		float upper = 400;
+		float lower = 100;
+		foreach (float diffVal in diffValues) {
+			if (diffVal > upper)
+				continue;
+			confidence += 2 * ((upper - diffVal) / (upper - lower)); //0-2 range
+		}
+		Debug.Log ("Confidence");
+		Debug.Log (confidence);
+		//scale 0-2:OK, 2-5: GOOD
         returnWeights(toReturn, confidence);
     }
 
