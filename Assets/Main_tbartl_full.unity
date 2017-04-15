@@ -547,11 +547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Export Predicted
-
-    Model
-
-'
+  m_Text: Take Snapshot
 --- !u!222 &122783238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4146,7 +4142,6 @@ GameObject:
   - component: {fileID: 663318424}
   - component: {fileID: 663318423}
   - component: {fileID: 663318422}
-  - component: {fileID: 663318421}
   m_Layer: 5
   m_Name: 'Button: Snapshot'
   m_TagString: Untagged
@@ -4173,18 +4168,6 @@ RectTransform:
   m_AnchoredPosition: {x: 565, y: -537}
   m_SizeDelta: {x: 217, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &663318421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 663318419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a41641d68fd49d8930fcd94a790c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  predictedMesh: {fileID: 1944658243}
 --- !u!114 &663318422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4224,8 +4207,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 663318421}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1961215848}
+        m_MethodName: TakeSnapshot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4249,7 +4232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.79310346, b: 0.11764705, a: 1}
+  m_Color: {r: 1, g: 0.39148074, b: 0.11764705, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11981,6 +11964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961215846}
   - component: {fileID: 1961215847}
+  - component: {fileID: 1961215848}
   m_Layer: 0
   m_Name: Snapshot Camera
   m_TagString: Untagged
@@ -12027,7 +12011,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: aa6d6ac99165e3f44ae26a699d6b7289, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -12035,6 +12019,17 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1961215848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961215845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511ac97bcf8bf4ff8bde2209171bb658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987772788
 GameObject:
   m_ObjectHideFlags: 0
@@ -12124,7 +12119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2003963757
 Transform:
   m_ObjectHideFlags: 0
