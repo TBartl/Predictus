@@ -58,6 +58,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         int realNum = (outOf != -1) ? num : num + entries.Count;
         if (outOf == -1) // Just use entry count
             outOf = entries.Count;
+		Debug.Log (outOf);
         int realOutOf = 2 * outOf + 1; // n entries + n process + 1 apply
         countText.text = realNum + "/" + realOutOf;
     }
@@ -104,7 +105,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
 
             similair[i].before.mesh = befores[maxWeightIndex];
             similair[i].after.mesh = afters[maxWeightIndex];
-            similair[i].text.text = (maxWeight / totalWeight).ToString() + "%";
+            similair[i].text.text = (maxWeight / totalWeight).ToString("0.##") + "%";
 
             befores.RemoveAt(maxWeightIndex);
             afters.RemoveAt(maxWeightIndex);
