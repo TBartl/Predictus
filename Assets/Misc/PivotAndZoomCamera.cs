@@ -62,7 +62,7 @@ public class PivotAndZoomCamera : MonoBehaviour {
 			// Find the difference in the distances between each frame.
 			float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
 
-			this.transform.localScale -= Vector3.one * deltaMagnitudeDiff * (zoomSpeed/10);
+			this.transform.localScale -= Vector3.one * deltaMagnitudeDiff * (zoomSpeed/10.0f);
 		}
 	}
 }
