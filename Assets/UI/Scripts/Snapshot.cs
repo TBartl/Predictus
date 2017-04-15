@@ -33,6 +33,8 @@ public class Snapshot : MonoBehaviour {
 //	}
 
 	void LateUpdate() {
+		
+		// snapshot button
 		if (takeHiResShot) {
             RenderTexture rt = cam.targetTexture;
             RenderTexture.active = rt;
@@ -46,5 +48,6 @@ public class Snapshot : MonoBehaviour {
 			System.IO.File.WriteAllBytes(filename, bytes);
 			takeHiResShot = false;
 		}
+
 	}
 }
