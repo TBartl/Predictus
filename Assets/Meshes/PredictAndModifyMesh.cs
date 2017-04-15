@@ -116,7 +116,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
 
             similair[i].before.mesh = befores[maxWeightIndex];
             similair[i].after.mesh = afters[maxWeightIndex];
-            similair[i].text.text = (maxWeight / totalWeight).ToString("0.##") + "%";
+            similair[i].text.text = "Weighted " + (maxWeight / totalWeight * 100f).ToString("0.##") + "%";
 
             befores.RemoveAt(maxWeightIndex);
             afters.RemoveAt(maxWeightIndex);
