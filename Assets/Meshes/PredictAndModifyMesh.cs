@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [System.Serializable] public delegate void UpdateCount(int num, int outOf);
 [System.Serializable] public delegate void UpdateText(string text);
 [System.Serializable] public delegate void ReturnEntries(List<DepthMatrixData> entries, List<Mesh> befores, List<Mesh> afters);
-[System.Serializable] public delegate void ReturnWeights(List<float> weights);
+[System.Serializable] public delegate void ReturnWeightsAndConfidence(List<float> weights, float confidence);
 
 [System.Serializable]
 public class SimilairMeshInfo {
@@ -70,7 +70,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         StartCoroutine(library.GetWeights(meshFilter.mesh, OnBottomTextUpdated, OnCountUpdated, OnRecievedWeights));
     }
 
-    public void OnRecievedWeights(List<float> weights) {
+    public void OnRecievedWeights(List<float> weights, float confidence) {
         this.weights = weights;
         DepthMatrixData toApply = DepthMatrixData.GetWeighted(entries, weights);
         StartCoroutine(ApplyToMesh(toApply));

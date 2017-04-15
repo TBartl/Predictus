@@ -131,7 +131,7 @@ public class LibraryContent : MonoBehaviour {
 
     
 
-    public IEnumerator GetWeights(Mesh compareWith, UpdateText updateText, UpdateCount updateCount, ReturnWeights returnWeights) {
+    public IEnumerator GetWeights(Mesh compareWith, UpdateText updateText, UpdateCount updateCount, ReturnWeightsAndConfidence returnWeights) {
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -150,6 +150,7 @@ public class LibraryContent : MonoBehaviour {
                 DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(a, b);
                 float diffValue = diff.GetDiffValOfTwo();
                 diffValues.Add(diffValue);
+                Debug.Log(diffValue);
                 updateCount(diffValues.Count, -1);
                 updateText("Processing " + txtFile);
                 yield return null;
@@ -189,7 +190,9 @@ public class LibraryContent : MonoBehaviour {
         //    pFinal += p;
         //}
         //Debug.Log(pFinal);
-        returnWeights(toReturn);
+
+        float confidence = 0;
+        returnWeights(toReturn, confidence);
     }
 
     public void LoadOneFile(string filePath) {
