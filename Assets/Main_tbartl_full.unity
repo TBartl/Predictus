@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44859284, g: 0.49864203, b: 0.57566804, a: 1}
+  m_IndirectSpecularColor: {r: 0.44857824, g: 0.4986272, b: 0.57566285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4138,6 +4138,21 @@ MonoBehaviour:
   - {fileID: 2109509312}
   beforeOrientButton: {fileID: 478193607}
   afterOrientButton: {fileID: 77155922}
+  firstTimeMeshes:
+  - before: {fileID: 4300000, guid: 0a3ba5af2d76a4342b7db340872e0a55, type: 3}
+    after: {fileID: 4300000, guid: 9379a5fc4fe0b4ae7b1c990972ca24b1, type: 3}
+  - before: {fileID: 4300000, guid: 76b94be29520d487b92ff2ae1af54e47, type: 3}
+    after: {fileID: 4300000, guid: e486f20aa7af141039701b21f644cf4f, type: 3}
+  - before: {fileID: 4300000, guid: e0e8dd216e375d34ba2e9faec4bc15fc, type: 3}
+    after: {fileID: 4300010, guid: f1746e55050335d44b12f496e6030e4b, type: 3}
+  - before: {fileID: 4300004, guid: 7ad183f8325cd8f4cb683dd5bd6fd060, type: 3}
+    after: {fileID: 4300000, guid: cfe03352dd178af48a525fe47f3b524a, type: 3}
+  - before: {fileID: 4300000, guid: 4401b2080af374ad199a9f588e4a4283, type: 3}
+    after: {fileID: 4300000, guid: b5da0568932cf41ecb859231ec71c2e4, type: 3}
+  - before: {fileID: 4300000, guid: 6606df1d267e94ac4bdbe7dffb796e00, type: 3}
+    after: {fileID: 4300000, guid: 2a9b812b73a074d5d9f338c2961d3d8d, type: 3}
+  - before: {fileID: 4300000, guid: fad24658eb1cf4bd2821815563c84446, type: 3}
+    after: {fileID: 4300000, guid: f068011605c5a4a7f841a58a24e7fa11, type: 3}
 --- !u!1 &644298342
 GameObject:
   m_ObjectHideFlags: 0

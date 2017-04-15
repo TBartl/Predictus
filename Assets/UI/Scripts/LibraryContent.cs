@@ -5,6 +5,12 @@ using System.IO;
 using UnityEngine.UI;
 using System;
 
+[System.Serializable]
+public struct MeshPair {
+    public Mesh before;
+    public Mesh after;
+}
+
 public class LibraryContent : MonoBehaviour {
 
 	public static LibraryContent LC;
@@ -21,6 +27,9 @@ public class LibraryContent : MonoBehaviour {
     public List<GameObject> uploadButtons;
 	public GameObject beforeOrientButton;
     public GameObject afterOrientButton;
+
+    public List<MeshPair> firstTimeMeshes;
+
 
 	public LibraryContent() {
 		LC = this;
@@ -39,6 +48,8 @@ public class LibraryContent : MonoBehaviour {
         //LC = this;
 	}
 
+
+
     //TODO reimplement these
 	//void OnEnable() {
 	//	ClearFiles ();
@@ -52,10 +63,33 @@ public class LibraryContent : MonoBehaviour {
 	//	}
 	//}
 
-	IEnumerator LoadInFiles () {
+    void SetupLibraryFirstTimeIfNeeded() {
+        saveFolder = Application.persistentDataPath + "/SaveFiles";
+        if (!Directory.Exists(Application.persistentDataPath) || !Directory.Exists(saveFolder)) {
+            if (!Directory.Exists(Application.persistentDataPath))
+                Directory.CreateDirectory(Application.persistentDataPath);
+            Directory.CreateDirectory(saveFolder);
+            for (int i = 0; i < firstTimeMeshes.Count; i++) {
+                string thisFolder = saveFolder + "/builtin" + i.ToString();
+                Directory.CreateDirectory(thisFolder);
+                UtilityExportOBJ.S.ExportMeshToOBJ(thisFolder + "/before.obj", firstTimeMeshes[i].before);
+                UtilityExportOBJ.S.ExportMeshToOBJ(thisFolder + "/after.obj", firstTimeMeshes[i].after);
 
-		saveFolder = Application.dataPath + "/SaveFiles";
-		DirectoryInfo dir = new DirectoryInfo (saveFolder);
+                DepthMatrixData fromDepths = DepthMatrixData.GetFromMeshUsingRaycasts(firstTimeMeshes[i].before);
+                fromDepths.SaveAsPNG(thisFolder + "/from");
+                DepthMatrixData toDepths = DepthMatrixData.GetFromMeshUsingRaycasts(firstTimeMeshes[i].after);
+                toDepths.SaveAsPNG(thisFolder + "/to");
+                DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(fromDepths, toDepths);
+                diff.SaveAsPNG(thisFolder + "/diff");
+                diff.Export(thisFolder + "/diff.txt");
+            }
+        }
+    }
+
+	IEnumerator LoadInFiles () {
+        SetupLibraryFirstTimeIfNeeded();
+
+        DirectoryInfo dir = new DirectoryInfo (saveFolder);
 		DirectoryInfo[] info = dir.GetDirectories ();
 
 		//int index = 2;
@@ -82,7 +116,8 @@ public class LibraryContent : MonoBehaviour {
 	}
 
     public List<DepthMatrixData> GetAllEntries() {
-        saveFolder = Application.dataPath + "/SaveFiles";
+        SetupLibraryFirstTimeIfNeeded();
+
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
 
@@ -106,7 +141,7 @@ public class LibraryContent : MonoBehaviour {
         List<Mesh> befores = new List<Mesh>();
         List<Mesh> afters = new List<Mesh>();
 
-        saveFolder = Application.dataPath + "/SaveFiles";
+        saveFolder = Application.persistentDataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
 
@@ -141,7 +176,7 @@ public class LibraryContent : MonoBehaviour {
     
 
     public IEnumerator GetWeights(Mesh compareWith, UpdateText updateText, UpdateCount updateCount, ReturnWeightsAndConfidence returnWeights) {
-        saveFolder = Application.dataPath + "/SaveFiles";
+        saveFolder = Application.persistentDataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
 
@@ -230,7 +265,7 @@ public class LibraryContent : MonoBehaviour {
 		FileInfo targetFile = new FileInfo (filePath);
 
 		string folderName = filePath.Substring(filePath.LastIndexOf('/') + 1, (filePath.LastIndexOf('.') - (filePath.LastIndexOf('/') + 1)));
-		string savePath = Application.dataPath + "/SaveFiles/" + folderName;
+		string savePath = Application.persistentDataPath + "/SaveFiles/" + folderName;
 
 		int index = 1;
 		string tempPath = savePath;
@@ -251,7 +286,7 @@ public class LibraryContent : MonoBehaviour {
 
 		string prevPath = UtilityOpenOBJ.S.openedFilePath;
 		string fileName = prevPath.Substring (prevPath.LastIndexOf ("/") + 1, (prevPath.LastIndexOf(".") - prevPath.LastIndexOf("/") - 1));
-		string savePath = Application.dataPath + "/SaveFiles/" + fileName;
+		string savePath = Application.persistentDataPath + "/SaveFiles/" + fileName;
 
 		int index = 1;
 		string tempPath = savePath;
@@ -272,7 +307,7 @@ public class LibraryContent : MonoBehaviour {
 
 		string prevPath = UtilityOpenOBJ.S.openedFilePath;
 		string fileName = prevPath.Substring (prevPath.LastIndexOf ("/") + 1, (prevPath.LastIndexOf(".") - prevPath.LastIndexOf("/") - 1));
-		string savePath = Application.dataPath + "/SaveFiles/" + fileName;
+		string savePath = Application.persistentDataPath + "/SaveFiles/" + fileName;
 
 		int index = 1;
 		string tempPath = savePath;
