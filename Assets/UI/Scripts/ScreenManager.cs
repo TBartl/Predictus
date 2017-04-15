@@ -16,6 +16,7 @@ public class ScreenManager : MonoBehaviour {
 
     void Start() {
         ChangeScreen(firstScreen);
+        LibraryContent.LC.SetupLibraryFirstTimeIfNeeded();
     }
 
     public void ChangeScreen(Screen to) {

@@ -63,7 +63,7 @@ public class LibraryContent : MonoBehaviour {
 	//	}
 	//}
 
-    void SetupLibraryFirstTimeIfNeeded() {
+    public void SetupLibraryFirstTimeIfNeeded() {
         saveFolder = Application.persistentDataPath + "/SaveFiles";
         if (!Directory.Exists(Application.persistentDataPath) || !Directory.Exists(saveFolder)) {
             if (!Directory.Exists(Application.persistentDataPath))
@@ -87,8 +87,6 @@ public class LibraryContent : MonoBehaviour {
     }
 
 	IEnumerator LoadInFiles () {
-        SetupLibraryFirstTimeIfNeeded();
-
         DirectoryInfo dir = new DirectoryInfo (saveFolder);
 		DirectoryInfo[] info = dir.GetDirectories ();
 
@@ -116,7 +114,6 @@ public class LibraryContent : MonoBehaviour {
 	}
 
     public List<DepthMatrixData> GetAllEntries() {
-        SetupLibraryFirstTimeIfNeeded();
 
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
