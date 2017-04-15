@@ -22,7 +22,8 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
     public Text countText;
 	public Text confidence;
     public GameObject loadBar;
-	string confidenceLevel;
+    public GameObject loadBarPercentBar;
+    string confidenceLevel;
 
     MeshFilter meshFilter;
 
@@ -62,7 +63,8 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         if (outOf == -1) // Just use entry count
             outOf = entries.Count;
         int realOutOf = 2 * outOf + 1; // n entries + n process + 1 apply
-        countText.text = realNum + "/" + realOutOf;
+        countText.text = Mathf.RoundToInt((float)realNum/ (float)realOutOf * 100) + "%";
+        loadBarPercentBar.transform.localScale = new Vector3(realNum / (float)realOutOf, 1, 1);
     }
 
     public void OnRecievedEntries(List<DepthMatrixData> entries, List<Mesh> befores, List<Mesh> afters) {
@@ -73,14 +75,14 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
     }
 
     public void OnRecievedWeights(List<float> weights, float confidence) {
-		if (confidence > 25)
-			confidenceLevel = "extremely high";
-		else if (confidence > 15)
-			confidenceLevel = "high";
-		else if (confidence > 3)
-			confidenceLevel = "medium";
+		if (confidence > 15)
+			confidenceLevel = "<color=#5ef441ff>extremely high</color>";
+		else if (confidence > 9)
+			confidenceLevel = "<color=#f1f441ff>high</color>";
+		else if (confidence > 4)
+			confidenceLevel = "<color=#f4a641ff>medium</color>";
 		else
-			confidenceLevel = "low";
+			confidenceLevel = "<color=#f44242ff>low</color>";
 		
         this.weights = weights;
         DepthMatrixData toApply = DepthMatrixData.GetWeighted(entries, weights);

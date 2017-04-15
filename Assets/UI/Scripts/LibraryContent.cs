@@ -110,7 +110,16 @@ public class LibraryContent : MonoBehaviour {
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
 
-        List<string> files = new List<string>();
+        int entryCount = 0;
+        foreach (DirectoryInfo d in info) {
+            if (d.Name[0] == 'm' || d.Name[0] == 'M')
+                continue;
+            string file = saveFolder + "/" + d.Name + "/diff.txt";
+            if (File.Exists(file)) {
+                entryCount += 1;
+            }
+        }
+
         foreach (DirectoryInfo d in info) {
             if (d.Name[0] == 'm' || d.Name[0] == 'M')
                 continue;
@@ -121,8 +130,8 @@ public class LibraryContent : MonoBehaviour {
                 entries.Add(DepthMatrixData.Import(file));
                 befores.Add(UtilityOpenOBJ.S.parseOBJ(fileBefore));
                 afters.Add(UtilityOpenOBJ.S.parseOBJ(fileAfter));
-                updateCount(entries.Count, files.Count); // Don't know how many entries until they are all loaded
-                updateText("Loading " + file);
+                updateCount(entries.Count, entryCount);
+                updateText("Loading Models");
                 yield return null;
             }
         }
@@ -152,7 +161,7 @@ public class LibraryContent : MonoBehaviour {
                 diffValues.Add(diffValue);
                 Debug.Log(diffValue);
                 updateCount(diffValues.Count, -1);
-                updateText("Processing " + txtFile);
+                updateText("Processing Models");
                 yield return null;
             }
         }
