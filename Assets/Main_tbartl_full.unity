@@ -2739,6 +2739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientInputMesh: {fileID: 258250627}
+  compareToMesh: {fileID: 4300030, guid: b31993586c6ca174096bd57bbdf7df10, type: 3}
 --- !u!114 &509777934
 MonoBehaviour:
   m_ObjectHideFlags: 0

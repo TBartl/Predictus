@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonAutoAdjust : MonoBehaviour {
     public OrientInputMesh orientInputMesh;
     MeshFilter mf;
+    public Mesh compareToMesh;
 
     void Awake() {
         mf = orientInputMesh.gameObject.GetComponent<MeshFilter>();
@@ -18,9 +19,6 @@ public class ButtonAutoAdjust : MonoBehaviour {
 
         mf.mesh.RecalculateBounds();
         Vector3 boundsSize = mf.mesh.bounds.size;
-        Debug.Log(boundsSize.x);
-        Debug.Log(boundsSize.y);
-        Debug.Log(boundsSize.z);
         // Rotate to be on the right axis
         if (boundsSize.x < boundsSize.y && boundsSize.y < boundsSize.z)//x<y<z
             orientInputMesh.transform.Rotate(90, 0, 90);
@@ -46,15 +44,20 @@ public class ButtonAutoAdjust : MonoBehaviour {
             orientInputMesh.ApplyMeshTranslationAndRotation();
         }
 
-        float centerOfZ = 0;
-        verts = new List<Vector3>(mf.mesh.vertices);
-        foreach (Vector3 vert in verts) {
-            centerOfZ += vert.z * Mathf.Abs(vert.y);
-        }
-        if (centerOfZ > 0) {
+        orientInputMesh.Reset();
+        DepthMatrixData compData = DepthMatrixData.GetFromMeshUsingRaycasts(compareToMesh);
+        DepthMatrixData comp1 = UtilityCompareDepthMatrices.Compare(
+            DepthMatrixData.GetFromMeshUsingRaycasts(mf.mesh), compData);
+        orientInputMesh.transform.Rotate(0, 180, 0);
+        orientInputMesh.ApplyMeshTranslationAndRotation();
+        DepthMatrixData comp2 = UtilityCompareDepthMatrices.Compare(
+            DepthMatrixData.GetFromMeshUsingRaycasts(mf.mesh), compData);
+        if (comp1.GetDiffValOfTwo() < comp2.GetDiffValOfTwo()) {
             orientInputMesh.transform.Rotate(0, 180, 0);
             orientInputMesh.ApplyMeshTranslationAndRotation();
         }
+
+
 
     }
 }

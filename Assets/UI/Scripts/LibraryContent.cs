@@ -149,12 +149,7 @@ public class LibraryContent : MonoBehaviour {
             if (File.Exists(txtFile)) {
                 DepthMatrixData b = DepthMatrixData.GetFromMeshUsingRaycasts(UtilityOpenOBJ.S.parseOBJ(meshFile));
                 DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(a, b);
-                float diffValue = 0;
-                for (int x = 0; x < diff.GetWidth(); x++) {
-                    for (int y = 0; y < diff.GetHeight(); y++) {
-                        diffValue += Mathf.Abs(diff.depths[x, y]);
-                    }
-                }
+                float diffValue = diff.GetDiffValOfTwo();
                 diffValues.Add(diffValue);
                 updateCount(diffValues.Count, -1);
                 updateText("Processing " + txtFile);

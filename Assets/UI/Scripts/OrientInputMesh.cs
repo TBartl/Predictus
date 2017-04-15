@@ -17,6 +17,14 @@ public class OrientInputMesh : MonoBehaviour, Resettable {
     public void Reset() {
         this.transform.position = -meshFilter.mesh.bounds.center;
         ApplyMeshTranslationAndRotation();
+        List<Vector3> verts = new List<Vector3>(meshFilter.mesh.vertices);
+        Vector3 center = Vector3.zero;
+        foreach (Vector3 vert in verts) {
+            center += vert;                    
+        }
+        center /= verts.Count;
+        this.transform.position -= center;
+        ApplyMeshTranslationAndRotation();
     }
 
     private void OnMouseDrag() {

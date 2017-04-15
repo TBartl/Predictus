@@ -182,5 +182,15 @@ public class DepthMatrixData {
         GameObject.DestroyImmediate(go);
         return d;
     }
+
+    public float GetDiffValOfTwo() {
+        float diffValue = 0;
+        for (int x = 0; x < GetWidth(); x++) {
+            for (int y = 0; y < GetHeight(); y++) {
+                diffValue += Mathf.Abs(depths[x, y]);
+            }
+        }
+        return diffValue;
+    }
 }
 
