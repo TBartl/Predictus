@@ -20,7 +20,9 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
     public LibraryContent library;
     public Text bottomText;
     public Text countText;
+	public Text confidence;
     public GameObject loadBar;
+	string confidenceLevel;
 
     MeshFilter meshFilter;
 
@@ -48,6 +50,7 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         loadBar.SetActive(true);
         StartCoroutine(library.GetAllEntriesCoroutine(OnBottomTextUpdated, OnCountUpdated, OnRecievedEntries));
         this.GetComponent<MeshRenderer>().enabled = false;
+		confidence.gameObject.SetActive (false);
     }
 
     public void OnBottomTextUpdated(string newText) {
@@ -58,7 +61,6 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         int realNum = (outOf != -1) ? num : num + entries.Count;
         if (outOf == -1) // Just use entry count
             outOf = entries.Count;
-		Debug.Log (outOf);
         int realOutOf = 2 * outOf + 1; // n entries + n process + 1 apply
         countText.text = realNum + "/" + realOutOf;
     }
@@ -71,6 +73,15 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
     }
 
     public void OnRecievedWeights(List<float> weights, float confidence) {
+		if (confidence > 25)
+			confidenceLevel = "extremely high";
+		else if (confidence > 15)
+			confidenceLevel = "high";
+		else if (confidence > 3)
+			confidenceLevel = "medium";
+		else
+			confidenceLevel = "low";
+		
         this.weights = weights;
         DepthMatrixData toApply = DepthMatrixData.GetWeighted(entries, weights);
         StartCoroutine(ApplyToMesh(toApply));
@@ -110,6 +121,9 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
             befores.RemoveAt(maxWeightIndex);
             afters.RemoveAt(maxWeightIndex);
             weights.RemoveAt(maxWeightIndex);
+
+			confidence.gameObject.SetActive (true);
+			confidence.text = "This was created with a " + confidenceLevel + " amount of confidence";
         }
 
     }
