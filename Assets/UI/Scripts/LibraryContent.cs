@@ -98,7 +98,14 @@ public class LibraryContent : MonoBehaviour {
         return entries;
     }
 
-    List<string> GetValidDiffFilePaths() {
+    // It's pretty bad practice to copy and paste code
+    // but I'm a renegade cop who doesn't care about the rules
+    public IEnumerator GetAllEntriesCoroutine(UpdateText updateText, UpdateCount updateCount, ReturnEntries returnEntries) {
+
+        List<DepthMatrixData> entries = new List<DepthMatrixData>();
+        List<Mesh> befores = new List<Mesh>();
+        List<Mesh> afters = new List<Mesh>();
+
         saveFolder = Application.dataPath + "/SaveFiles";
         DirectoryInfo dir = new DirectoryInfo(saveFolder);
         DirectoryInfo[] info = dir.GetDirectories();
@@ -108,26 +115,18 @@ public class LibraryContent : MonoBehaviour {
             if (d.Name[0] == 'm' || d.Name[0] == 'M')
                 continue;
             string file = saveFolder + "/" + d.Name + "/diff.txt";
+            string fileBefore = saveFolder + "/" + d.Name + "/before.obj";
+            string fileAfter = saveFolder + "/" + d.Name + "/after.obj";
             if (File.Exists(file)) {
-                files.Add(file);
+                entries.Add(DepthMatrixData.Import(file));
+                befores.Add(UtilityOpenOBJ.S.parseOBJ(fileBefore));
+                afters.Add(UtilityOpenOBJ.S.parseOBJ(fileAfter));
+                updateCount(entries.Count, files.Count); // Don't know how many entries until they are all loaded
+                updateText("Loading " + file);
+                yield return null;
             }
         }
-        return files;
-    }
-
-    // It's pretty bad practice to copy and paste code
-    // but I'm a renegade cop who doesn't care about the rules
-    public IEnumerator GetAllEntriesCoroutine(UpdateText updateText, UpdateCount updateCount, ReturnEntries returnEntries) {
-        
-        List<DepthMatrixData> entries = new List<DepthMatrixData>();
-        List<string> files = GetValidDiffFilePaths();
-        foreach (string file in files) {
-            entries.Add(DepthMatrixData.Import(file));
-            updateCount(entries.Count, files.Count); // Don't know how many entries until they are all loaded
-            updateText("Loading " + file);
-            yield return null;
-        }
-        returnEntries(entries);
+        returnEntries(entries, befores, afters);
     }
 
     
@@ -157,36 +156,33 @@ public class LibraryContent : MonoBehaviour {
             }
         }
 
-		diffValues.Sort ();
-		float max = diffValues [diffValues.Count - 1];
-		float min = diffValues [0];
-		foreach (float diffVal in diffValues) {
-			float p = (max - diffVal) / (max - min);
-			p = p * p;
-			toReturn.Add (p);
-		}
-        //        float min = float.MaxValue;
-        //        float max = 0;
-        //        foreach (float diffVal in diffValues) {
-        //            if (diffVal < min)
-        //                min = diffVal;
-        //            if (diffVal > max)
-        //                max = diffVal;
-        //        }
-        //        float center = (min + max) / 2f;
-        //        float radius = (max - min) / 2f;
-        //
-        //        foreach (float diffVal in diffValues) {
-        //            float p = (diffVal - center) / radius;
-        //            // if diffVal is positive it should be used less
-        //            // if diffval is negative, it should be used more
-        //            p = - p;
-        //
-        //            //Just go 0 to 2 for now
-        //            p = 1 + p;
-        //
-        //            toReturn.Add(p);
-        //        }
+        float min = float.MaxValue;
+        float max = 0;
+        foreach (float diffVal in diffValues) {
+            if (diffVal < min)
+                min = diffVal;
+            if (diffVal > max)
+                max = diffVal;
+        }
+  //      foreach (float diffVal in diffValues) {
+		//	float p = (max - diffVal) / (max - min);
+		//	p = p * p;
+		//	toReturn.Add (p);
+		//}
+        float center = (min + max) / 2f;
+        float radius = (max - min) / 2f;
+
+        foreach (float diffVal in diffValues) {
+            float p = (diffVal - center) / radius;
+            // if diffVal is positive it should be used less
+            // if diffval is negative, it should be used more
+            p = -p;
+
+            //Just go 0 to 2 for now
+            p = 1 + p;
+
+            toReturn.Add(p);
+        }
 
         //float pFinal = 0;
         //foreach (float p in toReturn) {

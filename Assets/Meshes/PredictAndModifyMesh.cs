@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 [System.Serializable] public delegate void UpdateCount(int num, int outOf);
 [System.Serializable] public delegate void UpdateText(string text);
-[System.Serializable] public delegate void ReturnEntries(List<DepthMatrixData> entries);
+[System.Serializable] public delegate void ReturnEntries(List<DepthMatrixData> entries, List<Mesh> befores, List<Mesh> afters);
 [System.Serializable] public delegate void ReturnWeights(List<float> weights);
 
+[System.Serializable]
+public class SimilairMeshInfo {
+    public MeshFilter before;
+    public MeshFilter after;
+    public Text text;
+}
 
 public class PredictAndModifyMesh : MonoBehaviour, Resettable{
 
@@ -15,9 +21,15 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
     public Text bottomText;
     public Text countText;
     public GameObject loadBar;
+
     MeshFilter meshFilter;
 
     List<DepthMatrixData> entries;
+    List<float> weights;
+
+    public List<SimilairMeshInfo> similair;
+    List<Mesh> befores;
+    List<Mesh> afters;
 
     void Awake() {
         meshFilter = this.GetComponent<MeshFilter>();
@@ -31,8 +43,11 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
 
     // Weighted solution
     public void Reset() {
+        if (ScreenManager.S.noReset)
+            return;
         loadBar.SetActive(true);
         StartCoroutine(library.GetAllEntriesCoroutine(OnBottomTextUpdated, OnCountUpdated, OnRecievedEntries));
+        this.GetComponent<MeshRenderer>().enabled = false;
     }
 
     public void OnBottomTextUpdated(string newText) {
@@ -47,12 +62,15 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         countText.text = realNum + "/" + realOutOf;
     }
 
-    public void OnRecievedEntries(List<DepthMatrixData> entries) {
+    public void OnRecievedEntries(List<DepthMatrixData> entries, List<Mesh> befores, List<Mesh> afters) {
         this.entries = entries;
+        this.befores = befores;
+        this.afters = afters;
         StartCoroutine(library.GetWeights(meshFilter.mesh, OnBottomTextUpdated, OnCountUpdated, OnRecievedWeights));
     }
 
     public void OnRecievedWeights(List<float> weights) {
+        this.weights = weights;
         DepthMatrixData toApply = DepthMatrixData.GetWeighted(entries, weights);
         StartCoroutine(ApplyToMesh(toApply));
     }
@@ -65,5 +83,33 @@ public class PredictAndModifyMesh : MonoBehaviour, Resettable{
         SoundManager.SM.PlayTransformSound();
         yield return null;
         loadBar.SetActive(false);
+        this.GetComponent<MeshRenderer>().enabled = true;
+
+        float totalWeight = 0;
+        foreach (float weight in weights) {
+            totalWeight += weight;
+        }
+        for (int i = 0; i < 3; i++) {
+            float maxWeight = 0;
+            int maxWeightIndex = -1;
+            for (int j = 0; j < weights.Count; j++) {
+                if (weights[j] > maxWeight) {
+                    maxWeight = weights[j];
+                    maxWeightIndex = j;
+                }
+            }
+
+            if (maxWeightIndex == -1)
+                continue;
+
+            similair[i].before.mesh = befores[maxWeightIndex];
+            similair[i].after.mesh = afters[maxWeightIndex];
+            similair[i].text.text = (maxWeight / totalWeight).ToString() + "%";
+
+            befores.RemoveAt(maxWeightIndex);
+            afters.RemoveAt(maxWeightIndex);
+            weights.RemoveAt(maxWeightIndex);
+        }
+
     }
 }
