@@ -19,20 +19,20 @@ public class Snapshot : MonoBehaviour {
 			System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
 	}
 
-	public void TakeHiResShot() {
+	public void TakeSnapshot() {
+		SoundManager.SM.PlayButtonSound ();
 		takeHiResShot = true;
 	}
 
-	void Update() {
-		//Debug.Log(Input.GetKeyDown("k"));
-		if (Input.GetKeyDown (KeyCode.K)) {
-			TakeHiResShot ();
-			Debug.Log ("key pressed");
-		}
-	}
+//	void Update() {
+//		//Debug.Log(Input.GetKeyDown("k"));
+//		if (Input.GetKeyDown (KeyCode.K)) {
+//			TakeHiResShot ();
+//			Debug.Log ("key pressed");
+//		}
+//	}
 
 	void LateUpdate() {
-		//Debug.Log ("hi");
 		if (takeHiResShot) {
             RenderTexture rt = cam.targetTexture;
             RenderTexture.active = rt;
