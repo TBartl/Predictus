@@ -17,7 +17,7 @@ public class Snapshot : MonoBehaviour {
 
 	public string ScreenShotName(int width, int height) {
 
-		return string.Format("{0}/screenshots/screen_{1}x{2}_{3}.png", 
+		return string.Format("{0}/screen_{1}x{2}_{3}.png", 
 			savePath, 
 			width, height, 
 			System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
@@ -46,7 +46,7 @@ public class Snapshot : MonoBehaviour {
 
 		savePath = FileBrowser.Result;
 		savePath = savePath.Substring(0, savePath.LastIndexOf("/"));
-		Debug.Log (savePath);
+		//Debug.Log (savePath);
 		ScreenManager.S.transitioning = false;
 		takeHiResShot = true;
 		SoundManager.SM.PlayShutterSound ();
