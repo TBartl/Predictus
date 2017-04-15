@@ -7,6 +7,7 @@ public class ScreenManager : MonoBehaviour {
     public static ScreenManager S;
     public Screen firstScreen;
     [HideInInspector] public bool transitioning;
+    [HideInInspector] public bool noReset;
     Screen currentScreen;
 
     void Awake() {
@@ -28,6 +29,7 @@ public class ScreenManager : MonoBehaviour {
         currentScreen = to;
         yield return to.EnterScreen();
         transitioning = false;
+        noReset = false;
     }
 
     public bool IsTransitioning() {
