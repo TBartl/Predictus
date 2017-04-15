@@ -45,9 +45,11 @@ public class Snapshot : MonoBehaviour {
 		}
 
 		savePath = FileBrowser.Result;
+		savePath = savePath.Substring(0, savePath.LastIndexOf("/"));
 		Debug.Log (savePath);
 		ScreenManager.S.transitioning = false;
 		takeHiResShot = true;
+		SoundManager.SM.PlayShutterSound ();
 	}
 
 	public void TakeSaveSnapshot(string savePathIn) {

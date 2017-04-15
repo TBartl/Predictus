@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour {
 
 	public AudioSource buttonSound;
 	public AudioSource transformSound;
+	public AudioSource shutterSound;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,10 @@ public class SoundManager : MonoBehaviour {
 	IEnumerator WaitPlayTransformSound() {
 		yield return new WaitForSecondsRealtime (0.15f);
 		transformSound.Play();
+	}
+
+	public void PlayShutterSound() {
+		shutterSound.Play ();
 	}
 
 }
