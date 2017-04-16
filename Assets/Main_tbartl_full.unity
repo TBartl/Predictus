@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44859284, g: 0.49864203, b: 0.57566804, a: 1}
+  m_IndirectSpecularColor: {r: 0.44857824, g: 0.4986272, b: 0.57566285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1863,7 +1863,7 @@ RectTransform:
   m_Children:
   - {fileID: 1156119864}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2006,6 +2006,147 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 289064573}
+--- !u!1 &310760649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 310760650}
+  - component: {fileID: 310760654}
+  - component: {fileID: 310760653}
+  - component: {fileID: 310760652}
+  - component: {fileID: 310760651}
+  m_Layer: 5
+  m_Name: 'Button: ButtonInfo (2)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &310760650
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310760649}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2074882192}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -216.46472, y: 474.30664}
+  m_SizeDelta: {x: 56, y: 56}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &310760651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310760649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToDisplay: "This an extremely long message. It was written this way because
+    I wanted to test that the text would still fit on the screen. \n\nThis text should
+    be replaced with actual instructions.\n\nThis an extremely long message. It was
+    written this way because I wanted to test that the text would still fit on the
+    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
+    extremely long message. It was written this way because I wanted to test that
+    the text would still fit on the screen. \n\nThis text should be replaced with
+    actual instructions."
+--- !u!114 &310760652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310760649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 0.8602941, g: 0.8602941, b: 0.8602941, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 310760653}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 310760651}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &310760653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310760649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8000001, g: 0.7960785, b: 0.8000001, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 350f74b08a7e2ea40829a46a1e7a750a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &310760654
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310760649}
 --- !u!1 &319007465
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,18 +4385,25 @@ MonoBehaviour:
   firstTimeMeshes:
   - before: {fileID: 4300000, guid: 0a3ba5af2d76a4342b7db340872e0a55, type: 3}
     after: {fileID: 4300000, guid: 9379a5fc4fe0b4ae7b1c990972ca24b1, type: 3}
+    previewImage: {fileID: 2800000, guid: f11cf30ce0328b34d9bff5f2d14a782b, type: 3}
   - before: {fileID: 4300000, guid: 76b94be29520d487b92ff2ae1af54e47, type: 3}
     after: {fileID: 4300000, guid: e486f20aa7af141039701b21f644cf4f, type: 3}
+    previewImage: {fileID: 2800000, guid: de8493684d050314a9d5cb05d6b01bfa, type: 3}
   - before: {fileID: 4300000, guid: e0e8dd216e375d34ba2e9faec4bc15fc, type: 3}
     after: {fileID: 4300010, guid: f1746e55050335d44b12f496e6030e4b, type: 3}
+    previewImage: {fileID: 2800000, guid: e0cb4aff51d14d243ad8c3b02fa7b80c, type: 3}
   - before: {fileID: 4300004, guid: 7ad183f8325cd8f4cb683dd5bd6fd060, type: 3}
     after: {fileID: 4300000, guid: cfe03352dd178af48a525fe47f3b524a, type: 3}
+    previewImage: {fileID: 2800000, guid: fee9f052ff87f9b4b90a8e2043e65cb8, type: 3}
   - before: {fileID: 4300000, guid: 4401b2080af374ad199a9f588e4a4283, type: 3}
     after: {fileID: 4300000, guid: b5da0568932cf41ecb859231ec71c2e4, type: 3}
+    previewImage: {fileID: 2800000, guid: 66352108e2a7d754aa3ab2d5628a0ad3, type: 3}
   - before: {fileID: 4300000, guid: 6606df1d267e94ac4bdbe7dffb796e00, type: 3}
     after: {fileID: 4300000, guid: 2a9b812b73a074d5d9f338c2961d3d8d, type: 3}
+    previewImage: {fileID: 2800000, guid: c4541eee1a610f547afc6fbcaeb9f513, type: 3}
   - before: {fileID: 4300000, guid: fad24658eb1cf4bd2821815563c84446, type: 3}
     after: {fileID: 4300000, guid: f068011605c5a4a7f841a58a24e7fa11, type: 3}
+    previewImage: {fileID: 2800000, guid: c1f0af5bad0aa5d45bd40ecd9f467a74, type: 3}
 --- !u!1 &644298342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,7 +4627,7 @@ Transform:
   - {fileID: 833245901}
   - {fileID: 1059768860}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &667280222
 MonoBehaviour:
@@ -5506,14 +5654,14 @@ RectTransform:
   m_GameObject: {fileID: 821328228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999955, y: 0.9999955, z: 0.9999955}
+  m_LocalScale: {x: 0.9999847, y: 0.9999847, z: 0.9999847}
   m_Children: []
-  m_Father: {fileID: 1519867236}
-  m_RootOrder: 6
+  m_Father: {fileID: 832867073}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 722.7999, y: -160.2}
+  m_AnchoredPosition: {x: 291, y: 150.05}
   m_SizeDelta: {x: 56, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &821328230
@@ -5527,7 +5675,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: asaadadasaadadasaadadasaadadasaadadasaadad
+  textToDisplay: "This an extremely long message. It was written this way because
+    I wanted to test that the text would still fit on the screen. \n\nThis text should
+    be replaced with actual instructions.\n\nThis an extremely long message. It was
+    written this way because I wanted to test that the text would still fit on the
+    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
+    extremely long message. It was written this way because I wanted to test that
+    the text would still fit on the screen. \n\nThis text should be replaced with
+    actual instructions."
 --- !u!114 &821328231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5644,6 +5799,7 @@ RectTransform:
   m_Children:
   - {fileID: 914177162}
   - {fileID: 570053016}
+  - {fileID: 821328229}
   m_Father: {fileID: 1519867236}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5810,7 +5966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &837517636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6139,6 +6295,7 @@ RectTransform:
   m_Children:
   - {fileID: 2074882192}
   - {fileID: 1437017959}
+  - {fileID: 1766209212}
   m_Father: {fileID: 1519867236}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9839,8 +9996,6 @@ RectTransform:
   - {fileID: 872080358}
   - {fileID: 837517636}
   - {fileID: 832867073}
-  - {fileID: 1766209212}
-  - {fileID: 821328229}
   m_Father: {fileID: 1050288698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10012,8 +10167,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 202, y: 0}
-  m_SizeDelta: {x: 388, y: 0}
+  m_AnchoredPosition: {x: 298.95, y: 0}
+  m_SizeDelta: {x: 581.9, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1578806433
 MonoBehaviour:
@@ -11593,14 +11748,14 @@ RectTransform:
   m_GameObject: {fileID: 1766209211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999955, y: 0.9999955, z: 0.9999955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1519867236}
-  m_RootOrder: 5
+  m_Father: {fileID: 872080358}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 722.8, y: -356.9}
+  m_AnchoredPosition: {x: 302, y: 150.05}
   m_SizeDelta: {x: 56, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1766209213
@@ -11614,7 +11769,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: asaadad
+  textToDisplay: "This an extremely long message. It was written this way because
+    I wanted to test that the text would still fit on the screen. \n\nThis text should
+    be replaced with actual instructions.\n\nThis an extremely long message. It was
+    written this way because I wanted to test that the text would still fit on the
+    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
+    extremely long message. It was written this way because I wanted to test that
+    the text would still fit on the screen. \n\nThis text should be replaced with
+    actual instructions."
 --- !u!114 &1766209214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13388,7 +13550,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 310760650}
   m_Father: {fileID: 872080358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

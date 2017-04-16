@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonInfo : MonoBehaviour {
 
+    [TextArea]
     public string textToDisplay;
 	private RectTransform RT;
 

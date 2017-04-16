@@ -25,6 +25,7 @@ public class ScreenManager : MonoBehaviour {
 
     IEnumerator SmoothChangeScreen(Screen to) {
         transitioning = true;
+        InfoPanel.IP.HideThis();
         if (currentScreen)
             yield return currentScreen.LeaveScreen();
         currentScreen = to;

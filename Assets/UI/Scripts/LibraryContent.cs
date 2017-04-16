@@ -9,6 +9,7 @@ using System;
 public struct MeshPair {
     public Mesh before;
     public Mesh after;
+    public Texture2D previewImage;
 }
 
 public class LibraryContent : MonoBehaviour {
@@ -83,6 +84,9 @@ public class LibraryContent : MonoBehaviour {
                 DepthMatrixData diff = UtilityCompareDepthMatrices.Compare(fromDepths, toDepths);
                 diff.SaveAsPNG(thisFolder + "/diff");
                 diff.Export(thisFolder + "/diff.txt");
+
+                byte[] bytes = firstTimeMeshes[i].previewImage.EncodeToPNG();
+                System.IO.File.WriteAllBytes(thisFolder + "/previewImage.png", bytes);
             }
         }
     }

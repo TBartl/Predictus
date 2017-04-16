@@ -21,7 +21,12 @@ public class InfoPanel : MonoBehaviour {
 		this.RT.position = position;
 	}
 
+    public void HideThis() {
+        this.gameObject.SetActive(false);
+    }
+
 	public void OnClick(){
+        SoundManager.SM.PlayButtonSound();
 		this.gameObject.SetActive (false);
 	}
 
