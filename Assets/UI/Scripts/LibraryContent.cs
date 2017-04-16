@@ -28,8 +28,9 @@ public class LibraryContent : MonoBehaviour {
 	public GameObject beforeOrientButton;
     public GameObject afterOrientButton;
 
-    public List<MeshPair> firstTimeMeshes;
+	public Snapshot savingSnapshot;
 
+    public List<MeshPair> firstTimeMeshes;
 
 	public LibraryContent() {
 		LC = this;
@@ -99,6 +100,17 @@ public class LibraryContent : MonoBehaviour {
 			ButtonSelectModel buttonScript = newButton.GetComponent<ButtonSelectModel> ();
 			buttonScript.savePath = d.ToString ();
 			buttonScript.transform.localScale = new Vector3 (1, 1, 1);
+
+			byte[] bytes;
+			if (File.Exists (buttonScript.savePath + "/previewImage.png")) {
+				bytes = File.ReadAllBytes (buttonScript.savePath + "/previewImage.png");
+				Texture2D texture = new Texture2D (512, 256);
+				texture.filterMode = FilterMode.Trilinear;
+				texture.LoadImage (bytes);
+				Sprite sprite = Sprite.Create (texture, new Rect (0, 0, 512, 256), new Vector2 (0.5f, 0.0f), 1.0f);
+
+				buttonScript.GetComponent<Image> ().sprite = sprite;
+			}
 
 //			int yPosition = 50 - (180 * index);
 //
@@ -373,7 +385,26 @@ public class LibraryContent : MonoBehaviour {
             diff.SaveAsPNG(path + "/diff");
             diff.Export(path + "/diff.txt");
         }
+
+		// For the preview image
+		if (beforeMesh.sharedMesh != null || afterMesh.sharedMesh != null) {
+			StartCoroutine (ChangeButtonImage (path, buttonSelectComponent));
+		}
     } 
+
+	IEnumerator ChangeButtonImage(string path, ButtonSelectModel buttonSelectComponent) {
+		savingSnapshot.TakeSaveSnapshot (path);
+
+		yield return 0;
+
+		byte[] bytes = File.ReadAllBytes(buttonSelectComponent.savePath + "/previewImage.png");
+		Texture2D texture = new Texture2D(512, 256);
+		texture.filterMode = FilterMode.Trilinear;
+		texture.LoadImage(bytes);
+		Sprite sprite = Sprite.Create(texture, new Rect(0,0,512, 256), new Vector2(0.5f,0.0f), 1.0f);
+
+		buttonSelectComponent.GetComponent<Image> ().sprite = sprite;
+	}
 
 	public void DeleteModel() {
 		Destroy (selectedButton);

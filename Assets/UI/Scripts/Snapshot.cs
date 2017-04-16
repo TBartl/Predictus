@@ -84,7 +84,7 @@ public class Snapshot : MonoBehaviour {
 
 
 			byte[] bytes = screenShot.EncodeToPNG();
-			string filename = savePath + "previewImage.png";
+			string filename = savePath + "/previewImage.png";
 			System.IO.File.WriteAllBytes(filename, bytes);
 			takeSaveShot = false;
 		}
