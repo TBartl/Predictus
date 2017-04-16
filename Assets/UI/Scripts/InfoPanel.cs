@@ -9,6 +9,7 @@ public class InfoPanel : MonoBehaviour {
     private RectTransform RT;
     private RectTransform RTparent;
     CanvasGroup canvasGroup;
+    Canvas canvas;
 
 	void Awake (){
 		IP = this;
@@ -16,6 +17,7 @@ public class InfoPanel : MonoBehaviour {
         RT = this.GetComponent<RectTransform>();
         RTparent = this.transform.parent.GetComponent<RectTransform>();
         canvasGroup = this.GetComponent<CanvasGroup>();
+        canvas = this.GetComponentInParent<Canvas>();
         this.gameObject.SetActive (false);
 	}
 
@@ -29,22 +31,24 @@ public class InfoPanel : MonoBehaviour {
         canvasGroup.alpha = 0;
         yield return new WaitForFixedUpdate();
         canvasGroup.alpha = 1;
-        Debug.Log(RTparent.sizeDelta.x / 2f);
-        Debug.Log(Mathf.Abs(position.x));
-        Debug.Log(RT.sizeDelta.x / 2f);
-        float xExtents = RTparent.sizeDelta.x / 2f - (Mathf.Abs(position.x) + RT.sizeDelta.x / 2f);
-        if (xExtents < 0)
-            position.x += Mathf.Sign(position.x) * xExtents;
+
+        float xLeft = (Mathf.Abs(position.x) - RT.sizeDelta.x * canvas.scaleFactor / 2f);
+        if (xLeft < 0)
+            position.x -= xLeft;
+
+        float xRight = UnityEngine.Screen.width - (Mathf.Abs(position.x) + RT.sizeDelta.x * canvas.scaleFactor / 2f);
+        if (xRight < 0)
+            position.x += xRight;
+
+        float yLeft = (Mathf.Abs(position.y) - RT.sizeDelta.y * canvas.scaleFactor / 2f);
+        if (yLeft < 0)
+            position.y -= yLeft;
+
+        float yRight = UnityEngine.Screen.height - (Mathf.Abs(position.y) + RT.sizeDelta.y * canvas.scaleFactor / 2f);
+        if (yRight < 0)
+            position.y += yRight;
 
         this.RT.position = position;
-    }
-
-    public static Rect RectTransformToScreenSpace(RectTransform transform) {
-        Vector2 size = Vector2.Scale(transform.rect.size, transform.lossyScale);
-        float x = transform.position.x + transform.anchoredPosition.x;
-        float y = UnityEngine.Screen.height - transform.position.y - transform.anchoredPosition.y;
-
-        return new Rect(x, y, size.x, size.y);
     }
 
     public void HideThis() {
