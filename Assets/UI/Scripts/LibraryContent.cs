@@ -109,7 +109,7 @@ public class LibraryContent : MonoBehaviour {
 				texture.LoadImage (bytes);
 				Sprite sprite = Sprite.Create (texture, new Rect (0, 0, 512, 256), new Vector2 (0.5f, 0.0f), 1.0f);
 
-				buttonScript.GetComponent<Image> ().sprite = sprite;
+				buttonScript.image.sprite = sprite;
 			}
 
 //			int yPosition = 50 - (180 * index);
@@ -403,7 +403,7 @@ public class LibraryContent : MonoBehaviour {
 		texture.LoadImage(bytes);
 		Sprite sprite = Sprite.Create(texture, new Rect(0,0,512, 256), new Vector2(0.5f,0.0f), 1.0f);
 
-		buttonSelectComponent.GetComponent<Image> ().sprite = sprite;
+		buttonSelectComponent.image.sprite = sprite;
 	}
 
 	public void DeleteModel() {

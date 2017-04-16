@@ -7,6 +7,7 @@ public class ButtonSelectModel : MonoBehaviour {
 
 	public Text selectedText;
 	public string savePath;
+	public Image image;
 
 	public void OnClick() {
 		//selectedText.gameObject.SetActive (true);
