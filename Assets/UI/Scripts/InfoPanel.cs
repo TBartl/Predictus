@@ -7,7 +7,6 @@ public class InfoPanel : MonoBehaviour {
 	public static InfoPanel IP;
 	private Text text;
     private RectTransform RT;
-    private RectTransform RTparent;
     CanvasGroup canvasGroup;
     Canvas canvas;
 
@@ -15,7 +14,6 @@ public class InfoPanel : MonoBehaviour {
 		IP = this;
 		text = this.GetComponentInChildren<Text> ();
         RT = this.GetComponent<RectTransform>();
-        RTparent = this.transform.parent.GetComponent<RectTransform>();
         canvasGroup = this.GetComponent<CanvasGroup>();
         canvas = this.GetComponentInParent<Canvas>();
         this.gameObject.SetActive (false);
