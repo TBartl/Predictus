@@ -10,6 +10,7 @@ public class ButtonExport : MonoBehaviour {
 	public void OnClick() {
 
 		StartCoroutine (SaveFileBrowser ());
+		SoundManager.SM.PlayButtonSound ();
 
 	}
 

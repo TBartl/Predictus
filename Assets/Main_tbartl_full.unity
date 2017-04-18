@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44857824, g: 0.4986272, b: 0.57566285, a: 1}
+  m_IndirectSpecularColor: {r: 0.448578, g: 0.4986269, b: 0.5756631, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -352,14 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to export the predicted result as an OBJ file onto your
+    computer.
 --- !u!114 &74150844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,14 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: This is an estimate of the accuracy of the prediction. The accuracy
+    depends on how many models are in the application library and how many are similar
+    to yours.
 --- !u!114 &110899465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,80 +827,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122783235}
---- !u!1 &128068685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 128068686}
-  - component: {fileID: 128068688}
-  - component: {fileID: 128068687}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &128068686
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128068685}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 217669746}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -10}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &128068687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128068685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.8455882, b: 0.8455882, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 19
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 100
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Save Into Library
---- !u!222 &128068688
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128068685}
 --- !u!1 &141840242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,14 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to take a closer look at how the prediction was generated
+    and what library models were used.
 --- !u!114 &205137433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,143 +1600,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205137430}
---- !u!1 &217669745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 217669746}
-  - component: {fileID: 217669750}
-  - component: {fileID: 217669749}
-  - component: {fileID: 217669748}
-  - component: {fileID: 217669747}
-  m_Layer: 5
-  m_Name: 'Button: Save Into Library'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &217669746
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217669745}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
-  m_Children:
-  - {fileID: 128068686}
-  - {fileID: 1004559701}
-  m_Father: {fileID: 678056702}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 565, y: -347}
-  m_SizeDelta: {x: 217, y: 63}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &217669747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217669745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b39e756907fe405c9b07004a6aa6c5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beforeMesh: {fileID: 799476116}
-  afterMesh: {fileID: 1944658243}
---- !u!114 &217669748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217669745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.8602941, g: 0.8602941, b: 0.8602941, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 217669749}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 217669747}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &217669749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217669745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.07196152, g: 0.8897059, b: 0.21295196, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f8a13cd380e3c724a895f83b390be3b5, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &217669750
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 217669745}
 --- !u!1 &219741881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1631,7 @@ RectTransform:
   - {fileID: 1729448073}
   - {fileID: 323362601}
   m_Father: {fileID: 678056702}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1947,14 +1719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: This screen shows you the postoperative prediction generated by the
+    application. You can click and drag the predicted output to rotate it and view
+    it from different angles. There are a variety of additional actions you can take
+    from here.
 --- !u!114 &233423129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,14 +1856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Here you can see the three patient models in the application library
+    that are most similar to yours. Because their preoperative models are most similar
+    to yours, they were weighted more heavily in the prediction calculation process.
 --- !u!114 &234537341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2528,14 +2291,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: In this step, the 3D model must be repositioned so that the program
+    can correctly recognize the chest area. Use the buttons below to orient the model
+    so that it is facing forward and upright and its chest cavity is centered at the
+    middle of the grid.
 --- !u!114 &280060940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,14 +2805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Welcome to Predictus! This application will calculate a predicted
+    postoperative result of your pectus excavatum surgery using a 3D model of your
+    preoperative chest.
 --- !u!114 &310760652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,14 +4794,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to change between positioning and rotation. On the positioning
+    mode, you can click on the model and drag it to move it around. This should be
+    used to center its chest cavity at the middle of the grid. On the rotation mode,
+    you can click on the model and drag it to rotate it. Rotation mode is typically
+    unnecessary because you can use the auto-adjust button and the arrows below instead.
 --- !u!114 &517609457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,14 +5461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: These are the specific weights designated to each of these three
+    models. The higher the weight, the more that respective model affected the prediction
+    results.
 --- !u!114 &618007074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6082,14 +5828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to see a more technical breakdown of how prediction calculation
+    works.
 --- !u!114 &655579194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6206,11 +5946,11 @@ RectTransform:
   - {fileID: 122783236}
   - {fileID: 1344828721}
   m_Father: {fileID: 678056702}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 565, y: -537}
+  m_AnchoredPosition: {x: 565, y: -442}
   m_SizeDelta: {x: 217, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663318422
@@ -6518,11 +6258,10 @@ RectTransform:
   - {fileID: 243996768}
   - {fileID: 771016661}
   - {fileID: 353054082}
-  - {fileID: 217669746}
   - {fileID: 2055136092}
   - {fileID: 219741882}
-  - {fileID: 892699515}
   - {fileID: 663318420}
+  - {fileID: 892699515}
   m_Father: {fileID: 2003963757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6717,14 +6456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to reset the rotation of the predicted model back to its
+    original state.
 --- !u!114 &686964464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7017,14 +6750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to open the file browser. You can then select the desired
+    preoperative 3D model from your computer.
 --- !u!114 &722074809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7803,14 +7530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to view your library of saved 3D models. You can save
+    pre and postoperative scans into the library for future use. Increasing the number
+    of models in the library will also increase the accuracy of the application's
+    postoperative predictions.
 --- !u!114 &821328231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8748,7 +8471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 565, y: -632}
+  m_AnchoredPosition: {x: 565, y: -537}
   m_SizeDelta: {x: 217, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &892699516
@@ -9152,147 +8875,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 983541773}
---- !u!1 &1004559700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1004559701}
-  - component: {fileID: 1004559705}
-  - component: {fileID: 1004559704}
-  - component: {fileID: 1004559703}
-  - component: {fileID: 1004559702}
-  m_Layer: 5
-  m_Name: 'Button: Info (3)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1004559701
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004559700}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 217669746}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 149.99976, y: 0}
-  m_SizeDelta: {x: 56, y: 56}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1004559702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004559700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
---- !u!114 &1004559703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004559700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.8602941, g: 0.8602941, b: 0.8602941, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1004559704}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1004559702}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1004559704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004559700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8000001, g: 0.7960785, b: 0.8000001, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 350f74b08a7e2ea40829a46a1e7a750a, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1004559705
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1004559700}
 --- !u!1 &1033973386
 GameObject:
   m_ObjectHideFlags: 0
@@ -9725,14 +9307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Once the model is correctly positioned facing forward and upright,
+    with its chest cavity centered at the middle of the grid, click here to continue
+    to the prediction results.
 --- !u!114 &1094654555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11957,14 +11534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to take a snapshot of the predicted result. Select the
+    desired save location using the file browser and a screenshot will be taken for
+    you.
 --- !u!114 &1344828723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12808,14 +12380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Upload your desired preoperative 3D model here.
 --- !u!114 &1501150311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13525,14 +13090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: These arrows can help you rotate the model to face the right way.
+    Try them out to understand how they work.
 --- !u!114 &1597421052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14674,14 +14233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: If this is the correct 3D model, click here to continue to the next
+    step.
 --- !u!114 &1734524532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15046,14 +14599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click here to get started with the prediction.
 --- !u!114 &1766209214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16189,14 +15735,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91af9b81ddc1d5c41b9679856273ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textToDisplay: "This an extremely long message. It was written this way because
-    I wanted to test that the text would still fit on the screen. \n\nThis text should
-    be replaced with actual instructions.\n\nThis an extremely long message. It was
-    written this way because I wanted to test that the text would still fit on the
-    screen. \n\nThis text should be replaced with actual instructions.\n\nThis an
-    extremely long message. It was written this way because I wanted to test that
-    the text would still fit on the screen. \n\nThis text should be replaced with
-    actual instructions."
+  textToDisplay: Click this button for the program to auto-adjust the model orientation
+    for you. Generally, the program will be able to correct the way the model is facing,
+    but you may still need to reposition it so its chest cavity is centered at the
+    middle of the grid.
 --- !u!114 &1915088098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16847,11 +16389,11 @@ RectTransform:
   - {fileID: 893785580}
   - {fileID: 74150842}
   m_Father: {fileID: 678056702}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 565, y: -442}
+  m_AnchoredPosition: {x: 565, y: -347}
   m_SizeDelta: {x: 217, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055136093
