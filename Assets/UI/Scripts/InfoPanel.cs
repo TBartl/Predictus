@@ -28,6 +28,7 @@ public class InfoPanel : MonoBehaviour {
     IEnumerator WaitForContentFitter(Vector3 position) {
         canvasGroup.alpha = 0;
         yield return new WaitForFixedUpdate();
+        RT.sizeDelta = new Vector2(RT.sizeDelta.x, text.preferredHeight + 20);
         canvasGroup.alpha = 1;
 
         float xLeft = (Mathf.Abs(position.x) - RT.sizeDelta.x * canvas.scaleFactor / 2f);
