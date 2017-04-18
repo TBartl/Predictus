@@ -341,7 +341,7 @@ public class LibraryContent : MonoBehaviour {
 
     public void SelectButton(GameObject buttonSelect) {
         if (selectedButton != null) {
-            selectedButton.transform.GetChild(0).gameObject.SetActive(false);
+            selectedButton.transform.GetChild(2).gameObject.SetActive(false);
         }
         deleteButton.SetActive(true);
         saveButton.SetActive(true);
