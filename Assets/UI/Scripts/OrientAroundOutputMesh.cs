@@ -23,7 +23,7 @@ public class OrientAroundOutputMesh : MonoBehaviour {
 			return;
 		}
 		this.transform.rotation = Quaternion.identity;
-
+		rotation = Vector3.zero;
 	}
 //    public float baseAmount;
 //    public float baseSpeed;
