@@ -1,4 +1,3 @@
 # Predictus
-Final builds of this project will be prefaced with an underscore, for example: _PredictusAlpha.zip
 
-Everything else is a source file used to make the build
+Predictus is a tool that was developed in EECS 481: Software Engineering. The tool allows patients with chest deformity, pectus excavatum, to visualize their chest following the corrective surgery. This visualization was based off of real results of the surgery.
